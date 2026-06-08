@@ -19,10 +19,14 @@ REPORT_DIR = Path("reports") / TODAY
 grand = json.loads((REPORT_DIR / "grand_unified.json").read_text(encoding="utf-8"))
 comp  = json.loads((REPORT_DIR / "composite_data.json").read_text(encoding="utf-8"))
 bwi   = json.loads((REPORT_DIR / "bwibbu_fresh.json").read_text(encoding="utf-8"))
+exp   = json.loads((REPORT_DIR / "expansion_stocks.json").read_text(encoding="utf-8"))
+qf    = json.loads((REPORT_DIR / "quarterly_financials.json").read_text(encoding="utf-8"))
 
 grand_map = {r["code"]: r for r in grand.get("all_ranked", [])}
 comp_map  = {c["code"]: c for c in comp}
 bw_map    = {r["code"]: r for r in bwi.get("all_refreshed", [])}
+exp_map   = {s["code"]: s for s in exp}
+qf_map    = {c["code"]: c for c in qf.get("companies", [])}
 
 print(f"[{datetime.now():%H:%M:%S}] === Trailing 4Q EPS Estimates ===")
 
@@ -37,8 +41,14 @@ for code, g in grand_map.items():
     # Priority 2: any existing trail_eps in grand_unified
     trail_grand = g.get("trail_eps")
 
-    # Priority 3: Q1 × 4 annualized
-    eps_q1 = g.get("eps_q1") or cs.get("q1_eps")
+    # Priority 3: Q1 EPS from expansion_stocks or quarterly_financials, × 4 annualized
+    eps_q1 = (g.get("eps_q1") or cs.get("q1_eps")
+              or exp_map.get(code, {}).get("eps")
+              or qf_map.get(code, {}).get("eps"))
+    def _sf(v):
+        try: return float(v) if v not in (None,"","—") else None
+        except: return None
+    eps_q1 = _sf(eps_q1)
     trail_annualized = round(eps_q1 * 4, 2) if eps_q1 is not None else None
 
     # Choose best estimate
