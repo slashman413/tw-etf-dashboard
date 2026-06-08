@@ -127,6 +127,19 @@ def main():
         comp_data = json.loads(data_path.read_text(encoding="utf-8"))
         comp_map  = {s["code"]: s for s in comp_data}
 
+    # Load Q1 2026 TWSE official data (more current than Yahoo Finance)
+    q1_2026_map = {}
+    qf_path = OUT / "quarterly_financials.json"
+    if qf_path.exists():
+        qf_data = json.loads(qf_path.read_text(encoding="utf-8"))
+        for c in qf_data.get("companies", []):
+            code = c.get("code")
+            yr   = c.get("year","")
+            q    = c.get("quarter","")
+            if code and yr == "115" and q == "1":
+                q1_2026_map[code] = c
+        print(f"  Q1 2026 TWSE supplement: {len(q1_2026_map)} stocks")
+
     results = []
     failed  = []
 
@@ -140,6 +153,20 @@ def main():
         time.sleep(0.5)  # polite delay
 
         if data and data.get("quarters"):
+            # Supplement with Q1 2026 TWSE data if Yahoo Finance doesn't have it
+            # TWSE quarterly_financials stores revenue in thousands TWD; Yahoo uses raw TWD → ×1000
+            q1_twse = q1_2026_map.get(code)
+            if q1_twse and not any(q.get("period","").endswith("Q1") and "2026" in q.get("period","")
+                                    for q in data["quarters"]):
+                def _k(v): return v * 1000 if v is not None else None
+                data["quarters"].append({
+                    "period": "2026-Q1*",
+                    "revenue":          _k(q1_twse.get("revenue")),
+                    "operating_income": _k(q1_twse.get("op_income")),
+                    "net_income":       _k(q1_twse.get("net_income")),
+                    "eps":              q1_twse.get("eps"),
+                    "source":           "TWSE",
+                })
             results.append(data)
             print(f"OK ({len(data['quarters'])} quarters)")
         elif data and data.get("error"):
@@ -147,11 +174,32 @@ def main():
             data2 = fetch_quarterly(code, ".TWO")
             time.sleep(0.3)
             if data2 and data2.get("quarters"):
+                q1_twse = q1_2026_map.get(code)
+                if q1_twse and not any("2026" in q.get("period","") for q in data2["quarters"]):
+                    def _k(v): return v * 1000 if v is not None else None
+                    data2["quarters"].append({
+                        "period": "2026-Q1*", "revenue": _k(q1_twse.get("revenue")),
+                        "operating_income": _k(q1_twse.get("op_income")),
+                        "net_income": _k(q1_twse.get("net_income")),
+                        "eps": q1_twse.get("eps"), "source": "TWSE",
+                    })
                 results.append(data2)
                 print(f"OK via .TWO ({len(data2['quarters'])} quarters)")
             else:
-                failed.append(code)
-                print(f"FAILED")
+                # Build from TWSE Q1 2026 only
+                q1_twse = q1_2026_map.get(code)
+                if q1_twse:
+                    def _k(v): return v * 1000 if v is not None else None
+                    results.append({"code": code, "quarters": [{
+                        "period": "2026-Q1*", "revenue": _k(q1_twse.get("revenue")),
+                        "operating_income": _k(q1_twse.get("op_income")),
+                        "net_income": _k(q1_twse.get("net_income")),
+                        "eps": q1_twse.get("eps"), "source": "TWSE",
+                    }]})
+                    print(f"TWSE only")
+                else:
+                    failed.append(code)
+                    print(f"FAILED")
         else:
             failed.append(code)
             print("No data")
@@ -163,10 +211,10 @@ def main():
     # ── Generate 4Q Trend Report ──────────────────────────────────────────
     lines = [
         "# Taiwan ETF — 4Q Historical Earnings Trend",
-        f"**Date:** {TODAY} | **Source:** Yahoo Finance (yfinance 1.4.1)",
+        f"**Date:** {TODAY} | **Source:** Yahoo Finance + TWSE Q1 2026 official",
         "**Quarters shown:** Up to 6 quarters (oldest→newest), revenue in thousands TWD",
         "",
-        "> Note: Yahoo Finance data may differ slightly from TWSE official filings.",
+        "> Historical data: Yahoo Finance. Q1 2026 (2026-Q1*): TWSE OpenAPI official filings.",
         "> Net Income shown; EPS where available.",
         "",
         "---",
