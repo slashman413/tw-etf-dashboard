@@ -212,6 +212,7 @@ secondary = [
     "generate_stock_reports.py", # per-stock JSON + FULL_REPORT.md (uses fresh RS)
     "catalyst_calendar.py",      # forward-looking catalyst timeline
     "weekly_digest.py",          # self-contained HTML summary report
+    "_save_expansion_ohlcv.py",  # K-line OHLCV for 45 expansion stocks (dashboard charts)
 ]
 print("\nRegenerating secondary reports…")
 for script in secondary:

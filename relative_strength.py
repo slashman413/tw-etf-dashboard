@@ -18,6 +18,18 @@ from datetime import datetime
 TODAY = sorted([d.name for d in Path("reports").iterdir() if d.is_dir() and d.name[:4].isdigit()])[-1]
 REPORT_DIR = Path("reports") / TODAY
 
+import sys
+_rs_path = REPORT_DIR / "relative_strength.json"
+if _rs_path.exists():
+    try:
+        _prev_rs = json.loads(_rs_path.read_text(encoding="utf-8"))
+        _rs_date = _prev_rs.get("data_date") or _prev_rs.get("date", "")
+        if _rs_date >= TODAY:
+            print(f"relative_strength already fresh ({_rs_date}) — skipping download")
+            sys.exit(0)
+    except Exception:
+        pass
+
 composite = json.loads((REPORT_DIR / "composite_data.json").read_text(encoding="utf-8"))
 expansion = json.loads((REPORT_DIR / "expansion_stocks.json").read_text(encoding="utf-8"))
 dna_data  = json.loads((REPORT_DIR / "dna_signals.json").read_text(encoding="utf-8"))
@@ -38,8 +50,9 @@ try:
     raw = yf.download(TICKERS, period="2y", interval="1d",
                       auto_adjust=True, progress=False, group_by="ticker")
     print(f"  Downloaded. Shape: {raw.shape}")
+    LATEST_BAR = str(raw.index[-1].date()) if raw is not None and len(raw) > 0 else TODAY
 except Exception as e:
-    print(f"  Error: {e}"); raw = None
+    print(f"  Error: {e}"); raw = None; LATEST_BAR = TODAY
 
 # ── Extract close prices ──────────────────────────────────────────────────
 close_df = {}
@@ -184,6 +197,7 @@ for r in dna_rs_combo[:8]:
 # ── Save ──────────────────────────────────────────────────────────────────
 out = {
     "date":             TODAY,
+    "data_date":        LATEST_BAR,
     "fetch_ts":         datetime.now().strftime("%Y-%m-%d %H:%M"),
     "total":            len(rs_results),
     "outperformers_60d": outperformers,
