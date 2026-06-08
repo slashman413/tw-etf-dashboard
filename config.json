@@ -1,0 +1,8 @@
+{
+  "github_repo": "slashman413/tw-etf-dashboard",
+  "github_branch": "main",
+  "github_pat_env": "GITHUB_PAT",
+  "report_date": "auto",
+  "twse_wait_seconds": 132,
+  "proxy_port": 8765
+}

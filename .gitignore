@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large report data (embedded in dashboard.html; not needed in repo)
+reports/
+
+# Temp utility/check scripts
+_check_*.py
+_audit*.py
+_review*.py
