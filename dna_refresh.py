@@ -209,6 +209,7 @@ secondary = [
     "relative_strength.py",      # RS vs TAIEX + 52w high (fresh Yahoo 2y data)
     "dna_trigger_calc.py",       # DNA trigger scores (needs fresh RS + DNA)
     "smart_money_confluence.py", # smart money signals (needs instflows + DNA)
+    "trail_eps_estimate.py",      # trailing 4Q EPS; updates grand_unified trail_eps
     "generate_stock_reports.py", # per-stock JSON + FULL_REPORT.md (uses fresh RS)
     "catalyst_calendar.py",      # forward-looking catalyst timeline
     "weekly_digest.py",          # self-contained HTML summary report
