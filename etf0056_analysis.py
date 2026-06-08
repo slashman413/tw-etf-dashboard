@@ -29,14 +29,12 @@ FINANCIAL = {"2883","5876","2886","2801","2884","2882","2881","2891","2887",
 # Known unique components of 0056/00878/00713 not in 0050 universe
 # Source: TWSE quarterly ETF rebalancing disclosures (2025 Q4 / 2026 Q1)
 EXPANSION = {
-    # 0056 元大高股息 unique holdings
+    # 0056 元大高股息 unique holdings (2823 delisted 2021; 2888 merged→2887 2022)
     "1590": "亞德客 Airtac",       # pneumatic automation leader
     "2912": "統一超 President",    # 7-Eleven Taiwan operator
     "4904": "遠傳 FarEasTone",     # telecom (3rd player)
     "6488": "環球晶 GlobalWafers", # silicon wafers
-    "2823": "中壽 China Life",     # insurance
     "2880": "華南金 HuaNan",       # financial holding
-    "2888": "新光金 ShinKong",     # financial holding
     # 00878 國泰永續高股息 unique holdings
     "3231": "緯創 Wistron",        # ODM/cloud servers
     "2383": "台光電 Elite",        # PCB copper-clad laminates
@@ -52,9 +50,7 @@ ETF_MEMBERSHIP = {
     "2912": ["0056","00713"],
     "4904": ["0056","00713"],
     "6488": ["0056","00878"],
-    "2823": ["0056"],
     "2880": ["0056","00713"],
-    "2888": ["0056"],
     "3231": ["00878"],
     "2383": ["00878"],
     "6743": ["00878"],
