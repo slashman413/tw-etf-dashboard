@@ -33,7 +33,7 @@ for r in refreshed:
 
 lines = [
     f"# BWIBBU Valuation Refresh — {TODAY} (Iteration 25)",
-    f"*Market data: {data.get('data_date','1150604')} (2026-06-04 close) | Refreshed: {data.get('refresh_ts','—')}*",
+    f"*Market data: {data.get('data_date','?')} | Refreshed: {data.get('refresh_ts','—')}*",
     f"*{data['total_matched']} stocks matched across ETF universe*",
     "",
     "---",

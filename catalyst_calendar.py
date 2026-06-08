@@ -140,11 +140,16 @@ for code, g in grand_map.items():
                      "priority": "💎 HIGH",
                      "action": "5月營收後重算估值分; 估值最大上調空間"})
 
-    # Dividend yield catalyst (ex-date season)
+    # Dividend yield catalyst (ex-date season — next Q3 start)
+    _ref_dt = datetime.strptime(TODAY, "%Y-%m-%d")
+    _q3_year = _ref_dt.year if _ref_dt.month <= 9 else _ref_dt.year + 1
+    _q3_start = f"{_q3_year}-07-01"
+    if _q3_start <= TODAY:
+        _q3_start = f"{_q3_year + 1}-07-01"
     dy = sf(bw.get("div_new") or bw.get("div_yield"))
     if dy and dy >= 5.0:
         cats.append({"trigger": f"高殖利率 {dy:.2f}% — 除息追蹤",
-                     "date": "2026-07-01",
+                     "date": _q3_start,
                      "priority": "💰 MEDIUM",
                      "action": "Q3除息季前確認持有; 除息後觀察填息能力"})
 

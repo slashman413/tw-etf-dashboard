@@ -8,9 +8,18 @@ Generates: may_preview.json
 
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 TODAY = sorted([d.name for d in Path("reports").iterdir() if d.is_dir() and d.name[:4].isdigit()])[-1]
+
+def _next_rev_date(ref_str):
+    ref = datetime.strptime(ref_str, "%Y-%m-%d")
+    _d = ref.replace(day=10) if ref.day < 10 else (ref.replace(day=28) + timedelta(days=4)).replace(day=10)
+    while _d.weekday() >= 5:
+        _d += timedelta(days=1)
+    return _d.strftime("%Y-%m-%d")
+
+REVENUE_DATE = _next_rev_date(TODAY)
 REPORT_DIR = Path("reports") / TODAY
 
 apr   = json.loads((REPORT_DIR / "april_revenue.json").read_text(encoding="utf-8"))
@@ -153,7 +162,7 @@ for p in triple_preview:
 out = {
     "date":     TODAY,
     "fetch_ts": datetime.now().strftime("%Y-%m-%d %H:%M"),
-    "expected_release": "2026-06-10 (estimated)",
+    "expected_release": f"{REVENUE_DATE} (estimated)",
     "total":    len(previews),
     "beat_candidates":  beat,
     "in_line":          in_line,

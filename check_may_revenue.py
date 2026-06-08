@@ -9,7 +9,7 @@ Enforces 120-second wait before the API call as per IP-ban prevention policy.
 
 import json, time, urllib.request, urllib.error, ssl
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
@@ -17,6 +17,13 @@ CTX.verify_mode = ssl.CERT_NONE
 
 TODAY = sorted([d.name for d in Path("reports").iterdir() if d.is_dir() and d.name[:4].isdigit()])[-1]
 REPORT_DIR = Path("reports") / TODAY
+
+def _next_rev_date(ref_str):
+    ref = datetime.strptime(ref_str, "%Y-%m-%d")
+    _d = ref.replace(day=10) if ref.day < 10 else (ref.replace(day=28) + timedelta(days=4)).replace(day=10)
+    while _d.weekday() >= 5:
+        _d += timedelta(days=1)
+    return _d.strftime("%Y-%m-%d")
 
 composite = json.loads((REPORT_DIR / "composite_data.json").read_text(encoding="utf-8"))
 
@@ -140,9 +147,9 @@ else:
         "checked": datetime.now().isoformat(),
         "latest_period": latest_period,
         "status": "April data only — May not yet released",
-        "next_check": "2026-06-10",
+        "next_check": _next_rev_date(TODAY),
     }
     (REPORT_DIR / "revenue_freshness.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✓ Logged check to revenue_freshness.json")
-    print(f"  Next check: June 10, 2026 (when May revenue is due)")
+    print(f"  Next check: {_next_rev_date(TODAY)} (estimated revenue release)")
