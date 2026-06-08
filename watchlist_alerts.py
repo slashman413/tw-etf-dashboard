@@ -72,7 +72,7 @@ for code in all_codes:
             "bull_signs": bull_signs, "signs_gap": signs_gap,
             "final": final, "needs": " + ".join(needs) if needs else "接近達標",
             "pe": bwi_map.get(code, {}).get("pe_new"),
-            "div": bwi_map.get(code, {}).get("div_yield"),
+            "div": bwi_map.get(code, {}).get("div_new") or bwi_map.get(code, {}).get("div_yield"),
         })
 
 alert_a.sort(key=lambda x: x["grand_gap"])
@@ -155,7 +155,7 @@ for r in grand.get("triple_confirmed", []):
         "bull_signs": r.get("bull_signs",0),
         "close": close, "target": target, "upside_pct": upside,
         "pe": bwi_map.get(code,{}).get("pe_new"),
-        "div": bwi_map.get(code,{}).get("div_yield"),
+        "div": bwi_map.get(code,{}).get("div_new") or bwi_map.get(code,{}).get("div_yield"),
         "rs_60d": rs_map.get(code,{}).get("rs_60d"),
     })
 
