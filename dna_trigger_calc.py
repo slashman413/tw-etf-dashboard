@@ -62,7 +62,7 @@ for s in dna.get("all_signals", []):
 
     code  = s.get("code", "")
     name  = name_map.get(code, code)
-    close = sf(s.get("close")) or sf(s.get("close_now"))
+    close = sf(mom_map.get(code, {}).get("close")) or sf(s.get("close")) or sf(s.get("close_now"))
     g     = grand_map.get(code, {})
     rv    = rs_map.get(code, {})
     mm    = mom_map.get(code, {})
