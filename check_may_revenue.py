@@ -7,9 +7,11 @@ If no: report what period is available and exit gracefully.
 Enforces 120-second wait before the API call as per IP-ban prevention policy.
 """
 
-import json, time, urllib.request, urllib.error, ssl
+import json, time, urllib.request, urllib.error, ssl, sys
 from pathlib import Path
 from datetime import datetime, timedelta
+
+SKIP_WAIT = "--skip-wait" in sys.argv
 
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
@@ -30,8 +32,10 @@ composite = json.loads((REPORT_DIR / "composite_data.json").read_text(encoding="
 # Build code set for quick lookup
 code_set = {s["code"] for s in composite}
 
-print(f"[{datetime.now().strftime('%H:%M:%S')}] Waiting 30s before TWSE API call (last call was 120s+ ago)...")
-time.sleep(30)
+_wait = 0 if SKIP_WAIT else 130
+if _wait:
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] Waiting {_wait}s before TWSE API call...")
+    time.sleep(_wait)
 
 # ── Fetch t187ap05_L (monthly revenue) ────────────────────────────────────────
 URL = "https://openapi.twse.com.tw/v1/opendata/t187ap05_L"

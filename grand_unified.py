@@ -29,7 +29,17 @@ bwibbu     = json.loads((REPORT_DIR / "bwibbu_fresh.json").read_text(encoding="u
 momentum   = json.loads((REPORT_DIR / "price_momentum.json").read_text(encoding="utf-8"))
 ma_data    = json.loads((REPORT_DIR / "ma_refresh.json").read_text(encoding="utf-8"))
 ptargets   = json.loads((REPORT_DIR / "price_targets.json").read_text(encoding="utf-8"))
-aprdata    = json.loads((REPORT_DIR / "april_revenue.json").read_text(encoding="utf-8"))
+# Prefer May revenue when available; fall back to April
+_may_rev_path = REPORT_DIR / "may_revenue.json"
+if _may_rev_path.exists():
+    _may_rev = json.loads(_may_rev_path.read_text(encoding="utf-8"))
+    if _may_rev.get("updates"):
+        aprdata = {"all_results": _may_rev["updates"], "_source": "may_revenue"}
+        print(f"  Using May revenue ({_may_rev.get('period','?')}) for scoring")
+    else:
+        aprdata = json.loads((REPORT_DIR / "april_revenue.json").read_text(encoding="utf-8"))
+else:
+    aprdata = json.loads((REPORT_DIR / "april_revenue.json").read_text(encoding="utf-8"))
 
 # Build lookup maps
 name_map   = {**{s["code"]: s["name"] for s in composite},
@@ -71,7 +81,7 @@ for code, name in sorted(name_map.items()):
     pe          = sf(bw.get("pe_new")) or sf(bw.get("pe_old")) or sf(ex.get("pe"))
     div_yield   = sf(bw.get("div_new") or bw.get("div_yield")) or sf(ex.get("div"))
     upside      = sf(pt.get("upside_pct"))
-    apr_yoy     = sf(apr.get("cum_yoy") or apr.get("april_yoy"))
+    apr_yoy     = sf(apr.get("cum_yoy") or apr.get("april_yoy") or apr.get("yoy_pct"))
 
     # ── Normalize to 0–25 points each ────────────────────────────────────────
 

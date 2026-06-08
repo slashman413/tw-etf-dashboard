@@ -213,6 +213,13 @@ time.sleep(132)
 print("Running institutional_flows.py to update T86 data...")
 subprocess.run([sys.executable, "institutional_flows.py", "--skip-wait"], check=False)
 
+# If May revenue just became available, fetch and update composite_data
+if may_avail:
+    print(f"\n⏳ Waiting 132s before check_may_revenue (revenue available!)…", flush=True)
+    time.sleep(132)
+    print("Running check_may_revenue.py to update May revenue data...")
+    subprocess.run([sys.executable, "check_may_revenue.py", "--skip-wait"], check=False)
+
 # Regenerate technical_data.json AFTER bwibbu, taiex, MA, and instflows are all fresh
 print("\nRunning _fix_technical_data.py to sync technical_data.json...")
 subprocess.run([sys.executable, "_fix_technical_data.py"], check=False)
