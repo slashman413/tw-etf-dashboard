@@ -85,8 +85,13 @@ for code, name in sorted(name_map.items()):
 
     # ── Normalize to 0–25 points each ────────────────────────────────────────
 
-    # 1) Fundamental (0–25): direct from composite score
-    fund_pts = (fund_score / 100 * 25) if fund_score is not None else 12.5
+    # 1) Fundamental (0–25): composite score for 0050; conviction-mapped for expansion stocks
+    if fund_score is not None:
+        fund_pts = fund_score / 100 * 25
+    else:
+        # Expansion stocks: map conviction to fund_pts (BUY=20, HOLD=15, WATCH=10)
+        _conv = ex.get("conv", "")
+        fund_pts = 20.0 if _conv == "BUY" else (15.0 if _conv == "HOLD" else 10.0)
 
     # 2) Technical DNA (0–25): bull_signs/6 * 15 + core_met/3 * 10
     if bull_signs is not None and core_met is not None:
