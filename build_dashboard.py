@@ -8692,7 +8692,7 @@ function renderStratBuy() {{
     // Entry condition proxy: s3 (日W%R oversold) + s4 (RSI) = entry signal
     const entryOk = r.s3_ok && r.s4_ok;
     const verdColor = sigs>=5?'#22c55e':sigs>=3?'#86efac':'#94a3b8';
-    return `<tr>
+    return `<tr onclick="showDnaScreenDetail('${{r.code}}')" style="cursor:pointer" title="點擊查看K線圖">
       <td style="text-align:center;color:#64748b">${{i+1}}</td>
       <td style="font-weight:700;color:#60a5fa">${{r.code||''}}</td>
       <td>${{r.name||''}}</td>
@@ -8725,7 +8725,7 @@ function _renderStratSell() {{
     ${{rows.map(r => {{
       const sigs = (r.s1_ok?1:0)+(r.s2_ok?1:0)+(r.s3_ok?1:0)+(r.s4_ok?1:0)+(r.s5_ok?1:0)+(r.s6_ok?1:0);
       const sellWarn = r.mo_rsi4 >= 77 ? '⚠️ 月RSI超買' : r.mo_rsi4 >= 70 ? '注意高位' : '';
-      return `<tr>
+      return `<tr onclick="showDnaScreenDetail('${{r.code}}')" style="cursor:pointer" title="點擊查看K線圖">
         <td style="font-weight:700;color:#f87171">${{r.code}}</td>
         <td>${{r.name}}</td>
         <td style="text-align:right;color:${{r.mo_rsi4>=77?'#f87171':'#fbbf24'}}">${{(r.mo_rsi4||0).toFixed(1)}}</td>
@@ -8962,7 +8962,7 @@ function _renderStratRockets() {{
     ${{rows.map(r => {{
       const color = (r.s7_ok && r.s8_ok) ? '#a78bfa' : r.bull_signs >= 5 ? '#22c55e' : '#fbbf24';
       const spiral = r.s7_ok && r.s8_ok ? '🌀 雙螺旋' : r.s7_ok ? '🌀 DIF螺旋' : r.s8_ok ? '📐 ADX螺旋' : r.bull_signs>=5 ? '🚀 強候選' : '📈 候選';
-      return `<tr>
+      return `<tr onclick="showDnaScreenDetail('${{r.code}}')" style="cursor:pointer" title="點擊查看K線圖">
         <td style="font-weight:700;color:#a78bfa">${{r.code}}</td>
         <td>${{r.name}}</td>
         <td style="font-size:11px;color:#94a3b8">${{r.sector||'—'}}</td>
