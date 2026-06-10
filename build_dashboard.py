@@ -387,6 +387,22 @@ html = f"""<!DOCTYPE html>
   .nav-dropdown .nav-tab.active {{ background: #eff6ff; color: #2563eb; font-weight: 700; }}
   .nav-sep {{ width: 1px; height: 20px; background: #e2e8f0; margin: 0 2px; }}
   .header-meta {{ font-size: 12px; color: #94a3b8; white-space: nowrap; }}
+  /* ── Paywall ── */
+  .pw-overlay {{ position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px); }}
+  .pw-modal {{ background:#fff;border-radius:20px;padding:40px 36px;max-width:460px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;position:relative; }}
+  .pw-lock-icon {{ font-size:52px;margin-bottom:12px; }}
+  .pw-title {{ font-size:22px;font-weight:800;color:#1a2332;margin-bottom:6px; }}
+  .pw-price {{ display:inline-block;background:#fef3c7;border:1.5px solid #f59e0b;color:#92400e;font-weight:800;font-size:20px;padding:6px 20px;border-radius:30px;margin:10px 0 16px; }}
+  .pw-features {{ text-align:left;background:#f8fafc;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:14px;color:#374151;line-height:1.9; }}
+  .pw-input {{ width:100%;box-sizing:border-box;padding:12px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:16px;margin-bottom:10px;outline:none;transition:border .2s; }}
+  .pw-input:focus {{ border-color:#2563eb; }}
+  .pw-btn {{ width:100%;padding:13px;background:#2563eb;color:#fff;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;margin-bottom:8px;transition:background .15s; }}
+  .pw-btn:hover {{ background:#1d4ed8; }}
+  .pw-btn-close {{ background:none;border:none;color:#94a3b8;font-size:13px;cursor:pointer;text-decoration:underline; }}
+  .pw-error {{ color:#dc2626;font-size:13px;margin:4px 0 8px;display:none; }}
+  .pw-contact {{ font-size:12px;color:#94a3b8;margin-top:12px; }}
+  .pw-nav-lock {{ font-size:10px;opacity:.7;margin-left:3px; }}
+  .pw-unlocked-banner {{ font-size:11px;background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:600; }}
 
   .main {{ max-width: 1400px; margin: 0 auto; padding: 24px 16px; overflow-x: hidden; }}
   body {{ overflow-x: hidden; }}
@@ -655,7 +671,7 @@ html = f"""<!DOCTYPE html>
 
     <!-- 精選推薦 -->
     <div class="nav-group">
-      <button class="nav-group-btn">⭐ 精選推薦 <span class="nav-arrow">▾</span></button>
+      <button class="nav-group-btn" id="premiumNavBtn">⭐ 精選推薦 <span id="premiumLockIcon" class="pw-nav-lock">🔒</span><span class="nav-arrow">▾</span></button>
       <div class="nav-dropdown">
         <button class="nav-tab" onclick="showPage('actionsig',this)" style="color:#dc2626;font-weight:800">🎯 綜合行動信號</button>
         <button class="nav-tab" onclick="showPage('conviction',this)">⭐ 推薦排名</button>
@@ -758,6 +774,31 @@ html = f"""<!DOCTYPE html>
   </nav>
   <div class="header-meta">更新: {TODAY} | 62 支股票</div>
 </header>
+
+<!-- ═══════════════════════ PAYWALL MODAL ══════════════════════════════════ -->
+<div id="paywallOverlay" class="pw-overlay" style="display:none" onclick="if(event.target===this)closePaywall()">
+  <div class="pw-modal">
+    <div class="pw-lock-icon">🔒</div>
+    <div class="pw-title">精選推薦 — 訂閱會員專區</div>
+    <div class="pw-price">NT$ 168 / 月</div>
+    <div class="pw-features">
+      🎯 綜合行動信號 — 每日買賣決策<br>
+      ⭐ 推薦排名 — Grand Unified 精選<br>
+      💎 TRIPLE精析 — 三重確認個股分析<br>
+      🗓 週一行動 — 週度操作計劃<br>
+      📋 開盤行動卡 — 盤前快速清單<br>
+      🔔 監控警示 — 即時信號通知<br>
+      🏦 法人買賣超 — 三大法人追蹤<br>
+      🧲 智慧資金匯合 — Smart Money 分析
+    </div>
+    <input id="pwCodeInput" class="pw-input" type="text" placeholder="請輸入授權碼 (e.g. TW168-XXXX)" autocomplete="off"
+      onkeydown="if(event.key==='Enter')verifyCode()">
+    <div id="pwError" class="pw-error">❌ 授權碼不正確，請確認後再試</div>
+    <button class="pw-btn" onclick="verifyCode()">🔓 驗證並解鎖</button>
+    <button class="pw-btn-close" onclick="closePaywall()">✕ 關閉</button>
+    <div class="pw-contact">訂閱請聯絡 IG / FB：掃宣傳圖 QR 或點擊☕贊助頁聯繫</div>
+  </div>
+</div>
 
 <div class="main">
 
@@ -3768,6 +3809,57 @@ const TAIEX_CAPITAL  = {taiex_capital_json};
 const EXPORTMANIFEST = {exportmanifest_json};
 const SOP_BACKTEST   = {sop_bt_json};
 
+// ═══════════════════════════════ PAYWALL ════════════════════════════════════
+// ★ OWNER: edit AUTH_CODES to add/remove subscriber codes
+const AUTH_CODES = [
+  "TW168-DEMO1", "TW168-DEMO2", "TW168-DEMO3"
+];
+const PREMIUM_PAGES = new Set(['actionsig','conviction','triplereport','mondayplan','premarket','watchalerts','instflows','smartmoney']);
+const PW_KEY = 'tw_etf_unlock'; const PW_DAYS = 30;
+
+function isUnlocked() {{
+  try {{
+    const d = JSON.parse(localStorage.getItem(PW_KEY)||'null');
+    return d && d.exp > Date.now();
+  }} catch(e) {{ return false; }}
+}}
+
+function unlockPremium(code) {{
+  localStorage.setItem(PW_KEY, JSON.stringify({{code, exp: Date.now()+PW_DAYS*86400000}}));
+  document.getElementById('premiumLockIcon').textContent = '✅';
+}}
+
+function showPaywall(pendingId, pendingBtn) {{
+  window._pwPending = {{id:pendingId, btn:pendingBtn}};
+  document.getElementById('pwCodeInput').value = '';
+  document.getElementById('pwError').style.display = 'none';
+  document.getElementById('paywallOverlay').style.display = 'flex';
+  setTimeout(()=>document.getElementById('pwCodeInput').focus(), 100);
+}}
+
+function closePaywall() {{
+  document.getElementById('paywallOverlay').style.display = 'none';
+  window._pwPending = null;
+}}
+
+function verifyCode() {{
+  const code = document.getElementById('pwCodeInput').value.trim().toUpperCase();
+  const errEl = document.getElementById('pwError');
+  if (AUTH_CODES.map(c=>c.toUpperCase()).includes(code)) {{
+    unlockPremium(code);
+    closePaywall();
+    if (window._pwPending) showPage(window._pwPending.id, window._pwPending.btn);
+  }} else {{
+    errEl.style.display = 'block';
+    document.getElementById('pwCodeInput').select();
+  }}
+}}
+
+// Update lock icon on load
+document.addEventListener('DOMContentLoaded', ()=>{{
+  if (isUnlocked()) document.getElementById('premiumLockIcon').textContent = '✅';
+}});
+
 // ═══════════════════════════════ HELPERS ═══════════════════════════════════
 function fmt(v, dec=1, suffix='') {{
   if (v == null) return '<span style="color:#cbd5e1">—</span>';
@@ -3858,6 +3950,9 @@ document.addEventListener('click', function(e) {{
 }});
 
 function showPage(id, btn) {{
+  // ── Paywall gate ──────────────────────────────────────────────────────────
+  if (PREMIUM_PAGES.has(id) && !isUnlocked()) {{ showPaywall(id, btn); return; }}
+  // ─────────────────────────────────────────────────────────────────────────
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.nav-group-btn').forEach(t => t.classList.remove('active'));
