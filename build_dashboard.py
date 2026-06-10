@@ -671,7 +671,7 @@ html = f"""<!DOCTYPE html>
 
     <!-- 精選推薦 -->
     <div class="nav-group">
-      <button class="nav-group-btn">⭐ 精選推薦 <span class="nav-arrow">▾</span></button>
+      <button class="nav-group-btn" id="premiumNavBtn2">⭐ 精選推薦 <span id="premiumLockIcon2" class="pw-nav-lock">🔒</span><span class="nav-arrow">▾</span></button>
       <div class="nav-dropdown">
         <button class="nav-tab" onclick="showPage('actionsig',this)" style="color:#dc2626;font-weight:800">🎯 綜合行動信號</button>
         <button class="nav-tab" onclick="showPage('conviction',this)">⭐ 推薦排名</button>
@@ -779,17 +779,17 @@ html = f"""<!DOCTYPE html>
 <div id="paywallOverlay" class="pw-overlay" style="display:none" onclick="if(event.target===this)closePaywall()">
   <div class="pw-modal">
     <div class="pw-lock-icon">🔒</div>
-    <div class="pw-title">🧬 技術DNA — 訂閱會員專區</div>
+    <div class="pw-title">訂閱會員專區</div>
     <div class="pw-price">NT$ 168 / 月</div>
     <div class="pw-features">
-      🧬 大飆股DNA — S1–S6 六大信號掃描<br>
-      🎯 策略系統 — 完整操作策略框架<br>
-      ⚡ 升評觸發計算 — 精準進場時機<br>
-      🔬 回測驗證 — DNA歷史績效分析<br>
-      📈 SOP三年回測 — 年化+17.1%模擬<br>
-      📡 相對強度 — 個股強弱比較<br>
-      📊 價格動能 — 多週期動能追蹤<br>
-      📉 技術分析 — K線+指標深度分析
+      <b style="color:#2563eb">⭐ 精選推薦</b><br>
+      🎯 綜合行動信號 &nbsp;⭐ 推薦排名 &nbsp;💎 TRIPLE精析<br>
+      🗓 週一行動 &nbsp;📋 開盤行動卡 &nbsp;🔔 監控警示<br>
+      🏦 法人買賣超 &nbsp;🧲 智慧資金匯合<br>
+      <br>
+      <b style="color:#c2410c">🧬 技術DNA（🔬回測驗證 / 📈SOP回測 免費）</b><br>
+      🧬 大飆股DNA &nbsp;🎯 策略系統 &nbsp;⚡ 升評觸發計算<br>
+      📡 相對強度 &nbsp;📊 價格動能 &nbsp;📉 技術分析
     </div>
     <input id="pwCodeInput" class="pw-input" type="text" placeholder="請輸入授權碼 (e.g. TW168-XXXX)" autocomplete="off"
       onkeydown="if(event.key==='Enter')verifyCode()">
@@ -3814,7 +3814,12 @@ const SOP_BACKTEST   = {sop_bt_json};
 const AUTH_CODES = [
   "TW168-DEMO1", "TW168-DEMO2", "TW168-DEMO3"
 ];
-const PREMIUM_PAGES = new Set(['strategy','dnascreen','dnatrigger','backtest','sopbacktest','relstrength','momentum','technical']);
+const PREMIUM_PAGES = new Set([
+  // 技術DNA (除回測驗證、SOP三年回測外)
+  'strategy','dnascreen','dnatrigger','relstrength','momentum','technical',
+  // 精選推薦
+  'actionsig','conviction','triplereport','mondayplan','premarket','watchalerts','instflows','smartmoney'
+]);
 const PW_KEY = 'tw_etf_unlock'; const PW_DAYS = 30;
 
 function isUnlocked() {{
@@ -3827,6 +3832,7 @@ function isUnlocked() {{
 function unlockPremium(code) {{
   localStorage.setItem(PW_KEY, JSON.stringify({{code, exp: Date.now()+PW_DAYS*86400000}}));
   document.getElementById('premiumLockIcon').textContent = '✅';
+  document.getElementById('premiumLockIcon2').textContent = '✅';
 }}
 
 function showPaywall(pendingId, pendingBtn) {{
@@ -3855,9 +3861,12 @@ function verifyCode() {{
   }}
 }}
 
-// Update lock icon on load
+// Update lock icons on load
 document.addEventListener('DOMContentLoaded', ()=>{{
-  if (isUnlocked()) document.getElementById('premiumLockIcon').textContent = '✅';
+  if (isUnlocked()) {{
+    document.getElementById('premiumLockIcon').textContent = '✅';
+    document.getElementById('premiumLockIcon2').textContent = '✅';
+  }}
 }});
 
 // ═══════════════════════════════ HELPERS ═══════════════════════════════════
