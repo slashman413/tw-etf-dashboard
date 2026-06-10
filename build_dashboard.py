@@ -3812,7 +3812,10 @@ const SOP_BACKTEST   = {sop_bt_json};
 // ═══════════════════════════════ PAYWALL ════════════════════════════════════
 // ★ OWNER: edit AUTH_CODES to add/remove subscriber codes
 const AUTH_CODES = [
-  "TW168-DEMO1", "TW168-DEMO2", "TW168-DEMO3"
+  "TW168-IXP6KVS6", "TW168-AKKIJTUR", "TW168-ICYP1N5O",
+  "TW168-YTRHKJHW", "TW168-BA42BCFQ", "TW168-B17RLXD3",
+  "TW168-R6GQNUE8", "TW168-79FFBIB6", "TW168-UVWEGGFX",
+  "TW168-ZSPT72LA"
 ];
 const PREMIUM_PAGES = new Set([
   // 技術DNA (除回測驗證、SOP三年回測外)
