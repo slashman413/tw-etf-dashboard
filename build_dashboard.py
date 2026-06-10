@@ -88,6 +88,8 @@ taiex_capital_data = json.loads(taiex_capital_raw.read_text(encoding="utf-8")) i
 import base64 as _b64
 _qr_path = Path(__file__).parent / "donate_qr.png"
 DONATE_QR_B64 = "data:image/png;base64," + _b64.b64encode(_qr_path.read_bytes()).decode() if _qr_path.exists() else ""
+_pay_qr_path = Path(__file__).parent / "payment_qr.png"
+PAYMENT_QR_B64 = "data:image/png;base64," + _b64.b64encode(_pay_qr_path.read_bytes()).decode() if _pay_qr_path.exists() else ""
 # Extract series_map for separate file (avoids bloating dashboard.html)
 _series_map     = dnafull_data.pop("series_map", {})
 # Merge expansion OHLCV (stocks not in DNA bull-market universe) so K-line works for all dashboard stocks
@@ -389,7 +391,7 @@ html = f"""<!DOCTYPE html>
   .header-meta {{ font-size: 12px; color: #94a3b8; white-space: nowrap; }}
   /* ── Paywall ── */
   .pw-overlay {{ position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px); }}
-  .pw-modal {{ background:#fff;border-radius:20px;padding:40px 36px;max-width:460px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;position:relative; }}
+  .pw-modal {{ background:#fff;border-radius:20px;padding:40px 36px;max-width:500px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;position:relative; }}
   .pw-lock-icon {{ font-size:52px;margin-bottom:12px; }}
   .pw-title {{ font-size:22px;font-weight:800;color:#1a2332;margin-bottom:6px; }}
   .pw-price {{ display:inline-block;background:#fef3c7;border:1.5px solid #f59e0b;color:#92400e;font-weight:800;font-size:20px;padding:6px 20px;border-radius:30px;margin:10px 0 16px; }}
@@ -791,12 +793,13 @@ html = f"""<!DOCTYPE html>
       🧬 大飆股DNA &nbsp;🎯 策略系統 &nbsp;⚡ 升評觸發計算<br>
       📡 相對強度 &nbsp;📊 價格動能 &nbsp;📉 技術分析
     </div>
+    {'<div style="margin:14px 0 10px;"><img src="' + PAYMENT_QR_B64 + '" alt="付款QR碼" style="width:160px;height:160px;border-radius:10px;display:block;margin:0 auto 8px;box-shadow:0 2px 10px rgba(0,0,0,.15)"><div style="font-size:13px;font-weight:700;color:#1a2332">掃碼轉帳 NT$168</div><div style="font-size:12px;color:#e53e3e;font-weight:600;margin-top:4px">⚠️ 轉帳時請備註您的 Email，以便收取授權碼</div></div>' if PAYMENT_QR_B64 else '<div style="font-size:13px;color:#e53e3e;margin:12px 0">轉帳 NT$168，備註 Email 以收取授權碼</div>'}
     <input id="pwCodeInput" class="pw-input" type="text" placeholder="請輸入授權碼 (e.g. TW168-XXXX)" autocomplete="off"
       onkeydown="if(event.key==='Enter')verifyCode()">
     <div id="pwError" class="pw-error">❌ 授權碼不正確，請確認後再試</div>
     <button class="pw-btn" onclick="verifyCode()">🔓 驗證並解鎖</button>
     <button class="pw-btn-close" onclick="closePaywall()">✕ 關閉</button>
-    <div class="pw-contact">訂閱請聯絡 IG / FB：掃宣傳圖 QR 或點擊☕贊助頁聯繫</div>
+    <div class="pw-contact">付款後請等候授權碼發送至您的 Email</div>
   </div>
 </div>
 
