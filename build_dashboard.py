@@ -77,12 +77,17 @@ otcanalysis_raw = (REPORT_DIR / "otc_analysis.json")
 otcanalysis     = json.loads(otcanalysis_raw.read_text(encoding="utf-8")) if otcanalysis_raw.exists() else {}
 dnafull_raw     = (REPORT_DIR / "dna_full_market.json")
 dnafull_data    = json.loads(dnafull_raw.read_text(encoding="utf-8")) if dnafull_raw.exists() else {}
+sop_bt_raw      = (REPORT_DIR / "backtest_sop_results.json")
+sop_bt_data     = json.loads(sop_bt_raw.read_text(encoding="utf-8")) if sop_bt_raw.exists() else {}
 taiex_raw       = Path(__file__).parent / "taiex_ohlc.json"
 taiex_data      = json.loads(taiex_raw.read_text(encoding="utf-8")) if taiex_raw.exists() else {}
 taiex_monthly_raw  = Path(__file__).parent / "taiex_monthly.json"
 taiex_monthly_data = json.loads(taiex_monthly_raw.read_text(encoding="utf-8")) if taiex_monthly_raw.exists() else {}
 taiex_capital_raw  = Path(__file__).parent / "taiex_capital.json"
 taiex_capital_data = json.loads(taiex_capital_raw.read_text(encoding="utf-8")) if taiex_capital_raw.exists() else {}
+import base64 as _b64
+_qr_path = Path(__file__).parent / "donate_qr.png"
+DONATE_QR_B64 = "data:image/png;base64," + _b64.b64encode(_qr_path.read_bytes()).decode() if _qr_path.exists() else ""
 # Extract series_map for separate file (avoids bloating dashboard.html)
 _series_map     = dnafull_data.pop("series_map", {})
 # Merge expansion OHLCV (stocks not in DNA bull-market universe) so K-line works for all dashboard stocks
@@ -293,6 +298,7 @@ etf4q_json         = json.dumps(etf4q,          ensure_ascii=False)
 trail_json         = json.dumps(trail_data,      ensure_ascii=False)
 otcanalysis_json   = json.dumps(otcanalysis,     ensure_ascii=False)
 dnafull_json       = json.dumps(dnafull_data,   ensure_ascii=False)
+sop_bt_json        = json.dumps(sop_bt_data,    ensure_ascii=False)
 taiex_json         = json.dumps(taiex_data,        ensure_ascii=False)
 taiex_monthly_json = json.dumps(taiex_monthly_data, ensure_ascii=False)
 taiex_capital_json = json.dumps(taiex_capital_data, ensure_ascii=False)
@@ -685,6 +691,7 @@ html = f"""<!DOCTYPE html>
         <button class="nav-tab" onclick="showPage('dnascreen',this)" style="color:#c2410c;font-weight:700">🧬 大飆股DNA</button>
         <button class="nav-tab" onclick="showPage('dnatrigger',this)" style="color:#0369a1;font-weight:700">⚡ 升評觸發計算</button>
         <button class="nav-tab" onclick="showPage('backtest',this)">🔬 回測驗證</button>
+        <button class="nav-tab" onclick="showPage('sopbacktest',this)" style="color:#f59e0b;font-weight:700">📈 SOP三年回測</button>
         <button class="nav-tab" onclick="showPage('relstrength',this)">📡 相對強度</button>
         <button class="nav-tab" onclick="showPage('momentum',this)">📊 價格動能</button>
         <button class="nav-tab" onclick="showPage('technical',this)">📉 技術分析</button>
@@ -743,6 +750,10 @@ html = f"""<!DOCTYPE html>
 
     <!-- Export -->
     <button class="nav-tab" onclick="showPage('export',this)" style="color:#0369a1;font-weight:600">📁 匯出</button>
+
+    <!-- Donate — pushed to far right -->
+    <span style="flex:1"></span>
+    <button class="nav-tab" onclick="showPage('donate',this)" style="color:#d97706;font-weight:700;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #f59e0b;border-radius:8px">☕ 贊助</button>
 
   </nav>
   <div class="header-meta">更新: {TODAY} | 62 支股票</div>
@@ -2466,6 +2477,71 @@ html = f"""<!DOCTYPE html>
   </div>
 </div><!-- /backtest -->
 
+<!-- ═══════════════════════════════════════════ SOP BACKTEST ═══ -->
+<div id="page-sopbacktest" class="page">
+  <div class="alert-banner" style="background:linear-gradient(135deg,#78350f,#92400e);border-color:#fbbf24">
+    <div class="alert-title" style="color:#fef3c7">📈 DNA 大飆股 SOP — 三年回測模擬 (2023-01-01 → {TODAY})</div>
+    <div class="alert-body" style="color:#fde68a">進場: TAIEX N2候補區 + 日W%R(50)&lt;20 + 日RSI(60)&gt;57 + MACD多頭 | 出場: 月W%R(3)&gt;50全出 / 月RSI(4)&lt;77減倉50%×2</div>
+  </div>
+
+  <!-- Capital toggle -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;align-items:center">
+    <span style="color:#94a3b8;font-size:13px">顯示資金:</span>
+    <button id="sopCapBtn1m" onclick="sopShowCap('1m')" class="btn btn-sm" style="background:#1e40af;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer">初始 100萬</button>
+    <button id="sopCapBtn2m" onclick="sopShowCap('2m')" class="btn btn-sm" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:6px 16px;border-radius:6px;cursor:pointer">初始 200萬</button>
+    <span id="sopDisclaimer" style="font-size:11px;color:#64748b;margin-left:8px"></span>
+  </div>
+
+  <!-- KPI cards -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px" id="sopKpiCards"></div>
+
+  <!-- Equity chart -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-pad" style="border-bottom:1px solid #1e293b">
+      <div class="section-title">📊 資金曲線</div>
+    </div>
+    <div id="sopChartEl" style="width:100%;height:300px;background:#0c1220;border-radius:0 0 8px 8px"></div>
+  </div>
+
+  <!-- Gap analysis -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-pad" style="border-bottom:1px solid #1e293b">
+      <div class="section-title">🔍 策略差異對比 — 現行DNA系統 vs SOP進出場規範</div>
+    </div>
+    <div id="sopGapTable" style="padding:12px"></div>
+  </div>
+
+  <!-- Signal compatibility -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-pad" style="border-bottom:1px solid #1e293b">
+      <div class="section-title">✅ 信號對應分析</div>
+    </div>
+    <div id="sopMatchTable" style="padding:12px"></div>
+  </div>
+
+  <!-- Monthly returns heatmap -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-pad" style="border-bottom:1px solid #1e293b">
+      <div class="section-title">📅 月度損益</div>
+    </div>
+    <div id="sopMonthlyGrid" style="padding:12px;display:flex;flex-wrap:wrap;gap:6px"></div>
+  </div>
+
+  <!-- Trade log -->
+  <div class="card">
+    <div class="card-pad" style="border-bottom:1px solid #1e293b">
+      <div class="section-title">📋 交易明細 (最近100筆)</div>
+    </div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>代號</th><th>名稱</th><th>進場日</th><th>進場價</th>
+        <th>出場日</th><th>出場價</th><th>股數</th><th>損益(TWD)</th><th>損益%</th><th>出場原因</th>
+      </tr></thead>
+      <tbody id="sopTradesTbody"></tbody>
+    </table></div>
+  </div>
+</div><!-- /sopbacktest -->
+
 <!-- ═══════════════════════════════════════════════════ REL STRENGTH ═══ -->
 <div id="page-relstrength" class="page">
   <div class="alert-banner" style="background:linear-gradient(135deg,#4c1d95,#5b21b6);border-color:#a78bfa">
@@ -2973,6 +3049,17 @@ html = f"""<!DOCTYPE html>
     <div id="exportSummary"></div>
   </div>
 </div><!-- /export -->
+
+<!-- ═══════════════════════════════════════════════════ DONATE ═══ -->
+<div id="page-donate" class="page">
+  <div style="max-width:400px;margin:40px auto;text-align:center;padding:32px 28px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-radius:18px;border:2px solid #f59e0b;box-shadow:0 4px 24px rgba(245,158,11,0.18)">
+    <div style="font-size:36px;margin-bottom:8px">☕</div>
+    <h2 style="font-size:22px;font-weight:800;color:#92400e;margin-bottom:6px">支持開發者</h2>
+    <p style="font-size:14px;color:#78350f;line-height:1.8;margin-bottom:24px">覺得這個儀表板好用嗎？<br>歡迎請我喝杯咖啡，支持我繼續開發與維護！</p>
+    {'<img src="' + DONATE_QR_B64 + '" alt="收款QR碼" style="width:220px;height:220px;border-radius:12px;display:block;margin:0 auto 20px;box-shadow:0 2px 12px rgba(0,0,0,0.12)">' if DONATE_QR_B64 else ''}
+    <p style="font-size:12px;color:#a16207;margin:0">手機掃描 QR Code 即可付款 🙏</p>
+  </div>
+</div><!-- /donate -->
 
 <!-- ═══════════════════════════════════════════════════ POSSIZE ═══ -->
 <div id="page-possize" class="page">
@@ -3679,6 +3766,7 @@ const TAIEX_DATA     = {taiex_json};
 const TAIEX_MONTHLY  = {taiex_monthly_json};
 const TAIEX_CAPITAL  = {taiex_capital_json};
 const EXPORTMANIFEST = {exportmanifest_json};
+const SOP_BACKTEST   = {sop_bt_json};
 
 // ═══════════════════════════════ HELPERS ═══════════════════════════════════
 function fmt(v, dec=1, suffix='') {{
@@ -3823,7 +3911,9 @@ function showPage(id, btn) {{
   if (id === 'smartmoney'   && !window._smcInited)      {{ initSmartMoney();    window._smcInited     = true; }}
   if (id === 'q2forecast'   && !window._q2fInited)      {{ initQ2Forecast();    window._q2fInited     = true; }}
   if (id === 'export'       && !window._exportInited)  {{ initExport();        window._exportInited  = true; }}
+  // donate page — static, no init needed
   if (id === 'fullmarket'   && !window._fmInited)       {{ initFullMarket();    window._fmInited      = true; }}
+  if (id === 'sopbacktest'  && !window._sbInited)       {{ initSopBacktest();   window._sbInited      = true; }}
 }}
 
 function showSubTab(btn, id) {{
@@ -5879,6 +5969,174 @@ function initBacktest() {{
       <td>${{r.num_signals}}</td>
       <td style="font-size:12px">${{r.current_verdict}}</td>
     </tr>`).join('');
+}}
+
+// ════════════════════════════════ SOP BACKTEST ═══════════════════════════════
+let _sopActiveCap = '1m';
+let _sopChartInst = null;
+
+function sopShowCap(cap) {{
+  _sopActiveCap = cap;
+  ['1m','2m'].forEach(k => {{
+    const btn = document.getElementById(`sopCapBtn${{k}}`);
+    if (!btn) return;
+    if (k === cap) {{
+      btn.style.background = '#1e40af'; btn.style.color = '#fff';
+      btn.style.border = 'none';
+    }} else {{
+      btn.style.background = '#1e293b'; btn.style.color = '#94a3b8';
+      btn.style.border = '1px solid #334155';
+    }}
+  }});
+  _sopRenderCap();
+}}
+
+function _sopRenderCap() {{
+  const B = SOP_BACKTEST || {{}};
+  const r = _sopActiveCap === '1m' ? (B.result_1m || {{}}) : (B.result_2m || {{}});
+  const fv = (v, d=1, fb='—') => v == null ? fb : Number(v).toFixed(d);
+  const pct = v => v == null ? '—' : (v >= 0 ? '+' : '') + fv(v) + '%';
+  const col = v => v == null ? '#94a3b8' : v >= 0 ? '#22c55e' : '#ef4444';
+  const initCap = r.initial_capital || (_sopActiveCap==='1m' ? 1000000 : 2000000);
+  const finalVal = r.final_value || initCap;
+
+  // KPI cards
+  const kpis = [
+    {{ label:'總報酬率', val:pct(r.total_return_pct), color:col(r.total_return_pct), sub:`年化 ${{pct(r.annualized_return_pct)}}` }},
+    {{ label:'最大回撤', val:(r.max_drawdown_pct ? '-'+fv(r.max_drawdown_pct)+'%' : '—'), color:'#f87171', sub:'峰谷最大跌幅' }},
+    {{ label:'勝率', val:(r.win_rate != null ? fv(r.win_rate,0)+'%' : '—'), color:r.win_rate>=55?'#22c55e':r.win_rate>=45?'#fbbf24':'#ef4444', sub:`交易 ${{r.closed_trades||0}} 筆` }},
+    {{ label:'最終資產', val:finalVal.toLocaleString('zh-TW',{{maximumFractionDigits:0}})+'元',
+       color:col(r.total_return_pct), sub:`初始 ${{initCap.toLocaleString('zh-TW')}}元` }},
+  ];
+  document.getElementById('sopKpiCards').innerHTML = kpis.map(k => `
+    <div class="kpi-card" style="background:#0f172a;border:1px solid #334155">
+      <div class="kpi-label">${{k.label}}</div>
+      <div class="kpi-value" style="color:${{k.color}};font-size:22px">${{k.val}}</div>
+      <div class="kpi-sub">${{k.sub}}</div>
+    </div>`).join('');
+
+  // Equity chart (ECharts)
+  const eq = r.equity_curve || [];
+  if (eq.length && typeof echarts !== 'undefined') {{
+    if (!_sopChartInst) {{
+      _sopChartInst = echarts.init(document.getElementById('sopChartEl'), 'dark');
+    }}
+    const dates  = eq.map(e => e.date);
+    const values = eq.map(e => e.value);
+    _sopChartInst.setOption({{
+      backgroundColor: '#0c1220',
+      grid: {{ left:60, right:20, top:30, bottom:40 }},
+      xAxis: {{ type:'category', data:dates, axisLabel:{{ fontSize:10, color:'#94a3b8' }} }},
+      yAxis: {{ type:'value', axisLabel:{{ formatter: v => (v/10000).toFixed(0)+'萬', fontSize:10, color:'#94a3b8' }} }},
+      series: [{{
+        type:'line', data:values, smooth:true, symbol:'none', lineStyle:{{width:2,color:'#38bdf8'}},
+        areaStyle:{{color:{{ type:'linear', x:0,y:0,x2:0,y2:1, colorStops:[
+          {{offset:0,color:'rgba(56,189,248,0.25)'}}, {{offset:1,color:'rgba(56,189,248,0.02)'}}
+        ]}}}},
+        markLine:{{ silent:true, data:[{{ yAxis:initCap, label:{{formatter:'初始',color:'#fbbf24'}}, lineStyle:{{color:'#fbbf24',type:'dashed'}} }}] }},
+      }}],
+      tooltip:{{ trigger:'axis', formatter: p => `${{p[0].name}}<br>資產: ${{Number(p[0].value).toLocaleString('zh-TW')}} 元` }},
+    }});
+  }}
+
+  // Monthly returns heatmap
+  const mo = r.monthly_returns || [];
+  document.getElementById('sopMonthlyGrid').innerHTML = mo.map(m => {{
+    const rv = m.return;
+    const bg = rv >= 5 ? '#14532d' : rv >= 2 ? '#166534' : rv >= 0 ? '#15803d55' : rv >= -2 ? '#7f1d1d55' : rv >= -5 ? '#991b1b' : '#7f1d1d';
+    const fc = rv >= 0 ? '#86efac' : '#fca5a5';
+    return `<div style="width:80px;padding:6px 8px;border-radius:6px;background:${{bg}};text-align:center;font-size:12px">
+      <div style="color:#94a3b8;font-size:10px">${{m.month}}</div>
+      <div style="color:${{fc}};font-weight:700">${{rv>=0?'+':''}}${{rv.toFixed(1)}}%</div>
+    </div>`;
+  }}).join('');
+
+  // Trade log
+  const trades = r.trades || [];
+  const pnlCol = v => v >= 0 ? '#22c55e' : '#ef4444';
+  document.getElementById('sopTradesTbody').innerHTML = trades.map(t => `
+    <tr>
+      <td style="font-weight:700;color:#60a5fa">${{t.code}}</td>
+      <td>${{t.name||''}}</td>
+      <td style="font-size:11px">${{t.entry_date}}</td>
+      <td style="text-align:right">${{t.entry_price}}</td>
+      <td style="font-size:11px">${{t.exit_date||'持倉中'}}</td>
+      <td style="text-align:right">${{t.exit_price}}</td>
+      <td style="text-align:right">${{(t.shares||0).toLocaleString()}}</td>
+      <td style="text-align:right;color:${{pnlCol(t.pnl||0)}};font-weight:600">${{(t.pnl||0).toLocaleString('zh-TW')}}</td>
+      <td style="text-align:right;color:${{pnlCol(t.pnl_pct||0)}};font-weight:700">${{(t.pnl_pct||0)>=0?'+':''}}${{(t.pnl_pct||0).toFixed(2)}}%</td>
+      <td style="font-size:11px;color:#94a3b8">${{t.exit_reason||''}}</td>
+    </tr>`).join('');
+}}
+
+function initSopBacktest() {{
+  const B = SOP_BACKTEST || {{}};
+
+  // Disclaimer
+  const disc = document.getElementById('sopDisclaimer');
+  if (disc && B.disclaimer) disc.textContent = B.disclaimer;
+
+  // Gap analysis
+  const ga = B.gap_analysis || {{}};
+  const gaps = ga.gaps || [];
+  const matches = ga.matches || [];
+  const sevCol = s => s.includes('🔴') ? '#ef4444' : s.includes('🟡') ? '#fbbf24' : '#22c55e';
+  const gapHtml = `
+    <div style="margin-bottom:12px;font-size:13px;color:#94a3b8">
+      <b style="color:#f1f5f9">現行DNA系統</b>: 進場 = ${{ga.current_dna?.entry||'—'}} | 出場 = ${{ga.current_dna?.exit||'—'}}
+    </div>
+    <div style="margin-bottom:12px;font-size:13px;color:#94a3b8">
+      <b style="color:#f1f5f9">SOP標準</b>: 進場Step1 = ${{ga.sop?.step1_market||'—'}} / Step2 = ${{ga.sop?.step2_stock||'—'}} | 出場 = ${{ga.sop?.exit_individual||'—'}}
+    </div>
+    <table class="data-table" style="font-size:12px">
+      <thead><tr><th>嚴重性</th><th>差異項目</th><th>說明</th></tr></thead>
+      <tbody>
+        ${{gaps.map(g => `<tr>
+          <td style="color:${{sevCol(g.sev)}};font-weight:700;white-space:nowrap">${{g.sev}}</td>
+          <td style="font-weight:600;color:#e2e8f0">${{g.title}}</td>
+          <td style="color:#94a3b8;font-size:11px">${{g.desc}}</td>
+        </tr>`).join('')}}
+      </tbody>
+    </table>`;
+  const gapEl = document.getElementById('sopGapTable');
+  if (gapEl) gapEl.innerHTML = gapHtml;
+
+  const matchHtml = `
+    <table class="data-table" style="font-size:12px">
+      <thead><tr><th>信號/條件</th><th>相容性</th><th>說明</th></tr></thead>
+      <tbody>
+        ${{matches.map(m => `<tr>
+          <td style="font-weight:600;color:#a5f3fc">${{m.signal}}</td>
+          <td style="color:${{m.compat.includes('完全')?'#22c55e':'#fbbf24'}};font-weight:700">${{m.compat}}</td>
+          <td style="color:#94a3b8;font-size:11px">${{m.note}}</td>
+        </tr>`).join('')}}
+      </tbody>
+    </table>`;
+  const matchEl = document.getElementById('sopMatchTable');
+  if (matchEl) matchEl.innerHTML = matchHtml;
+
+  // DNA signals comparison table
+  const sigs = ga.current_dna?.signals || [];
+  if (sigs.length) {{
+    const sigHtml = `<div style="margin-top:16px">
+      <div class="section-title" style="margin-bottom:8px">DNA信號 vs SOP需求</div>
+      <table class="data-table" style="font-size:12px">
+        <thead><tr><th>信號</th><th>名稱</th><th>現況</th><th>備註</th></tr></thead>
+        <tbody>
+          ${{sigs.map(s => `<tr>
+            <td style="font-weight:700;color:#818cf8">${{s.id}}</td>
+            <td style="color:#e2e8f0">${{s.name}}</td>
+            <td style="font-weight:700;color:${{s.status.includes('✅')?'#22c55e':'#f87171'}}">${{s.status}}</td>
+            <td style="color:#94a3b8;font-size:11px">${{s.note}}</td>
+          </tr>`).join('')}}
+        </tbody>
+      </table>
+    </div>`;
+    if (gapEl) gapEl.innerHTML += sigHtml;
+  }}
+
+  // Render 1M by default
+  sopShowCap('1m');
 }}
 
 // ════════════════════════════════ AI VALUE CHAIN ═════════════════════════════
