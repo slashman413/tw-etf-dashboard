@@ -82,6 +82,29 @@ try:
 except Exception as e:
     print(f"  openapi failed: {e}")
 
+# Fallback: RWD endpoint when OpenAPI is stale
+if not price_raw or data_date <= PREV_DATE:
+    try:
+        from datetime import date as _date
+        _today = _date.today().strftime("%Y%m%d")
+        _rwd = fetch(f"https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?response=json&date={_today}")
+        _rwd_date = _rwd.get("date","")  # e.g. "20260610"
+        if _rwd_date and len(_rwd_date)==8:
+            _roc = f"{int(_rwd_date[:4])-1911}{_rwd_date[4:]}"  # "1150610"
+            _rows = _rwd.get("data",[])
+            if _roc > PREV_DATE and _rows:
+                price_raw = [
+                    {"Date":_roc,"Code":row[0],"Name":row[1],
+                     "TradeVolume":row[2].replace(",",""),"TradeValue":row[3].replace(",",""),
+                     "OpeningPrice":row[4],"HighestPrice":row[5],"LowestPrice":row[6],
+                     "ClosingPrice":row[7],"Change":row[8],"Transaction":row[9].replace(",","")}
+                    for row in _rows if len(row)>=10
+                ]
+                data_date = _roc
+                print(f"  RWD fallback: {len(price_raw)} rows | Date: {data_date}")
+    except Exception as e2:
+        print(f"  RWD fallback failed: {e2}")
+
 if data_date > PREV_DATE:
     price_map = {r.get("Code","").strip(): r for r in price_raw if r.get("Code")}
     momentum = []
