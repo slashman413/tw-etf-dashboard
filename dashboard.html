@@ -364,7 +364,7 @@
 
     <!-- 精選推薦 -->
     <div class="nav-group">
-      <button class="nav-group-btn" id="premiumNavBtn">⭐ 精選推薦 <span id="premiumLockIcon" class="pw-nav-lock">🔒</span><span class="nav-arrow">▾</span></button>
+      <button class="nav-group-btn">⭐ 精選推薦 <span class="nav-arrow">▾</span></button>
       <div class="nav-dropdown">
         <button class="nav-tab" onclick="showPage('actionsig',this)" style="color:#dc2626;font-weight:800">🎯 綜合行動信號</button>
         <button class="nav-tab" onclick="showPage('conviction',this)">⭐ 推薦排名</button>
@@ -394,7 +394,7 @@
 
     <!-- 技術DNA -->
     <div class="nav-group">
-      <button class="nav-group-btn">🧬 技術DNA <span class="nav-arrow">▾</span></button>
+      <button class="nav-group-btn" id="premiumNavBtn">🧬 技術DNA <span id="premiumLockIcon" class="pw-nav-lock">🔒</span><span class="nav-arrow">▾</span></button>
       <div class="nav-dropdown">
         <button class="nav-tab" onclick="showPage('strategy',this)" style="color:#7c3aed;font-weight:700">🎯 策略系統</button>
         <button class="nav-tab" onclick="showPage('dnascreen',this)" style="color:#c2410c;font-weight:700">🧬 大飆股DNA</button>
@@ -472,17 +472,17 @@
 <div id="paywallOverlay" class="pw-overlay" style="display:none" onclick="if(event.target===this)closePaywall()">
   <div class="pw-modal">
     <div class="pw-lock-icon">🔒</div>
-    <div class="pw-title">精選推薦 — 訂閱會員專區</div>
+    <div class="pw-title">🧬 技術DNA — 訂閱會員專區</div>
     <div class="pw-price">NT$ 168 / 月</div>
     <div class="pw-features">
-      🎯 綜合行動信號 — 每日買賣決策<br>
-      ⭐ 推薦排名 — Grand Unified 精選<br>
-      💎 TRIPLE精析 — 三重確認個股分析<br>
-      🗓 週一行動 — 週度操作計劃<br>
-      📋 開盤行動卡 — 盤前快速清單<br>
-      🔔 監控警示 — 即時信號通知<br>
-      🏦 法人買賣超 — 三大法人追蹤<br>
-      🧲 智慧資金匯合 — Smart Money 分析
+      🧬 大飆股DNA — S1–S6 六大信號掃描<br>
+      🎯 策略系統 — 完整操作策略框架<br>
+      ⚡ 升評觸發計算 — 精準進場時機<br>
+      🔬 回測驗證 — DNA歷史績效分析<br>
+      📈 SOP三年回測 — 年化+17.1%模擬<br>
+      📡 相對強度 — 個股強弱比較<br>
+      📊 價格動能 — 多週期動能追蹤<br>
+      📉 技術分析 — K線+指標深度分析
     </div>
     <input id="pwCodeInput" class="pw-input" type="text" placeholder="請輸入授權碼 (e.g. TW168-XXXX)" autocomplete="off"
       onkeydown="if(event.key==='Enter')verifyCode()">
@@ -3507,7 +3507,7 @@ const SOP_BACKTEST   = {"generated": "2026-06-10 10:56", "period": "2023-01-01 �
 const AUTH_CODES = [
   "TW168-DEMO1", "TW168-DEMO2", "TW168-DEMO3"
 ];
-const PREMIUM_PAGES = new Set(['actionsig','conviction','triplereport','mondayplan','premarket','watchalerts','instflows','smartmoney']);
+const PREMIUM_PAGES = new Set(['strategy','dnascreen','dnatrigger','backtest','sopbacktest','relstrength','momentum','technical']);
 const PW_KEY = 'tw_etf_unlock'; const PW_DAYS = 30;
 
 function isUnlocked() {
