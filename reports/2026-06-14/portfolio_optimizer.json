@@ -1,0 +1,763 @@
+{
+  "date": "2026-06-08",
+  "fetch_ts": "2026-06-08 20:29",
+  "n_universe": 11,
+  "n_optimized": 11,
+  "n_simulated": 50000,
+  "risk_free": 0.02,
+  "universe": [
+    {
+      "code": "2883",
+      "name": "開發金 CDFH",
+      "grand": 75.1,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "ret_20d": 23.84,
+      "ret_60d": 33.75,
+      "rs_60d": 4.21,
+      "pct_52w_hi": -3.1,
+      "bull_signs": 6,
+      "pct_ma": 5.5,
+      "exp_ret": 76.39
+    },
+    {
+      "code": "2887",
+      "name": "台新金 Taishin",
+      "grand": 70.8,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "ret_20d": 20.65,
+      "ret_60d": 12.58,
+      "rs_60d": -16.97,
+      "pct_52w_hi": -3.0,
+      "bull_signs": 4,
+      "pct_ma": 1.9,
+      "exp_ret": 30.02
+    },
+    {
+      "code": "2881",
+      "name": "富邦金 Fubon",
+      "grand": 69.5,
+      "final": "✅ STRONG BUY",
+      "ret_20d": 23.8,
+      "ret_60d": 29.75,
+      "rs_60d": 0.21,
+      "pct_52w_hi": -1.7,
+      "bull_signs": 6,
+      "pct_ma": 1.9,
+      "exp_ret": 66.91
+    },
+    {
+      "code": "2615",
+      "name": "萬海 WanHai",
+      "grand": 69.1,
+      "final": "✅ STRONG BUY",
+      "ret_20d": 10.01,
+      "ret_60d": 5.75,
+      "rs_60d": -23.79,
+      "pct_52w_hi": -25.6,
+      "bull_signs": 3,
+      "pct_ma": 0.2,
+      "exp_ret": 15.01
+    },
+    {
+      "code": "2882",
+      "name": "國泰金 Cathay",
+      "grand": 68.2,
+      "final": "✅ STRONG BUY",
+      "ret_20d": 24.35,
+      "ret_60d": 31.03,
+      "rs_60d": 1.49,
+      "pct_52w_hi": -5.0,
+      "bull_signs": 6,
+      "pct_ma": 2.5,
+      "exp_ret": 69.48
+    },
+    {
+      "code": "5876",
+      "name": "上海商銀 ShanghaiCB",
+      "grand": 60.8,
+      "final": "📈 BUY",
+      "ret_20d": 0.12,
+      "ret_60d": 2.55,
+      "rs_60d": -26.99,
+      "pct_52w_hi": -14.5,
+      "bull_signs": 2,
+      "pct_ma": -1.2,
+      "exp_ret": 6.86
+    },
+    {
+      "code": "2603",
+      "name": "長榮 Evergreen",
+      "grand": 59.9,
+      "final": "📈 BUY",
+      "ret_20d": 4.67,
+      "ret_60d": 5.91,
+      "rs_60d": -23.63,
+      "pct_52w_hi": -5.5,
+      "bull_signs": 4,
+      "pct_ma": -3.4,
+      "exp_ret": 13.98
+    },
+    {
+      "code": "4904",
+      "name": "遠傳 FarEasTone",
+      "grand": 59.9,
+      "final": "📈 BUY",
+      "ret_20d": 5.76,
+      "ret_60d": 9.54,
+      "rs_60d": -20.0,
+      "pct_52w_hi": -1.0,
+      "bull_signs": 5,
+      "pct_ma": 0.9,
+      "exp_ret": 21.82
+    },
+    {
+      "code": "2382",
+      "name": "廣達 Quanta",
+      "grand": 58.3,
+      "final": "📈 BUY",
+      "ret_20d": 10.74,
+      "ret_60d": 30.5,
+      "rs_60d": 0.96,
+      "pct_52w_hi": -9.7,
+      "bull_signs": 5,
+      "pct_ma": -5.1,
+      "exp_ret": 66.85
+    },
+    {
+      "code": "2891",
+      "name": "中信金 CTBC",
+      "grand": 58.0,
+      "final": "📈 BUY",
+      "ret_20d": 22.24,
+      "ret_60d": 27.49,
+      "rs_60d": -2.06,
+      "pct_52w_hi": -7.2,
+      "bull_signs": 5,
+      "pct_ma": -1.3,
+      "exp_ret": 60.31
+    },
+    {
+      "code": "2357",
+      "name": "華碩 ASUS",
+      "grand": 57.7,
+      "final": "📈 BUY",
+      "ret_20d": 25.41,
+      "ret_60d": 45.27,
+      "rs_60d": 15.72,
+      "pct_52w_hi": -9.3,
+      "bull_signs": 5,
+      "pct_ma": -5.8,
+      "exp_ret": 98.67
+    }
+  ],
+  "portfolios_meta": [
+    {
+      "label": "最大夏普率",
+      "ann_return_pct": 48.9,
+      "ann_vol_pct": 31.6,
+      "sharpe": 1.48
+    },
+    {
+      "label": "最小波動率",
+      "ann_return_pct": 34.2,
+      "ann_vol_pct": 23.0,
+      "sharpe": 1.4
+    },
+    {
+      "label": "風險平價",
+      "ann_return_pct": 31.3,
+      "ann_vol_pct": 23.1,
+      "sharpe": 1.27
+    },
+    {
+      "label": "信念加權",
+      "ann_return_pct": 48.2,
+      "ann_vol_pct": 42.1,
+      "sharpe": 1.1
+    },
+    {
+      "label": "等權",
+      "ann_return_pct": 47.8,
+      "ann_vol_pct": 38.9,
+      "sharpe": 1.18
+    }
+  ],
+  "max_sharpe": {
+    "label": "最大夏普率",
+    "allocations": [
+      {
+        "code": "2603",
+        "name": "長榮 Evergreen",
+        "weight_pct": 17.6,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 4,
+        "exp_ret_pct": 13.98,
+        "vol_pct": 16.6
+      },
+      {
+        "code": "4904",
+        "name": "遠傳 FarEasTone",
+        "weight_pct": 17.6,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 21.82,
+        "vol_pct": 20.4
+      },
+      {
+        "code": "2382",
+        "name": "廣達 Quanta",
+        "weight_pct": 17.6,
+        "grand": 58.3,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 66.85,
+        "vol_pct": 38.1
+      },
+      {
+        "code": "2357",
+        "name": "華碩 ASUS",
+        "weight_pct": 17.6,
+        "grand": 57.7,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 98.67,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2883",
+        "name": "開發金 CDFH",
+        "weight_pct": 5.3,
+        "grand": 75.1,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 6,
+        "exp_ret_pct": 76.39,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2887",
+        "name": "台新金 Taishin",
+        "weight_pct": 5.3,
+        "grand": 70.8,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 4,
+        "exp_ret_pct": 30.02,
+        "vol_pct": 73.3
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀 ShanghaiCB",
+        "weight_pct": 5.0,
+        "grand": 60.8,
+        "final": "📈 BUY",
+        "bull_signs": 2,
+        "exp_ret_pct": 6.86,
+        "vol_pct": 15.0
+      },
+      {
+        "code": "2891",
+        "name": "中信金 CTBC",
+        "weight_pct": 3.6,
+        "grand": 58.0,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 60.31,
+        "vol_pct": 78.9
+      },
+      {
+        "code": "2881",
+        "name": "富邦金 Fubon",
+        "weight_pct": 3.5,
+        "grand": 69.5,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 66.91,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2615",
+        "name": "萬海 WanHai",
+        "weight_pct": 3.5,
+        "grand": 69.1,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 3,
+        "exp_ret_pct": 15.01,
+        "vol_pct": 35.5
+      },
+      {
+        "code": "2882",
+        "name": "國泰金 Cathay",
+        "weight_pct": 3.5,
+        "grand": 68.2,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 69.48,
+        "vol_pct": 80.0
+      }
+    ]
+  },
+  "min_vol": {
+    "label": "最小波動率",
+    "allocations": [
+      {
+        "code": "5876",
+        "name": "上海商銀 ShanghaiCB",
+        "weight_pct": 17.8,
+        "grand": 60.8,
+        "final": "📈 BUY",
+        "bull_signs": 2,
+        "exp_ret_pct": 6.86,
+        "vol_pct": 15.0
+      },
+      {
+        "code": "2603",
+        "name": "長榮 Evergreen",
+        "weight_pct": 17.8,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 4,
+        "exp_ret_pct": 13.98,
+        "vol_pct": 16.6
+      },
+      {
+        "code": "4904",
+        "name": "遠傳 FarEasTone",
+        "weight_pct": 17.8,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 21.82,
+        "vol_pct": 20.4
+      },
+      {
+        "code": "2382",
+        "name": "廣達 Quanta",
+        "weight_pct": 17.8,
+        "grand": 58.3,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 66.85,
+        "vol_pct": 38.1
+      },
+      {
+        "code": "2615",
+        "name": "萬海 WanHai",
+        "weight_pct": 7.0,
+        "grand": 69.1,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 3,
+        "exp_ret_pct": 15.01,
+        "vol_pct": 35.5
+      },
+      {
+        "code": "2883",
+        "name": "開發金 CDFH",
+        "weight_pct": 5.3,
+        "grand": 75.1,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 6,
+        "exp_ret_pct": 76.39,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2887",
+        "name": "台新金 Taishin",
+        "weight_pct": 5.3,
+        "grand": 70.8,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 4,
+        "exp_ret_pct": 30.02,
+        "vol_pct": 73.3
+      },
+      {
+        "code": "2881",
+        "name": "富邦金 Fubon",
+        "weight_pct": 3.6,
+        "grand": 69.5,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 66.91,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2882",
+        "name": "國泰金 Cathay",
+        "weight_pct": 3.6,
+        "grand": 68.2,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 69.48,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2357",
+        "name": "華碩 ASUS",
+        "weight_pct": 2.1,
+        "grand": 57.7,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 98.67,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2891",
+        "name": "中信金 CTBC",
+        "weight_pct": 1.8,
+        "grand": 58.0,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 60.31,
+        "vol_pct": 78.9
+      }
+    ]
+  },
+  "risk_parity": {
+    "label": "風險平價",
+    "allocations": [
+      {
+        "code": "5876",
+        "name": "上海商銀 ShanghaiCB",
+        "weight_pct": 21.7,
+        "grand": 60.8,
+        "final": "📈 BUY",
+        "bull_signs": 2,
+        "exp_ret_pct": 6.86,
+        "vol_pct": 15.0
+      },
+      {
+        "code": "2603",
+        "name": "長榮 Evergreen",
+        "weight_pct": 19.7,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 4,
+        "exp_ret_pct": 13.98,
+        "vol_pct": 16.6
+      },
+      {
+        "code": "4904",
+        "name": "遠傳 FarEasTone",
+        "weight_pct": 16.0,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 21.82,
+        "vol_pct": 20.4
+      },
+      {
+        "code": "2615",
+        "name": "萬海 WanHai",
+        "weight_pct": 9.2,
+        "grand": 69.1,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 3,
+        "exp_ret_pct": 15.01,
+        "vol_pct": 35.5
+      },
+      {
+        "code": "2382",
+        "name": "廣達 Quanta",
+        "weight_pct": 8.6,
+        "grand": 58.3,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 66.85,
+        "vol_pct": 38.1
+      },
+      {
+        "code": "2887",
+        "name": "台新金 Taishin",
+        "weight_pct": 4.4,
+        "grand": 70.8,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 4,
+        "exp_ret_pct": 30.02,
+        "vol_pct": 73.3
+      },
+      {
+        "code": "2883",
+        "name": "開發金 CDFH",
+        "weight_pct": 4.1,
+        "grand": 75.1,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 6,
+        "exp_ret_pct": 76.39,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2881",
+        "name": "富邦金 Fubon",
+        "weight_pct": 4.1,
+        "grand": 69.5,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 66.91,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2882",
+        "name": "國泰金 Cathay",
+        "weight_pct": 4.1,
+        "grand": 68.2,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 69.48,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2891",
+        "name": "中信金 CTBC",
+        "weight_pct": 4.1,
+        "grand": 58.0,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 60.31,
+        "vol_pct": 78.9
+      },
+      {
+        "code": "2357",
+        "name": "華碩 ASUS",
+        "weight_pct": 4.1,
+        "grand": 57.7,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 98.67,
+        "vol_pct": 80.0
+      }
+    ]
+  },
+  "conviction": {
+    "label": "信念加權",
+    "allocations": [
+      {
+        "code": "2883",
+        "name": "開發金 CDFH",
+        "weight_pct": 13.1,
+        "grand": 75.1,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 6,
+        "exp_ret_pct": 76.39,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2887",
+        "name": "台新金 Taishin",
+        "weight_pct": 11.5,
+        "grand": 70.8,
+        "final": "🚀 TRIPLE CONFIRMED",
+        "bull_signs": 4,
+        "exp_ret_pct": 30.02,
+        "vol_pct": 73.3
+      },
+      {
+        "code": "2881",
+        "name": "富邦金 Fubon",
+        "weight_pct": 11.0,
+        "grand": 69.5,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 66.91,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "2615",
+        "name": "萬海 WanHai",
+        "weight_pct": 10.9,
+        "grand": 69.1,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 3,
+        "exp_ret_pct": 15.01,
+        "vol_pct": 35.5
+      },
+      {
+        "code": "2882",
+        "name": "國泰金 Cathay",
+        "weight_pct": 10.5,
+        "grand": 68.2,
+        "final": "✅ STRONG BUY",
+        "bull_signs": 6,
+        "exp_ret_pct": 69.48,
+        "vol_pct": 80.0
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀 ShanghaiCB",
+        "weight_pct": 7.8,
+        "grand": 60.8,
+        "final": "📈 BUY",
+        "bull_signs": 2,
+        "exp_ret_pct": 6.86,
+        "vol_pct": 15.0
+      },
+      {
+        "code": "2603",
+        "name": "長榮 Evergreen",
+        "weight_pct": 7.4,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 4,
+        "exp_ret_pct": 13.98,
+        "vol_pct": 16.6
+      },
+      {
+        "code": "4904",
+        "name": "遠傳 FarEasTone",
+        "weight_pct": 7.4,
+        "grand": 59.9,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 21.82,
+        "vol_pct": 20.4
+      },
+      {
+        "code": "2382",
+        "name": "廣達 Quanta",
+        "weight_pct": 6.8,
+        "grand": 58.3,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 66.85,
+        "vol_pct": 38.1
+      },
+      {
+        "code": "2891",
+        "name": "中信金 CTBC",
+        "weight_pct": 6.7,
+        "grand": 58.0,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 60.31,
+        "vol_pct": 78.9
+      },
+      {
+        "code": "2357",
+        "name": "華碩 ASUS",
+        "weight_pct": 6.6,
+        "grand": 57.7,
+        "final": "📈 BUY",
+        "bull_signs": 5,
+        "exp_ret_pct": 98.67,
+        "vol_pct": 80.0
+      }
+    ]
+  },
+  "efficient_frontier": [
+    {
+      "ret": 26.0,
+      "vol": 24.2
+    },
+    {
+      "ret": 39.4,
+      "vol": 35.7
+    },
+    {
+      "ret": 41.4,
+      "vol": 44.0
+    },
+    {
+      "ret": 42.8,
+      "vol": 35.7
+    },
+    {
+      "ret": 43.9,
+      "vol": 38.4
+    },
+    {
+      "ret": 44.8,
+      "vol": 46.9
+    },
+    {
+      "ret": 45.7,
+      "vol": 44.9
+    },
+    {
+      "ret": 46.5,
+      "vol": 43.1
+    },
+    {
+      "ret": 47.2,
+      "vol": 40.6
+    },
+    {
+      "ret": 48.0,
+      "vol": 39.4
+    },
+    {
+      "ret": 48.7,
+      "vol": 41.1
+    },
+    {
+      "ret": 49.4,
+      "vol": 47.4
+    },
+    {
+      "ret": 50.2,
+      "vol": 44.0
+    },
+    {
+      "ret": 51.0,
+      "vol": 44.7
+    },
+    {
+      "ret": 51.9,
+      "vol": 38.2
+    },
+    {
+      "ret": 52.8,
+      "vol": 38.4
+    },
+    {
+      "ret": 53.9,
+      "vol": 45.5
+    },
+    {
+      "ret": 55.3,
+      "vol": 44.9
+    },
+    {
+      "ret": 57.2,
+      "vol": 48.7
+    },
+    {
+      "ret": 67.8,
+      "vol": 54.3
+    }
+  ],
+  "concentration_risk": [
+    {
+      "a": "2881",
+      "b": "2882",
+      "r": 0.81,
+      "name_a": "富邦金 Fubon",
+      "name_b": "國泰金 Cathay"
+    },
+    {
+      "a": "2615",
+      "b": "2603",
+      "r": 0.742,
+      "name_a": "萬海 WanHai",
+      "name_b": "長榮 Evergreen"
+    },
+    {
+      "a": "2883",
+      "b": "2882",
+      "r": 0.705,
+      "name_a": "開發金 CDFH",
+      "name_b": "國泰金 Cathay"
+    }
+  ],
+  "optimal_codes": [
+    "2883",
+    "2887",
+    "2881",
+    "2615",
+    "2882",
+    "5876",
+    "2603",
+    "4904",
+    "2382",
+    "2891",
+    "2357"
+  ]
+}
