@@ -1,0 +1,605 @@
+{
+  "date": "2026-06-08",
+  "layers": [
+    {
+      "id": "L1_Foundry",
+      "label": "Layer 1 — 晶圓代工 (Foundry)",
+      "desc": "最核心AI晶片製造層，台積電幾乎壟斷先進製程",
+      "theme": "#1e40af",
+      "avg_score": 49.0,
+      "avg_pe": 26.8,
+      "avg_upside": -44.4,
+      "avg_risk": 16.0,
+      "buy_count": 0,
+      "n": 1,
+      "stocks": [
+        {
+          "code": "2330",
+          "name": "台積電",
+          "score": 49,
+          "fwd_pe": 26.777626811594207,
+          "upside": -44.4,
+          "risk": 16,
+          "cum_yoy": 29.946314254829318,
+          "verdict": "HOLD"
+        }
+      ]
+    },
+    {
+      "id": "L2_Package",
+      "label": "Layer 2 — 封裝測試 (Packaging/Test)",
+      "desc": "CoWoS先進封裝需求隨AI GPU爆增；ASE為最大封測廠",
+      "theme": "#1d4ed8",
+      "avg_score": 30.0,
+      "avg_pe": 44.5,
+      "avg_upside": -60.0,
+      "avg_risk": 29.0,
+      "buy_count": 0,
+      "n": 1,
+      "stocks": [
+        {
+          "code": "3711",
+          "name": "日月光",
+          "score": 30,
+          "fwd_pe": 44.5216049382716,
+          "upside": -60.0,
+          "risk": 29,
+          "cum_yoy": 17.740325036087192,
+          "verdict": "REDUCE"
+        }
+      ]
+    },
+    {
+      "id": "L3_Memory",
+      "label": "Layer 3 — 記憶體 (Memory)",
+      "desc": "HBM/DDR5 AI訓練需求驅動DRAM週期復甦",
+      "theme": "#0891b2",
+      "avg_score": 59.5,
+      "avg_pe": 26.2,
+      "avg_upside": 62.2,
+      "avg_risk": 11.5,
+      "buy_count": 1,
+      "n": 3,
+      "stocks": [
+        {
+          "code": "2408",
+          "name": "南亞科",
+          "score": 79,
+          "fwd_pe": 10.70154577883472,
+          "upside": 155.5,
+          "risk": 4,
+          "cum_yoy": 623.5846473576565,
+          "verdict": "STRONG BUY"
+        },
+        {
+          "code": "2344",
+          "name": "華邦電",
+          "score": null,
+          "fwd_pe": null,
+          "upside": null,
+          "risk": 30,
+          "cum_yoy": 114.45152253341396,
+          "verdict": "—"
+        },
+        {
+          "code": "2337",
+          "name": "旺宏",
+          "score": 40,
+          "fwd_pe": 41.666666666666664,
+          "upside": -31.0,
+          "risk": 19,
+          "cum_yoy": 93.45563776655904,
+          "verdict": "REDUCE"
+        }
+      ]
+    },
+    {
+      "id": "L4_ICDesign",
+      "label": "Layer 4 — IC設計 (IC Design)",
+      "desc": "AI加速晶片、網路IC、電源管理IC受益",
+      "theme": "#0284c7",
+      "avg_score": 33.0,
+      "avg_pe": 46.5,
+      "avg_upside": -54.0,
+      "avg_risk": 25.2,
+      "buy_count": 0,
+      "n": 5,
+      "stocks": [
+        {
+          "code": "2454",
+          "name": "聯發科",
+          "score": 15,
+          "fwd_pe": 70.86354647330258,
+          "upside": -75.3,
+          "risk": 51,
+          "cum_yoy": -3.058142777941978,
+          "verdict": "AVOID"
+        },
+        {
+          "code": "2379",
+          "name": "瑞昱",
+          "score": 42,
+          "fwd_pe": 19.04620853080569,
+          "upside": 16.4,
+          "risk": 12,
+          "cum_yoy": 5.78860204490585,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "3034",
+          "name": "聯詠",
+          "score": 43,
+          "fwd_pe": 19.87075928917609,
+          "upside": -59.5,
+          "risk": 6,
+          "cum_yoy": -10.677102009635023,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "6415",
+          "name": "矽力",
+          "score": 27,
+          "fwd_pe": 73.48484848484848,
+          "upside": -90.0,
+          "risk": 34,
+          "cum_yoy": 21.278351417817948,
+          "verdict": "AVOID"
+        },
+        {
+          "code": "2327",
+          "name": "國巨",
+          "score": 38,
+          "fwd_pe": 49.294871794871796,
+          "upside": -61.7,
+          "risk": 23,
+          "cum_yoy": 22.525925372723073,
+          "verdict": "REDUCE"
+        }
+      ]
+    },
+    {
+      "id": "L5_PCB",
+      "label": "Layer 5 — PCB/基板 (PCB/Substrate)",
+      "desc": "AI伺服器高密度基板需求強勁",
+      "theme": "#0369a1",
+      "avg_score": 30.0,
+      "avg_pe": 71.1,
+      "avg_upside": -63.5,
+      "avg_risk": 38.0,
+      "buy_count": 0,
+      "n": 2,
+      "stocks": [
+        {
+          "code": "3037",
+          "name": "欣興",
+          "score": 30,
+          "fwd_pe": 71.11280487804879,
+          "upside": -63.5,
+          "risk": 38,
+          "cum_yoy": 25.298423236676427,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2383",
+          "name": "台光電",
+          "score": null,
+          "fwd_pe": null,
+          "upside": null,
+          "risk": 30,
+          "cum_yoy": 62.73574575073765,
+          "verdict": "—"
+        }
+      ]
+    },
+    {
+      "id": "L6_Systems",
+      "label": "Layer 6 — 伺服器/系統 (Servers/Systems)",
+      "desc": "雲端廠商AI基礎建設資本支出直接受益者",
+      "theme": "#7c3aed",
+      "avg_score": 43.4,
+      "avg_pe": 21.4,
+      "avg_upside": 10.8,
+      "avg_risk": 22.6,
+      "buy_count": 1,
+      "n": 6,
+      "stocks": [
+        {
+          "code": "2382",
+          "name": "廣達",
+          "score": 49,
+          "fwd_pe": 17.75,
+          "upside": -42.3,
+          "risk": 25,
+          "cum_yoy": 79.6425126685901,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "6669",
+          "name": "緯穎",
+          "score": 38,
+          "fwd_pe": 18.630678077682685,
+          "upside": -56.4,
+          "risk": 17,
+          "cum_yoy": 53.220991831258615,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "3231",
+          "name": "緯創",
+          "score": null,
+          "fwd_pe": null,
+          "upside": null,
+          "risk": 30,
+          "cum_yoy": 135.2700931903602,
+          "verdict": "—"
+        },
+        {
+          "code": "2376",
+          "name": "技嘉",
+          "score": 61,
+          "fwd_pe": 11.736641221374045,
+          "upside": 152.2,
+          "risk": 5,
+          "cum_yoy": 64.15425901107987,
+          "verdict": "BUY"
+        },
+        {
+          "code": "2357",
+          "name": "華碩",
+          "score": 51,
+          "fwd_pe": 17.058377558756636,
+          "upside": 62.2,
+          "risk": 13,
+          "cum_yoy": 42.358930040952465,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "4938",
+          "name": "和碩",
+          "score": 18,
+          "fwd_pe": 41.76724137931035,
+          "upside": -61.7,
+          "risk": 53,
+          "cum_yoy": -11.726530299595682,
+          "verdict": "REDUCE"
+        }
+      ]
+    },
+    {
+      "id": "L7_Components",
+      "label": "Layer 7 — 關鍵零組件 (Components)",
+      "desc": "散熱、光學、連接器等AI伺服器必需組件",
+      "theme": "#6d28d9",
+      "avg_score": 46.3,
+      "avg_pe": 41.5,
+      "avg_upside": -53.0,
+      "avg_risk": 23.7,
+      "buy_count": 0,
+      "n": 3,
+      "stocks": [
+        {
+          "code": "3008",
+          "name": "大立光",
+          "score": 57,
+          "fwd_pe": 19.729787690328113,
+          "upside": -36.0,
+          "risk": 8,
+          "cum_yoy": 10.69183941702921,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2308",
+          "name": "台達電",
+          "score": 37,
+          "fwd_pe": 72.69279393173198,
+          "upside": -80.4,
+          "risk": 40,
+          "cum_yoy": 36.532348429636606,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2395",
+          "name": "研華",
+          "score": 45,
+          "fwd_pe": 32.20779220779221,
+          "upside": -42.5,
+          "risk": 23,
+          "cum_yoy": 21.964540532736468,
+          "verdict": "HOLD"
+        }
+      ]
+    },
+    {
+      "id": "L8_Telecom",
+      "label": "Layer 8 — 電信/網路基礎 (Telecom/Network)",
+      "desc": "AI數據中心網路頻寬需求擴增受益",
+      "theme": "#4338ca",
+      "avg_score": 38.0,
+      "avg_pe": 24.1,
+      "avg_upside": -58.9,
+      "avg_risk": 17.0,
+      "buy_count": 0,
+      "n": 2,
+      "stocks": [
+        {
+          "code": "2412",
+          "name": "中華電",
+          "score": 42,
+          "fwd_pe": 27.115384615384613,
+          "upside": -70.6,
+          "risk": 13,
+          "cum_yoy": 7.52024426560034,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "3045",
+          "name": "台灣大",
+          "score": 34,
+          "fwd_pe": 21.16788321167883,
+          "upside": -47.3,
+          "risk": 21,
+          "cum_yoy": 2.968735739508302,
+          "verdict": "REDUCE"
+        }
+      ]
+    },
+    {
+      "id": "Non_Financial",
+      "label": "金融股 (Financials)",
+      "desc": "AI主題間接受益 — 企業放款增加；IFRS 17利多",
+      "theme": "#16a34a",
+      "avg_score": 55.4,
+      "avg_pe": 12.1,
+      "avg_upside": -3.8,
+      "avg_risk": 3.8,
+      "buy_count": 5,
+      "n": 13,
+      "stocks": [
+        {
+          "code": "2882",
+          "name": "國泰金",
+          "score": 52,
+          "fwd_pe": 11.627906976744187,
+          "upside": -36.5,
+          "risk": 2,
+          "cum_yoy": 577.0666572623264,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2881",
+          "name": "富邦金",
+          "score": 54,
+          "fwd_pe": 12.291666666666668,
+          "upside": -31.4,
+          "risk": 5,
+          "cum_yoy": 402.5871994932322,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2886",
+          "name": "兆豐金",
+          "score": 41,
+          "fwd_pe": 16.6468253968254,
+          "upside": -22.6,
+          "risk": 8,
+          "cum_yoy": 23.644981888260943,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2891",
+          "name": "中信金",
+          "score": 38,
+          "fwd_pe": 14.110169491525424,
+          "upside": -50.6,
+          "risk": 0,
+          "cum_yoy": 81.69612153552563,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2884",
+          "name": "玉山金",
+          "score": 44,
+          "fwd_pe": 13.447580645161292,
+          "upside": -36.8,
+          "risk": 5,
+          "cum_yoy": 24.745043234059793,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2892",
+          "name": "第一金",
+          "score": 51,
+          "fwd_pe": 12.850877192982457,
+          "upside": -16.1,
+          "risk": 0,
+          "cum_yoy": 22.599439526166538,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2887",
+          "name": "台新金",
+          "score": 78,
+          "fwd_pe": 8.719512195121952,
+          "upside": 20.0,
+          "risk": 0,
+          "cum_yoy": 137.66971463873534,
+          "verdict": "STRONG BUY"
+        },
+        {
+          "code": "2890",
+          "name": "永豐金",
+          "score": 54,
+          "fwd_pe": 10.756578947368421,
+          "upside": -33.7,
+          "risk": 0,
+          "cum_yoy": 50.078518078805,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2883",
+          "name": "開發金",
+          "score": 71,
+          "fwd_pe": 10.000000000000002,
+          "upside": 9.5,
+          "risk": 2,
+          "cum_yoy": 319.6219559348892,
+          "verdict": "BUY"
+        },
+        {
+          "code": "5880",
+          "name": "合庫金",
+          "score": 41,
+          "fwd_pe": 16.28472222222222,
+          "upside": -8.4,
+          "risk": 3,
+          "cum_yoy": 21.783585936209555,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2801",
+          "name": "彰銀",
+          "score": 60,
+          "fwd_pe": 12.1875,
+          "upside": 53.2,
+          "risk": 2,
+          "cum_yoy": 13.730931309955972,
+          "verdict": "BUY"
+        },
+        {
+          "code": "5876",
+          "name": "上海商銀",
+          "score": 76,
+          "fwd_pe": 9.702380952380953,
+          "upside": 57.9,
+          "risk": 12,
+          "cum_yoy": -2.215949766539867,
+          "verdict": "STRONG BUY"
+        },
+        {
+          "code": "5871",
+          "name": "中租",
+          "score": 60,
+          "fwd_pe": 9.049079754601227,
+          "upside": 46.6,
+          "risk": 11,
+          "cum_yoy": -3.117440997057108,
+          "verdict": "BUY"
+        }
+      ]
+    },
+    {
+      "id": "Non_Cyclical",
+      "label": "傳統週期股 (Cyclicals/Non-AI)",
+      "desc": "石化、鋼鐵、航運、水泥 — 與AI主題關聯性低",
+      "theme": "#64748b",
+      "avg_score": 37.7,
+      "avg_pe": 22.5,
+      "avg_upside": -11.6,
+      "avg_risk": 21.4,
+      "buy_count": 0,
+      "n": 10,
+      "stocks": [
+        {
+          "code": "1301",
+          "name": "台塑",
+          "score": 28,
+          "fwd_pe": 23.970588235294116,
+          "upside": -71.1,
+          "risk": 38,
+          "cum_yoy": -4.834334069778537,
+          "verdict": "AVOID"
+        },
+        {
+          "code": "1303",
+          "name": "南亞",
+          "score": 59,
+          "fwd_pe": 14.51388888888889,
+          "upside": 94.6,
+          "risk": 13,
+          "cum_yoy": 8.508297183324252,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2002",
+          "name": "中鋼",
+          "score": 16,
+          "fwd_pe": null,
+          "upside": null,
+          "risk": 40,
+          "cum_yoy": -2.961418896368379,
+          "verdict": "AVOID"
+        },
+        {
+          "code": "2603",
+          "name": "長榮",
+          "score": 46,
+          "fwd_pe": 15.104166666666668,
+          "upside": -47.9,
+          "risk": 8,
+          "cum_yoy": -15.791817103836403,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "2609",
+          "name": "陽明",
+          "score": 30,
+          "fwd_pe": 33.23170731707317,
+          "upside": -76.9,
+          "risk": 33,
+          "cum_yoy": -8.829235276492888,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2615",
+          "name": "萬海",
+          "score": 58,
+          "fwd_pe": 7.884615384615384,
+          "upside": 4.4,
+          "risk": 2,
+          "cum_yoy": -4.031931002019627,
+          "verdict": "HOLD"
+        },
+        {
+          "code": "1101",
+          "name": "台泥",
+          "score": 23,
+          "fwd_pe": 60.99999999999999,
+          "upside": -75.5,
+          "risk": 36,
+          "cum_yoy": -4.576639672381974,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "1102",
+          "name": "亞泥",
+          "score": 38,
+          "fwd_pe": 15.357142857142856,
+          "upside": -2.2,
+          "risk": 20,
+          "cum_yoy": -10.26205003232044,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "1216",
+          "name": "統一",
+          "score": 38,
+          "fwd_pe": 16.043478260869566,
+          "upside": 52.0,
+          "risk": 21,
+          "cum_yoy": 3.1142263296188433,
+          "verdict": "REDUCE"
+        },
+        {
+          "code": "2207",
+          "name": "和泰車",
+          "score": 41,
+          "fwd_pe": 15.566037735849056,
+          "upside": 18.0,
+          "risk": 3,
+          "cum_yoy": 5.752339125653871,
+          "verdict": "REDUCE"
+        }
+      ]
+    }
+  ]
+}
