@@ -1,0 +1,1120 @@
+{
+  "date": "2026-06-14",
+  "generated": "2026-06-14 21:32",
+  "macro_events": [
+    {
+      "date": "2026-06-14",
+      "event": "最新交易日收盤",
+      "type": "market",
+      "impact": "HIGH",
+      "note": "收盤更新, DNA日線信號重整"
+    },
+    {
+      "date": "2026-07-10",
+      "event": "月營收公布 (預估)",
+      "type": "revenue",
+      "impact": "HIGH",
+      "note": "TWSE t187ap05_L 最新月份 預計上線；更新信念分"
+    },
+    {
+      "date": "2026-06-13",
+      "event": "美國CPI (6月)",
+      "type": "macro",
+      "impact": "MEDIUM",
+      "note": "通膨數據影響科技/出口股走向"
+    },
+    {
+      "date": "2026-06-18",
+      "event": "台積電法說會 (預估)",
+      "type": "earnings",
+      "impact": "HIGH",
+      "note": "Q2 2026 展望; AI/CoWoS需求更新"
+    },
+    {
+      "date": "2026-06-18",
+      "event": "美聯儲FOMC",
+      "type": "macro",
+      "impact": "HIGH",
+      "note": "利率決策; 影響匯率與資金面"
+    },
+    {
+      "date": "2026-06-30",
+      "event": "Q2 2026 季末",
+      "type": "earnings",
+      "impact": "MEDIUM",
+      "note": "機構再平衡; ETF季度調整前觀察"
+    },
+    {
+      "date": "2026-07-10",
+      "event": "6月營收公布 (預估)",
+      "type": "revenue",
+      "impact": "HIGH",
+      "note": "TWSE period 11506; 上半年最終確認"
+    },
+    {
+      "date": "2026-07-15",
+      "event": "台積電Q2財報",
+      "type": "earnings",
+      "impact": "VERY HIGH",
+      "note": "Q2 EPS; 下半年AI伺服器訂單能見度"
+    },
+    {
+      "date": "2026-08-01",
+      "event": "Q2 2026 財報季開始",
+      "type": "earnings",
+      "impact": "HIGH",
+      "note": "0050成分股Q2財報集中披露; 更新所有基本面評分"
+    },
+    {
+      "date": "2026-08-10",
+      "event": "7月營收公布 (預估)",
+      "type": "revenue",
+      "impact": "MEDIUM",
+      "note": "TWSE period 11507"
+    },
+    {
+      "date": "2026-08-31",
+      "event": "Q2 財報季結束 (預估)",
+      "type": "earnings",
+      "impact": "HIGH",
+      "note": "全面重算 Grand Unified Score; 重建Dashboard"
+    },
+    {
+      "date": "2026-09-10",
+      "event": "ETF 0056季度調整",
+      "type": "etf",
+      "impact": "MEDIUM",
+      "note": "0056高股息成分股季度篩選; 可能影響納入/剔除股"
+    },
+    {
+      "date": "2026-09-20",
+      "event": "ETF 00878/00713 半年調整",
+      "type": "etf",
+      "impact": "MEDIUM",
+      "note": "永續高股息、高息低波 成分調整"
+    }
+  ],
+  "stock_catalysts": [
+    {
+      "code": "2887",
+      "name": "台新金",
+      "grand": 81.9,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=82 維持; 監控S3/S4日線"
+        },
+        {
+          "trigger": "DNA 5/6 — 缺少 S6月VR",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S6月VR 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "4月YoY +16% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2883",
+      "name": "開發金",
+      "grand": 74.7,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=75 維持; 監控S3/S4日線"
+        },
+        {
+          "trigger": "4月YoY +144% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "5876",
+      "name": "上海商銀",
+      "grand": 73.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=73 維持; 監控S3/S4日線"
+        }
+      ]
+    },
+    {
+      "code": "2615",
+      "name": "萬海",
+      "grand": 72.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=72 維持; 監控S3/S4日線"
+        }
+      ]
+    },
+    {
+      "code": "2881",
+      "name": "富邦金",
+      "grand": 71.7,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=72 維持; 監控S3/S4日線"
+        },
+        {
+          "trigger": "4月YoY +220% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2882",
+      "name": "國泰金",
+      "grand": 70.8,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=71 維持; 監控S3/S4日線"
+        },
+        {
+          "trigger": "4月YoY +154% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2801",
+      "name": "彰銀",
+      "grand": 70.7,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "catalysts": [
+        {
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "date": "2026-06-14",
+          "priority": "🚀 CRITICAL",
+          "action": "確認 grand=71 維持; 監控S3/S4日線"
+        }
+      ]
+    },
+    {
+      "code": "2603",
+      "name": "長榮",
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "catalysts": [
+        {
+          "trigger": "差 2.4 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 2.4pts 則升級"
+        },
+        {
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "高殖利率 7.02% — 除息追蹤",
+          "date": "2026-07-01",
+          "priority": "💰 MEDIUM",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力"
+        }
+      ]
+    },
+    {
+      "code": "2890",
+      "name": "永豐金",
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "catalysts": [
+        {
+          "trigger": "差 2.4 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 2.4pts 則升級"
+        }
+      ]
+    },
+    {
+      "code": "5871",
+      "name": "中租",
+      "grand": 66.7,
+      "final": "✅ STRONG BUY",
+      "catalysts": [
+        {
+          "trigger": "差 3.3 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 3.3pts 則升級"
+        },
+        {
+          "trigger": "深度低估 PE=11.4x 基本面=15pts",
+          "date": "2026-07-10",
+          "priority": "💎 HIGH",
+          "action": "5月營收後重算估值分; 估值最大上調空間"
+        }
+      ]
+    },
+    {
+      "code": "2891",
+      "name": "中信金",
+      "grand": 66.0,
+      "final": "✅ STRONG BUY",
+      "catalysts": [
+        {
+          "trigger": "差 4.0 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 4.0pts 則升級"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "3008",
+      "name": "大立光",
+      "grand": 65.7,
+      "final": "✅ STRONG BUY",
+      "catalysts": [
+        {
+          "trigger": "差 4.3 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 4.3pts 則升級"
+        },
+        {
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "近52週高點 (-3.5%)",
+          "date": "2026-06-14",
+          "priority": "👀 MEDIUM",
+          "action": "突破52週高→ 追蹤; 量縮確認"
+        }
+      ]
+    },
+    {
+      "code": "4904",
+      "name": "遠傳",
+      "grand": 64.8,
+      "final": "📈 BUY",
+      "catalysts": [
+        {
+          "trigger": "差 5.2 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 5.2pts 則升級"
+        },
+        {
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股"
+        }
+      ]
+    },
+    {
+      "code": "2886",
+      "name": "兆豐金",
+      "grand": 63.0,
+      "final": "📈 BUY",
+      "catalysts": [
+        {
+          "trigger": "差 7.0 分達TRIPLE",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "收盤後重算; 若估值升 7.0pts 則升級"
+        }
+      ]
+    },
+    {
+      "code": "2357",
+      "name": "華碩",
+      "grand": 61.5,
+      "final": "📈 BUY",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "高殖利率 5.35% — 除息追蹤",
+          "date": "2026-07-01",
+          "priority": "💰 MEDIUM",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2412",
+      "name": "中華電",
+      "grand": 59.4,
+      "final": "📈 BUY",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股"
+        }
+      ]
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "grand": 53.8,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S4日RSI60",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S4日RSI60 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "grand": 52.9,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股"
+        },
+        {
+          "trigger": "近52週高點 (+0.0%)",
+          "date": "2026-06-14",
+          "priority": "👀 MEDIUM",
+          "action": "突破52週高→ 追蹤; 量縮確認"
+        }
+      ]
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "grand": 45.9,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股"
+        }
+      ]
+    },
+    {
+      "code": "3481",
+      "name": "群創",
+      "grand": 40.5,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股"
+        }
+      ]
+    },
+    {
+      "code": "2409",
+      "name": "友達",
+      "grand": 29.1,
+      "final": "⬛ HOLD",
+      "catalysts": [
+        {
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "date": "2026-06-14",
+          "priority": "⚠️ HIGH",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股"
+        }
+      ]
+    },
+    {
+      "code": "1102",
+      "name": "亞泥",
+      "grand": 54.1,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "高殖利率 6.53% — 除息追蹤",
+          "date": "2026-07-01",
+          "priority": "💰 MEDIUM",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力"
+        }
+      ]
+    },
+    {
+      "code": "6743",
+      "name": "合一",
+      "grand": 46.0,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "高殖利率 10.38% — 除息追蹤",
+          "date": "2026-07-01",
+          "priority": "💰 MEDIUM",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力"
+        }
+      ]
+    },
+    {
+      "code": "2880",
+      "name": "華南金",
+      "grand": 57.5,
+      "final": "📈 BUY",
+      "catalysts": [
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "grand": 47.1,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "4月YoY +17% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        }
+      ]
+    },
+    {
+      "code": "6669",
+      "name": "緯穎",
+      "grand": 43.0,
+      "final": "👀 WATCH",
+      "catalysts": [
+        {
+          "trigger": "4月YoY +30% ACCELERATING → 5月預告",
+          "date": "2026-07-10",
+          "priority": "📈 HIGH",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評"
+        }
+      ]
+    },
+    {
+      "code": "2383",
+      "name": "台光電",
+      "grand": 39.4,
+      "final": "⬛ HOLD",
+      "catalysts": [
+        {
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "date": "2026-07-10",
+          "priority": "📊 MEDIUM",
+          "action": "5月確認後作為加碼依據"
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06-13",
+      "macro": {
+        "date": "2026-06-13",
+        "event": "美國CPI (6月)",
+        "type": "macro",
+        "impact": "MEDIUM",
+        "note": "通膨數據影響科技/出口股走向"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-06-14",
+      "events": [
+        {
+          "code": "2887",
+          "name": "台新金",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=82 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 81.9
+        },
+        {
+          "code": "2887",
+          "name": "台新金",
+          "trigger": "DNA 5/6 — 缺少 S6月VR",
+          "action": "觀察 S6月VR 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 81.9
+        },
+        {
+          "code": "2883",
+          "name": "開發金",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=75 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 74.7
+        },
+        {
+          "code": "5876",
+          "name": "上海商銀",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=73 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 73.0
+        },
+        {
+          "code": "2615",
+          "name": "萬海",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=72 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 72.0
+        },
+        {
+          "code": "2881",
+          "name": "富邦金",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=72 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 71.7
+        },
+        {
+          "code": "2882",
+          "name": "國泰金",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=71 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 70.8
+        },
+        {
+          "code": "2801",
+          "name": "彰銀",
+          "trigger": "TRIPLE CONFIRMED 持倉追蹤",
+          "action": "確認 grand=71 維持; 監控S3/S4日線",
+          "priority": "🚀 CRITICAL",
+          "grand": 70.7
+        },
+        {
+          "code": "2603",
+          "name": "長榮",
+          "trigger": "差 2.4 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 2.4pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 67.6
+        },
+        {
+          "code": "2603",
+          "name": "長榮",
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 67.6
+        },
+        {
+          "code": "2890",
+          "name": "永豐金",
+          "trigger": "差 2.4 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 2.4pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 67.6
+        },
+        {
+          "code": "5871",
+          "name": "中租",
+          "trigger": "差 3.3 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 3.3pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 66.7
+        },
+        {
+          "code": "2891",
+          "name": "中信金",
+          "trigger": "差 4.0 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 4.0pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 66.0
+        },
+        {
+          "code": "3008",
+          "name": "大立光",
+          "trigger": "差 4.3 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 4.3pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 65.7
+        },
+        {
+          "code": "3008",
+          "name": "大立光",
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 65.7
+        },
+        {
+          "code": "3008",
+          "name": "大立光",
+          "trigger": "近52週高點 (-3.5%)",
+          "action": "突破52週高→ 追蹤; 量縮確認",
+          "priority": "👀 MEDIUM",
+          "grand": 65.7
+        },
+        {
+          "code": "4904",
+          "name": "遠傳",
+          "trigger": "差 5.2 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 5.2pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 64.8
+        },
+        {
+          "code": "4904",
+          "name": "遠傳",
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 64.8
+        },
+        {
+          "code": "2886",
+          "name": "兆豐金",
+          "trigger": "差 7.0 分達TRIPLE",
+          "action": "收盤後重算; 若估值升 7.0pts 則升級",
+          "priority": "⚠️ HIGH",
+          "grand": 63.0
+        },
+        {
+          "code": "2357",
+          "name": "華碩",
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 61.5
+        },
+        {
+          "code": "2412",
+          "name": "中華電",
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 59.4
+        },
+        {
+          "code": "2344",
+          "name": "華邦電",
+          "trigger": "DNA 5/6 — 缺少 S4日RSI60",
+          "action": "觀察 S4日RSI60 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 53.8
+        },
+        {
+          "code": "2327",
+          "name": "國巨",
+          "trigger": "DNA 5/6 — 缺少 S1月DMI",
+          "action": "觀察 S1月DMI 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 52.9
+        },
+        {
+          "code": "2327",
+          "name": "國巨",
+          "trigger": "近52週高點 (+0.0%)",
+          "action": "突破52週高→ 追蹤; 量縮確認",
+          "priority": "👀 MEDIUM",
+          "grand": 52.9
+        },
+        {
+          "code": "4938",
+          "name": "和碩",
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 45.9
+        },
+        {
+          "code": "3481",
+          "name": "群創",
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 40.5
+        },
+        {
+          "code": "2409",
+          "name": "友達",
+          "trigger": "DNA 5/6 — 缺少 S3日W%R",
+          "action": "觀察 S3日W%R 是否觸發; 若全6信號 → 升為大飆股",
+          "priority": "⚠️ HIGH",
+          "grand": 29.1
+        }
+      ],
+      "macro": {
+        "date": "2026-06-14",
+        "event": "最新交易日收盤",
+        "type": "market",
+        "impact": "HIGH",
+        "note": "收盤更新, DNA日線信號重整"
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "macro": {
+        "date": "2026-06-18",
+        "event": "台積電法說會 (預估)",
+        "type": "earnings",
+        "impact": "HIGH",
+        "note": "Q2 2026 展望; AI/CoWoS需求更新"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-06-18",
+      "macro": {
+        "date": "2026-06-18",
+        "event": "美聯儲FOMC",
+        "type": "macro",
+        "impact": "HIGH",
+        "note": "利率決策; 影響匯率與資金面"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-06-30",
+      "macro": {
+        "date": "2026-06-30",
+        "event": "Q2 2026 季末",
+        "type": "earnings",
+        "impact": "MEDIUM",
+        "note": "機構再平衡; ETF季度調整前觀察"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-07-01",
+      "events": [
+        {
+          "code": "2603",
+          "name": "長榮",
+          "trigger": "高殖利率 7.02% — 除息追蹤",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力",
+          "priority": "💰 MEDIUM",
+          "grand": 67.6
+        },
+        {
+          "code": "2357",
+          "name": "華碩",
+          "trigger": "高殖利率 5.35% — 除息追蹤",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力",
+          "priority": "💰 MEDIUM",
+          "grand": 61.5
+        },
+        {
+          "code": "1102",
+          "name": "亞泥",
+          "trigger": "高殖利率 6.53% — 除息追蹤",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力",
+          "priority": "💰 MEDIUM",
+          "grand": 54.1
+        },
+        {
+          "code": "6743",
+          "name": "合一",
+          "trigger": "高殖利率 10.38% — 除息追蹤",
+          "action": "Q3除息季前確認持有; 除息後觀察填息能力",
+          "priority": "💰 MEDIUM",
+          "grand": 46.0
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "events": [
+        {
+          "code": "2887",
+          "name": "台新金",
+          "trigger": "4月YoY +16% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 81.9
+        },
+        {
+          "code": "2887",
+          "name": "台新金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 81.9
+        },
+        {
+          "code": "2883",
+          "name": "開發金",
+          "trigger": "4月YoY +144% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 74.7
+        },
+        {
+          "code": "2883",
+          "name": "開發金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 74.7
+        },
+        {
+          "code": "2881",
+          "name": "富邦金",
+          "trigger": "4月YoY +220% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 71.7
+        },
+        {
+          "code": "2881",
+          "name": "富邦金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 71.7
+        },
+        {
+          "code": "2882",
+          "name": "國泰金",
+          "trigger": "4月YoY +154% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 70.8
+        },
+        {
+          "code": "2882",
+          "name": "國泰金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 70.8
+        },
+        {
+          "code": "5871",
+          "name": "中租",
+          "trigger": "深度低估 PE=11.4x 基本面=15pts",
+          "action": "5月營收後重算估值分; 估值最大上調空間",
+          "priority": "💎 HIGH",
+          "grand": 66.7
+        },
+        {
+          "code": "2891",
+          "name": "中信金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 66.0
+        },
+        {
+          "code": "2357",
+          "name": "華碩",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 61.5
+        },
+        {
+          "code": "2880",
+          "name": "華南金",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 57.5
+        },
+        {
+          "code": "2344",
+          "name": "華邦電",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 53.8
+        },
+        {
+          "code": "2330",
+          "name": "台積電",
+          "trigger": "4月YoY +17% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 47.1
+        },
+        {
+          "code": "6669",
+          "name": "緯穎",
+          "trigger": "4月YoY +30% ACCELERATING → 5月預告",
+          "action": "5月營收公布後更新conviction分; 若持續加速→升評",
+          "priority": "📈 HIGH",
+          "grand": 43.0
+        },
+        {
+          "code": "2383",
+          "name": "台光電",
+          "trigger": "5月展望優異 (🔥 超預期強勢)",
+          "action": "5月確認後作為加碼依據",
+          "priority": "📊 MEDIUM",
+          "grand": 39.4
+        }
+      ],
+      "macro": {
+        "date": "2026-07-10",
+        "event": "6月營收公布 (預估)",
+        "type": "revenue",
+        "impact": "HIGH",
+        "note": "TWSE period 11506; 上半年最終確認"
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "macro": {
+        "date": "2026-07-15",
+        "event": "台積電Q2財報",
+        "type": "earnings",
+        "impact": "VERY HIGH",
+        "note": "Q2 EPS; 下半年AI伺服器訂單能見度"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-08-01",
+      "macro": {
+        "date": "2026-08-01",
+        "event": "Q2 2026 財報季開始",
+        "type": "earnings",
+        "impact": "HIGH",
+        "note": "0050成分股Q2財報集中披露; 更新所有基本面評分"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-08-10",
+      "macro": {
+        "date": "2026-08-10",
+        "event": "7月營收公布 (預估)",
+        "type": "revenue",
+        "impact": "MEDIUM",
+        "note": "TWSE period 11507"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-08-31",
+      "macro": {
+        "date": "2026-08-31",
+        "event": "Q2 財報季結束 (預估)",
+        "type": "earnings",
+        "impact": "HIGH",
+        "note": "全面重算 Grand Unified Score; 重建Dashboard"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-09-10",
+      "macro": {
+        "date": "2026-09-10",
+        "event": "ETF 0056季度調整",
+        "type": "etf",
+        "impact": "MEDIUM",
+        "note": "0056高股息成分股季度篩選; 可能影響納入/剔除股"
+      },
+      "events": []
+    },
+    {
+      "date": "2026-09-20",
+      "macro": {
+        "date": "2026-09-20",
+        "event": "ETF 00878/00713 半年調整",
+        "type": "etf",
+        "impact": "MEDIUM",
+        "note": "永續高股息、高息低波 成分調整"
+      },
+      "events": []
+    }
+  ],
+  "summary": {
+    "stocks_with_catalysts": 27,
+    "critical_june8": 7,
+    "high_june8": 27,
+    "revenue_plays": 15
+  }
+}
