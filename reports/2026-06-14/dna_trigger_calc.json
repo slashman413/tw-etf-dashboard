@@ -1,0 +1,1554 @@
+{
+  "date": "2026-06-14",
+  "generated": "2026-06-14 21:32",
+  "methodology": {
+    "s3_trigger": "W%R = (HH_50-close)/(HH_50-LL_50)×100 < 20; range_50d ≈ 35% of 52w range",
+    "difficulty": "1=極易(≤1%漲), 2=易(≤3%), 3=中等, 4=較難, 5=困難(量能)"
+  },
+  "summary": {
+    "five_six_count": 11,
+    "four_six_count": 11,
+    "near_triple_count": 3,
+    "s3_only_count": 5
+  },
+  "all_results": [
+    {
+      "code": "2603",
+      "name": "長榮",
+      "bull_signs": 5,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 228.0,
+      "pct_vs_ma": -0.1,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 69.5,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 30.9,
+        "S4_rsi60": 58.9
+      },
+      "s3_trigger_price": 230.4,
+      "s3_gap_pts": 10.9,
+      "s3_upside_pct": 1.0,
+      "s4_gap_pts": -1.9,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -19.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 1.0,
+      "upgrade_label": "🟢 極易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 10.0
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "bull_signs": 5,
+      "grand": 53.8,
+      "final": "👀 WATCH",
+      "close": 172.0,
+      "pct_vs_ma": 4.1,
+      "missing": [
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 74.5,
+        "S2_rsi4m": 78.1,
+        "S3_wr50": 19.2,
+        "S4_rsi60": 54.6
+      },
+      "s3_trigger_price": 172.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 2.4,
+      "s4_note": "差2.4點，1-3天可達",
+      "s1_gap_pts": -24.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 51.0
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "bull_signs": 5,
+      "grand": 45.9,
+      "final": "👀 WATCH",
+      "close": 93.1,
+      "pct_vs_ma": -2.4,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 87.9,
+        "S2_rsi4m": 89.2,
+        "S3_wr50": 35.2,
+        "S4_rsi60": 67.2
+      },
+      "s3_trigger_price": 94.8,
+      "s3_gap_pts": 15.2,
+      "s3_upside_pct": 1.8,
+      "s4_gap_pts": -10.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -37.9,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 21.4
+    },
+    {
+      "code": "2357",
+      "name": "華碩",
+      "bull_signs": 5,
+      "grand": 61.5,
+      "final": "📈 BUY",
+      "close": 785.0,
+      "pct_vs_ma": -8.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 100.0,
+        "S2_rsi4m": 87.5,
+        "S3_wr50": 42.7,
+        "S4_rsi60": 57.3
+      },
+      "s3_trigger_price": 820.3,
+      "s3_gap_pts": 22.7,
+      "s3_upside_pct": 4.5,
+      "s4_gap_pts": -0.3,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -50.0,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 14.0
+    },
+    {
+      "code": "2409",
+      "name": "友達",
+      "bull_signs": 5,
+      "grand": 29.1,
+      "final": "⬛ HOLD",
+      "close": 23.5,
+      "pct_vs_ma": -7.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 57.6,
+        "S2_rsi4m": 88.0,
+        "S3_wr50": 41.6,
+        "S4_rsi60": 58.1
+      },
+      "s3_trigger_price": 24.9,
+      "s3_gap_pts": 21.6,
+      "s3_upside_pct": 6.1,
+      "s4_gap_pts": -1.1,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -7.6,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 73.4
+    },
+    {
+      "code": "3481",
+      "name": "群創",
+      "bull_signs": 5,
+      "grand": 40.5,
+      "final": "👀 WATCH",
+      "close": 48.55,
+      "pct_vs_ma": -7.0,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 68.3,
+        "S2_rsi4m": 85.4,
+        "S3_wr50": 28.8,
+        "S4_rsi60": 60.4
+      },
+      "s3_trigger_price": 50.1,
+      "s3_gap_pts": 8.8,
+      "s3_upside_pct": 3.2,
+      "s4_gap_pts": -3.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -18.3,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 441.4
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "bull_signs": 5,
+      "grand": 52.9,
+      "final": "👀 WATCH",
+      "close": 855.0,
+      "pct_vs_ma": 6.8,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 35.6,
+        "S2_rsi4m": 93.9,
+        "S3_wr50": 9.5,
+        "S4_rsi60": 69.5
+      },
+      "s3_trigger_price": 855.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -12.5,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 14.4,
+      "s1_note": "差14.4點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 67.3
+    },
+    {
+      "code": "2412",
+      "name": "中華電",
+      "bull_signs": 5,
+      "grand": 59.4,
+      "final": "📈 BUY",
+      "close": 145.0,
+      "pct_vs_ma": 2.3,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": null,
+        "S2_rsi4m": 87.1,
+        "S3_wr50": 4.0,
+        "S4_rsi60": 59.7
+      },
+      "s3_trigger_price": 145.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -2.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": null,
+      "s1_note": "",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 28.8
+    },
+    {
+      "code": "3008",
+      "name": "大立光",
+      "bull_signs": 5,
+      "grand": 65.7,
+      "final": "✅ STRONG BUY",
+      "close": 4020.0,
+      "pct_vs_ma": 3.7,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 38.9,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 15.1,
+        "S4_rsi60": 61.7
+      },
+      "s3_trigger_price": 4020.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -4.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 11.1,
+      "s1_note": "差11.1點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 25.1
+    },
+    {
+      "code": "4904",
+      "name": "遠傳",
+      "bull_signs": 5,
+      "grand": 64.8,
+      "final": "📈 BUY",
+      "close": 109.0,
+      "pct_vs_ma": 6.3,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 41.7,
+        "S2_rsi4m": 91.6,
+        "S3_wr50": 10.7,
+        "S4_rsi60": 68.0
+      },
+      "s3_trigger_price": 109.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -11.0,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 8.3,
+      "s1_note": "差8.3點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 27.7
+    },
+    {
+      "code": "2887",
+      "name": "台新金",
+      "bull_signs": 5,
+      "grand": 81.9,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 30.2,
+      "pct_vs_ma": 8.2,
+      "missing": [
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 84.6,
+        "S2_rsi4m": 82.1,
+        "S3_wr50": 7.5,
+        "S4_rsi60": 63.8
+      },
+      "s3_trigger_price": 30.2,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -6.8,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -34.6,
+      "s1_note": "已超過50",
+      "avg_difficulty": 5.0,
+      "upgrade_label": "⚫ 困難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 14.8
+    },
+    {
+      "code": "2379",
+      "name": "瑞昱",
+      "bull_signs": 4,
+      "grand": 49.2,
+      "final": "👀 WATCH",
+      "close": 618.0,
+      "pct_vs_ma": -2.8,
+      "missing": [
+        "S3",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 59.1,
+        "S2_rsi4m": 84.8,
+        "S3_wr50": 34.1,
+        "S4_rsi60": 54.7
+      },
+      "s3_trigger_price": 628.7,
+      "s3_gap_pts": 14.1,
+      "s3_upside_pct": 1.7,
+      "s4_gap_pts": 2.3,
+      "s4_note": "差2.3點，1-3天可達",
+      "s1_gap_pts": -9.1,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P3 — 4/6有快速上升潛力",
+      "pe": 22.2
+    },
+    {
+      "code": "2382",
+      "name": "廣達",
+      "bull_signs": 4,
+      "grand": 56.2,
+      "final": "📈 BUY",
+      "close": 372.0,
+      "pct_vs_ma": -4.0,
+      "missing": [
+        "S3",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 86.4,
+        "S2_rsi4m": 88.1,
+        "S3_wr50": 42.9,
+        "S4_rsi60": 55.8
+      },
+      "s3_trigger_price": 385.4,
+      "s3_gap_pts": 22.9,
+      "s3_upside_pct": 3.6,
+      "s4_gap_pts": 1.2,
+      "s4_note": "差1.2點，1-3天可達",
+      "s1_gap_pts": -36.4,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P3 — 4/6有快速上升潛力",
+      "pe": 18.7
+    },
+    {
+      "code": "3034",
+      "name": "聯詠",
+      "bull_signs": 4,
+      "grand": 57.9,
+      "final": "📈 BUY",
+      "close": 488.5,
+      "pct_vs_ma": -0.2,
+      "missing": [
+        "S1",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 16.1,
+        "S2_rsi4m": 77.4,
+        "S3_wr50": 17.7,
+        "S4_rsi60": 56.1
+      },
+      "s3_trigger_price": 488.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 0.9,
+      "s4_note": "差0.9點，1-3天可達",
+      "s1_gap_pts": 33.9,
+      "s1_note": "差33.9點，需多頭持續",
+      "avg_difficulty": 2.5,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 20.0
+    },
+    {
+      "code": "3045",
+      "name": "台灣大",
+      "bull_signs": 4,
+      "grand": 55.1,
+      "final": "📈 BUY",
+      "close": 119.5,
+      "pct_vs_ma": 2.8,
+      "missing": [
+        "S1",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": null,
+        "S2_rsi4m": 84.8,
+        "S3_wr50": 8.3,
+        "S4_rsi60": 56.0
+      },
+      "s3_trigger_price": 119.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 1.0,
+      "s4_note": "差1.0點，1-3天可達",
+      "s1_gap_pts": null,
+      "s1_note": "",
+      "avg_difficulty": 2.5,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 24.2
+    },
+    {
+      "code": "2352",
+      "name": "佳世達",
+      "bull_signs": 4,
+      "grand": 36.2,
+      "final": "⬛ HOLD",
+      "close": 31.0,
+      "pct_vs_ma": -1.4,
+      "missing": [
+        "S2",
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 85.0,
+        "S2_rsi4m": 66.6,
+        "S3_wr50": 36.0,
+        "S4_rsi60": 59.4
+      },
+      "s3_trigger_price": 31.9,
+      "s3_gap_pts": 16.0,
+      "s3_upside_pct": 2.9,
+      "s4_gap_pts": -2.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -35.0,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 50.0
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
+      "bull_signs": 4,
+      "grand": 56.5,
+      "final": "📈 BUY",
+      "close": 374.0,
+      "pct_vs_ma": 1.0,
+      "missing": [
+        "S2",
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 72.8,
+        "S2_rsi4m": 73.3,
+        "S3_wr50": 24.4,
+        "S4_rsi60": 57.7
+      },
+      "s3_trigger_price": 380.5,
+      "s3_gap_pts": 4.4,
+      "s3_upside_pct": 1.7,
+      "s4_gap_pts": -0.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -22.8,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 33.5
+    },
+    {
+      "code": "2886",
+      "name": "兆豐金",
+      "bull_signs": 4,
+      "grand": 63.0,
+      "final": "📈 BUY",
+      "close": 43.4,
+      "pct_vs_ma": 2.7,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 48.1,
+        "S2_rsi4m": 67.2,
+        "S3_wr50": 10.4,
+        "S4_rsi60": 64.5
+      },
+      "s3_trigger_price": 43.4,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -7.5,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 1.9,
+      "s1_note": "差1.9點，接近觸發",
+      "avg_difficulty": 3.5,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 17.6
+    },
+    {
+      "code": "2615",
+      "name": "萬海",
+      "bull_signs": 4,
+      "grand": 72.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 85.0,
+      "pct_vs_ma": 0.9,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 35.3,
+        "S2_rsi4m": 69.2,
+        "S3_wr50": 15.4,
+        "S4_rsi60": 58.2
+      },
+      "s3_trigger_price": 85.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -1.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 14.7,
+      "s1_note": "差14.7點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 7.8
+    },
+    {
+      "code": "5876",
+      "name": "上海商銀",
+      "bull_signs": 4,
+      "grand": 73.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 42.5,
+      "pct_vs_ma": 3.4,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 26.5,
+        "S2_rsi4m": 55.5,
+        "S3_wr50": 6.5,
+        "S4_rsi60": 59.6
+      },
+      "s3_trigger_price": 42.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -2.6,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 23.5,
+      "s1_note": "差23.5點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 13.5
+    },
+    {
+      "code": "2890",
+      "name": "永豐金",
+      "bull_signs": 4,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 34.15,
+      "pct_vs_ma": 5.0,
+      "missing": [
+        "S2",
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 52.2,
+        "S2_rsi4m": 70.4,
+        "S3_wr50": 12.7,
+        "S4_rsi60": 60.8
+      },
+      "s3_trigger_price": 34.15,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -3.8,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -2.2,
+      "s1_note": "已超過50",
+      "avg_difficulty": 4.5,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 16.3
+    },
+    {
+      "code": "5880",
+      "name": "合庫金",
+      "bull_signs": 4,
+      "grand": 59.4,
+      "final": "📈 BUY",
+      "close": 24.05,
+      "pct_vs_ma": 2.6,
+      "missing": [
+        "S2",
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 60.7,
+        "S2_rsi4m": 38.9,
+        "S3_wr50": 12.1,
+        "S4_rsi60": 60.4
+      },
+      "s3_trigger_price": 24.05,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -3.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -10.7,
+      "s1_note": "已超過50",
+      "avg_difficulty": 4.5,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 17.2
+    }
+  ],
+  "near_triple": [
+    {
+      "code": "2603",
+      "name": "長榮",
+      "bull_signs": 5,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 228.0,
+      "pct_vs_ma": -0.1,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 69.5,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 30.9,
+        "S4_rsi60": 58.9
+      },
+      "s3_trigger_price": 230.4,
+      "s3_gap_pts": 10.9,
+      "s3_upside_pct": 1.0,
+      "s4_gap_pts": -1.9,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -19.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 1.0,
+      "upgrade_label": "🟢 極易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 10.0
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "bull_signs": 5,
+      "grand": 53.8,
+      "final": "👀 WATCH",
+      "close": 172.0,
+      "pct_vs_ma": 4.1,
+      "missing": [
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 74.5,
+        "S2_rsi4m": 78.1,
+        "S3_wr50": 19.2,
+        "S4_rsi60": 54.6
+      },
+      "s3_trigger_price": 172.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 2.4,
+      "s4_note": "差2.4點，1-3天可達",
+      "s1_gap_pts": -24.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 51.0
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "bull_signs": 5,
+      "grand": 45.9,
+      "final": "👀 WATCH",
+      "close": 93.1,
+      "pct_vs_ma": -2.4,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 87.9,
+        "S2_rsi4m": 89.2,
+        "S3_wr50": 35.2,
+        "S4_rsi60": 67.2
+      },
+      "s3_trigger_price": 94.8,
+      "s3_gap_pts": 15.2,
+      "s3_upside_pct": 1.8,
+      "s4_gap_pts": -10.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -37.9,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 21.4
+    }
+  ],
+  "five_six": [
+    {
+      "code": "2603",
+      "name": "長榮",
+      "bull_signs": 5,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 228.0,
+      "pct_vs_ma": -0.1,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 69.5,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 30.9,
+        "S4_rsi60": 58.9
+      },
+      "s3_trigger_price": 230.4,
+      "s3_gap_pts": 10.9,
+      "s3_upside_pct": 1.0,
+      "s4_gap_pts": -1.9,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -19.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 1.0,
+      "upgrade_label": "🟢 極易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 10.0
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "bull_signs": 5,
+      "grand": 53.8,
+      "final": "👀 WATCH",
+      "close": 172.0,
+      "pct_vs_ma": 4.1,
+      "missing": [
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 74.5,
+        "S2_rsi4m": 78.1,
+        "S3_wr50": 19.2,
+        "S4_rsi60": 54.6
+      },
+      "s3_trigger_price": 172.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 2.4,
+      "s4_note": "差2.4點，1-3天可達",
+      "s1_gap_pts": -24.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 51.0
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "bull_signs": 5,
+      "grand": 45.9,
+      "final": "👀 WATCH",
+      "close": 93.1,
+      "pct_vs_ma": -2.4,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 87.9,
+        "S2_rsi4m": 89.2,
+        "S3_wr50": 35.2,
+        "S4_rsi60": 67.2
+      },
+      "s3_trigger_price": 94.8,
+      "s3_gap_pts": 15.2,
+      "s3_upside_pct": 1.8,
+      "s4_gap_pts": -10.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -37.9,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 21.4
+    },
+    {
+      "code": "2357",
+      "name": "華碩",
+      "bull_signs": 5,
+      "grand": 61.5,
+      "final": "📈 BUY",
+      "close": 785.0,
+      "pct_vs_ma": -8.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 100.0,
+        "S2_rsi4m": 87.5,
+        "S3_wr50": 42.7,
+        "S4_rsi60": 57.3
+      },
+      "s3_trigger_price": 820.3,
+      "s3_gap_pts": 22.7,
+      "s3_upside_pct": 4.5,
+      "s4_gap_pts": -0.3,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -50.0,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 14.0
+    },
+    {
+      "code": "2409",
+      "name": "友達",
+      "bull_signs": 5,
+      "grand": 29.1,
+      "final": "⬛ HOLD",
+      "close": 23.5,
+      "pct_vs_ma": -7.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 57.6,
+        "S2_rsi4m": 88.0,
+        "S3_wr50": 41.6,
+        "S4_rsi60": 58.1
+      },
+      "s3_trigger_price": 24.9,
+      "s3_gap_pts": 21.6,
+      "s3_upside_pct": 6.1,
+      "s4_gap_pts": -1.1,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -7.6,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 73.4
+    },
+    {
+      "code": "3481",
+      "name": "群創",
+      "bull_signs": 5,
+      "grand": 40.5,
+      "final": "👀 WATCH",
+      "close": 48.55,
+      "pct_vs_ma": -7.0,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 68.3,
+        "S2_rsi4m": 85.4,
+        "S3_wr50": 28.8,
+        "S4_rsi60": 60.4
+      },
+      "s3_trigger_price": 50.1,
+      "s3_gap_pts": 8.8,
+      "s3_upside_pct": 3.2,
+      "s4_gap_pts": -3.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -18.3,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 441.4
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "bull_signs": 5,
+      "grand": 52.9,
+      "final": "👀 WATCH",
+      "close": 855.0,
+      "pct_vs_ma": 6.8,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 35.6,
+        "S2_rsi4m": 93.9,
+        "S3_wr50": 9.5,
+        "S4_rsi60": 69.5
+      },
+      "s3_trigger_price": 855.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -12.5,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 14.4,
+      "s1_note": "差14.4點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 67.3
+    },
+    {
+      "code": "2412",
+      "name": "中華電",
+      "bull_signs": 5,
+      "grand": 59.4,
+      "final": "📈 BUY",
+      "close": 145.0,
+      "pct_vs_ma": 2.3,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": null,
+        "S2_rsi4m": 87.1,
+        "S3_wr50": 4.0,
+        "S4_rsi60": 59.7
+      },
+      "s3_trigger_price": 145.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -2.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": null,
+      "s1_note": "",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 28.8
+    },
+    {
+      "code": "3008",
+      "name": "大立光",
+      "bull_signs": 5,
+      "grand": 65.7,
+      "final": "✅ STRONG BUY",
+      "close": 4020.0,
+      "pct_vs_ma": 3.7,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 38.9,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 15.1,
+        "S4_rsi60": 61.7
+      },
+      "s3_trigger_price": 4020.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -4.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 11.1,
+      "s1_note": "差11.1點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 25.1
+    },
+    {
+      "code": "4904",
+      "name": "遠傳",
+      "bull_signs": 5,
+      "grand": 64.8,
+      "final": "📈 BUY",
+      "close": 109.0,
+      "pct_vs_ma": 6.3,
+      "missing": [
+        "S1"
+      ],
+      "sig_vals": {
+        "S1_dmi": 41.7,
+        "S2_rsi4m": 91.6,
+        "S3_wr50": 10.7,
+        "S4_rsi60": 68.0
+      },
+      "s3_trigger_price": 109.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -11.0,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 8.3,
+      "s1_note": "差8.3點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 27.7
+    },
+    {
+      "code": "2887",
+      "name": "台新金",
+      "bull_signs": 5,
+      "grand": 81.9,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 30.2,
+      "pct_vs_ma": 8.2,
+      "missing": [
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 84.6,
+        "S2_rsi4m": 82.1,
+        "S3_wr50": 7.5,
+        "S4_rsi60": 63.8
+      },
+      "s3_trigger_price": 30.2,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -6.8,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -34.6,
+      "s1_note": "已超過50",
+      "avg_difficulty": 5.0,
+      "upgrade_label": "⚫ 困難",
+      "monday_priority": "P3 — 5/6需時間醞釀",
+      "pe": 14.8
+    }
+  ],
+  "four_six": [
+    {
+      "code": "2379",
+      "name": "瑞昱",
+      "bull_signs": 4,
+      "grand": 49.2,
+      "final": "👀 WATCH",
+      "close": 618.0,
+      "pct_vs_ma": -2.8,
+      "missing": [
+        "S3",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 59.1,
+        "S2_rsi4m": 84.8,
+        "S3_wr50": 34.1,
+        "S4_rsi60": 54.7
+      },
+      "s3_trigger_price": 628.7,
+      "s3_gap_pts": 14.1,
+      "s3_upside_pct": 1.7,
+      "s4_gap_pts": 2.3,
+      "s4_note": "差2.3點，1-3天可達",
+      "s1_gap_pts": -9.1,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P3 — 4/6有快速上升潛力",
+      "pe": 22.2
+    },
+    {
+      "code": "2382",
+      "name": "廣達",
+      "bull_signs": 4,
+      "grand": 56.2,
+      "final": "📈 BUY",
+      "close": 372.0,
+      "pct_vs_ma": -4.0,
+      "missing": [
+        "S3",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 86.4,
+        "S2_rsi4m": 88.1,
+        "S3_wr50": 42.9,
+        "S4_rsi60": 55.8
+      },
+      "s3_trigger_price": 385.4,
+      "s3_gap_pts": 22.9,
+      "s3_upside_pct": 3.6,
+      "s4_gap_pts": 1.2,
+      "s4_note": "差1.2點，1-3天可達",
+      "s1_gap_pts": -36.4,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P3 — 4/6有快速上升潛力",
+      "pe": 18.7
+    },
+    {
+      "code": "3034",
+      "name": "聯詠",
+      "bull_signs": 4,
+      "grand": 57.9,
+      "final": "📈 BUY",
+      "close": 488.5,
+      "pct_vs_ma": -0.2,
+      "missing": [
+        "S1",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": 16.1,
+        "S2_rsi4m": 77.4,
+        "S3_wr50": 17.7,
+        "S4_rsi60": 56.1
+      },
+      "s3_trigger_price": 488.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 0.9,
+      "s4_note": "差0.9點，1-3天可達",
+      "s1_gap_pts": 33.9,
+      "s1_note": "差33.9點，需多頭持續",
+      "avg_difficulty": 2.5,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 20.0
+    },
+    {
+      "code": "3045",
+      "name": "台灣大",
+      "bull_signs": 4,
+      "grand": 55.1,
+      "final": "📈 BUY",
+      "close": 119.5,
+      "pct_vs_ma": 2.8,
+      "missing": [
+        "S1",
+        "S4"
+      ],
+      "sig_vals": {
+        "S1_dmi": null,
+        "S2_rsi4m": 84.8,
+        "S3_wr50": 8.3,
+        "S4_rsi60": 56.0
+      },
+      "s3_trigger_price": 119.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": 1.0,
+      "s4_note": "差1.0點，1-3天可達",
+      "s1_gap_pts": null,
+      "s1_note": "",
+      "avg_difficulty": 2.5,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 24.2
+    },
+    {
+      "code": "2352",
+      "name": "佳世達",
+      "bull_signs": 4,
+      "grand": 36.2,
+      "final": "⬛ HOLD",
+      "close": 31.0,
+      "pct_vs_ma": -1.4,
+      "missing": [
+        "S2",
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 85.0,
+        "S2_rsi4m": 66.6,
+        "S3_wr50": 36.0,
+        "S4_rsi60": 59.4
+      },
+      "s3_trigger_price": 31.9,
+      "s3_gap_pts": 16.0,
+      "s3_upside_pct": 2.9,
+      "s4_gap_pts": -2.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -35.0,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 50.0
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
+      "bull_signs": 4,
+      "grand": 56.5,
+      "final": "📈 BUY",
+      "close": 374.0,
+      "pct_vs_ma": 1.0,
+      "missing": [
+        "S2",
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 72.8,
+        "S2_rsi4m": 73.3,
+        "S3_wr50": 24.4,
+        "S4_rsi60": 57.7
+      },
+      "s3_trigger_price": 380.5,
+      "s3_gap_pts": 4.4,
+      "s3_upside_pct": 1.7,
+      "s4_gap_pts": -0.7,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -22.8,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 33.5
+    },
+    {
+      "code": "2886",
+      "name": "兆豐金",
+      "bull_signs": 4,
+      "grand": 63.0,
+      "final": "📈 BUY",
+      "close": 43.4,
+      "pct_vs_ma": 2.7,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 48.1,
+        "S2_rsi4m": 67.2,
+        "S3_wr50": 10.4,
+        "S4_rsi60": 64.5
+      },
+      "s3_trigger_price": 43.4,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -7.5,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 1.9,
+      "s1_note": "差1.9點，接近觸發",
+      "avg_difficulty": 3.5,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 17.6
+    },
+    {
+      "code": "2615",
+      "name": "萬海",
+      "bull_signs": 4,
+      "grand": 72.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 85.0,
+      "pct_vs_ma": 0.9,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 35.3,
+        "S2_rsi4m": 69.2,
+        "S3_wr50": 15.4,
+        "S4_rsi60": 58.2
+      },
+      "s3_trigger_price": 85.0,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -1.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 14.7,
+      "s1_note": "差14.7點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 7.8
+    },
+    {
+      "code": "5876",
+      "name": "上海商銀",
+      "bull_signs": 4,
+      "grand": 73.0,
+      "final": "🚀 TRIPLE CONFIRMED",
+      "close": 42.5,
+      "pct_vs_ma": 3.4,
+      "missing": [
+        "S1",
+        "S2"
+      ],
+      "sig_vals": {
+        "S1_dmi": 26.5,
+        "S2_rsi4m": 55.5,
+        "S3_wr50": 6.5,
+        "S4_rsi60": 59.6
+      },
+      "s3_trigger_price": 42.5,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -2.6,
+      "s4_note": "已超過57",
+      "s1_gap_pts": 23.5,
+      "s1_note": "差23.5點，需多頭持續",
+      "avg_difficulty": 4.0,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 13.5
+    },
+    {
+      "code": "2890",
+      "name": "永豐金",
+      "bull_signs": 4,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 34.15,
+      "pct_vs_ma": 5.0,
+      "missing": [
+        "S2",
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 52.2,
+        "S2_rsi4m": 70.4,
+        "S3_wr50": 12.7,
+        "S4_rsi60": 60.8
+      },
+      "s3_trigger_price": 34.15,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -3.8,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -2.2,
+      "s1_note": "已超過50",
+      "avg_difficulty": 4.5,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 16.3
+    },
+    {
+      "code": "5880",
+      "name": "合庫金",
+      "bull_signs": 4,
+      "grand": 59.4,
+      "final": "📈 BUY",
+      "close": 24.05,
+      "pct_vs_ma": 2.6,
+      "missing": [
+        "S2",
+        "S6"
+      ],
+      "sig_vals": {
+        "S1_dmi": 60.7,
+        "S2_rsi4m": 38.9,
+        "S3_wr50": 12.1,
+        "S4_rsi60": 60.4
+      },
+      "s3_trigger_price": 24.05,
+      "s3_gap_pts": 0,
+      "s3_upside_pct": 0,
+      "s4_gap_pts": -3.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -10.7,
+      "s1_note": "已超過50",
+      "avg_difficulty": 4.5,
+      "upgrade_label": "🔴 較難",
+      "monday_priority": "P4 — 4/6觀察等待",
+      "pe": 17.2
+    }
+  ],
+  "s3_only_missing": [
+    {
+      "code": "2603",
+      "name": "長榮",
+      "bull_signs": 5,
+      "grand": 67.6,
+      "final": "✅ STRONG BUY",
+      "close": 228.0,
+      "pct_vs_ma": -0.1,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 69.5,
+        "S2_rsi4m": 85.7,
+        "S3_wr50": 30.9,
+        "S4_rsi60": 58.9
+      },
+      "s3_trigger_price": 230.4,
+      "s3_gap_pts": 10.9,
+      "s3_upside_pct": 1.0,
+      "s4_gap_pts": -1.9,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -19.5,
+      "s1_note": "已超過50",
+      "avg_difficulty": 1.0,
+      "upgrade_label": "🟢 極易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 10.0
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "bull_signs": 5,
+      "grand": 45.9,
+      "final": "👀 WATCH",
+      "close": 93.1,
+      "pct_vs_ma": -2.4,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 87.9,
+        "S2_rsi4m": 89.2,
+        "S3_wr50": 35.2,
+        "S4_rsi60": 67.2
+      },
+      "s3_trigger_price": 94.8,
+      "s3_gap_pts": 15.2,
+      "s3_upside_pct": 1.8,
+      "s4_gap_pts": -10.2,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -37.9,
+      "s1_note": "已超過50",
+      "avg_difficulty": 2.0,
+      "upgrade_label": "🟡 易觸發",
+      "monday_priority": "P1 — 周一重點監控，接近TRIPLE",
+      "pe": 21.4
+    },
+    {
+      "code": "2357",
+      "name": "華碩",
+      "bull_signs": 5,
+      "grand": 61.5,
+      "final": "📈 BUY",
+      "close": 785.0,
+      "pct_vs_ma": -8.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 100.0,
+        "S2_rsi4m": 87.5,
+        "S3_wr50": 42.7,
+        "S4_rsi60": 57.3
+      },
+      "s3_trigger_price": 820.3,
+      "s3_gap_pts": 22.7,
+      "s3_upside_pct": 4.5,
+      "s4_gap_pts": -0.3,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -50.0,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 14.0
+    },
+    {
+      "code": "2409",
+      "name": "友達",
+      "bull_signs": 5,
+      "grand": 29.1,
+      "final": "⬛ HOLD",
+      "close": 23.5,
+      "pct_vs_ma": -7.9,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 57.6,
+        "S2_rsi4m": 88.0,
+        "S3_wr50": 41.6,
+        "S4_rsi60": 58.1
+      },
+      "s3_trigger_price": 24.9,
+      "s3_gap_pts": 21.6,
+      "s3_upside_pct": 6.1,
+      "s4_gap_pts": -1.1,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -7.6,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 73.4
+    },
+    {
+      "code": "3481",
+      "name": "群創",
+      "bull_signs": 5,
+      "grand": 40.5,
+      "final": "👀 WATCH",
+      "close": 48.55,
+      "pct_vs_ma": -7.0,
+      "missing": [
+        "S3"
+      ],
+      "sig_vals": {
+        "S1_dmi": 68.3,
+        "S2_rsi4m": 85.4,
+        "S3_wr50": 28.8,
+        "S4_rsi60": 60.4
+      },
+      "s3_trigger_price": 50.1,
+      "s3_gap_pts": 8.8,
+      "s3_upside_pct": 3.2,
+      "s4_gap_pts": -3.4,
+      "s4_note": "已超過57",
+      "s1_gap_pts": -18.3,
+      "s1_note": "已超過50",
+      "avg_difficulty": 3.0,
+      "upgrade_label": "🟠 中等",
+      "monday_priority": "P2 — 5/6強勢持倉，升評在望",
+      "pe": 441.4
+    }
+  ]
+}
