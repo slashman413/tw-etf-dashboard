@@ -1,0 +1,803 @@
+{
+  "date": "2026-06-09",
+  "fetch_ts": "2026-06-09 03:38",
+  "n_sectors": 13,
+  "n_stocks": 60,
+  "sectors": [
+    {
+      "sector": "金融保險",
+      "n_stocks": 13,
+      "avg_grand": 59.3,
+      "avg_bull_signs": 3.1,
+      "avg_rs_60d": -17.6,
+      "avg_pe": 14.9,
+      "avg_yield": 4.15,
+      "triple_confirmed": 2,
+      "strong_buy": 2,
+      "buy": 4,
+      "signal": "📈 偏多",
+      "stocks": [
+        {
+          "code": "2883",
+          "name": "開發金 CDFH",
+          "grand": 75.1,
+          "final": "🚀 TRIPLE CONFIRMED",
+          "bull_signs": 6,
+          "rs_60d": 4.8,
+          "pe": 15.5,
+          "div_yield": 3.62
+        },
+        {
+          "code": "2887",
+          "name": "台新金 Taishin",
+          "grand": 70.7,
+          "final": "🚀 TRIPLE CONFIRMED",
+          "bull_signs": 4,
+          "rs_60d": -14.7,
+          "pe": 14.0,
+          "div_yield": 3.85
+        },
+        {
+          "code": "2881",
+          "name": "富邦金 Fubon",
+          "grand": 69.5,
+          "final": "✅ STRONG BUY",
+          "bull_signs": 6,
+          "rs_60d": 0.2,
+          "pe": 16.2,
+          "div_yield": 3.6
+        },
+        {
+          "code": "2882",
+          "name": "國泰金 Cathay",
+          "grand": 68.2,
+          "final": "✅ STRONG BUY",
+          "bull_signs": 6,
+          "rs_60d": 7.2,
+          "pe": 15.2,
+          "div_yield": 3.5
+        },
+        {
+          "code": "5876",
+          "name": "上海商銀 ShanghaiCB",
+          "grand": 60.8,
+          "final": "📈 BUY",
+          "bull_signs": 2,
+          "rs_60d": -28.0,
+          "pe": 12.9,
+          "div_yield": 4.42
+        },
+        {
+          "code": "2891",
+          "name": "中信金 CTBC",
+          "grand": 58.0,
+          "final": "📈 BUY",
+          "bull_signs": 5,
+          "rs_60d": -2.0,
+          "pe": 16.1,
+          "div_yield": 3.75
+        },
+        {
+          "code": "5871",
+          "name": "中租 Chailease",
+          "grand": 57.7,
+          "final": "📈 BUY",
+          "bull_signs": 1,
+          "rs_60d": -18.1,
+          "pe": 11.1,
+          "div_yield": 5.08
+        },
+        {
+          "code": "2801",
+          "name": "彰銀 ChangHwa",
+          "grand": 57.7,
+          "final": "📈 BUY",
+          "bull_signs": 1,
+          "rs_60d": -28.5,
+          "pe": 13.4,
+          "div_yield": 4.9
+        },
+        {
+          "code": "2890",
+          "name": "永豐金 SinoPac",
+          "grand": 54.7,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -29.1,
+          "pe": 15.7,
+          "div_yield": 3.98
+        },
+        {
+          "code": "2886",
+          "name": "兆豐金 Mega",
+          "grand": 53.7,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": -25.4,
+          "pe": 17.1,
+          "div_yield": 4.17
+        },
+        {
+          "code": "2892",
+          "name": "第一金 First",
+          "grand": 49.5,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -31.6,
+          "pe": 15.0,
+          "div_yield": 4.44
+        },
+        {
+          "code": "5880",
+          "name": "合庫金 TWCoop",
+          "grand": 48.1,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -31.5,
+          "pe": 16.8,
+          "div_yield": 4.48
+        },
+        {
+          "code": "2884",
+          "name": "玉山金 E.Sun",
+          "grand": 47.3,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -32.0,
+          "pe": 15.2,
+          "div_yield": 4.2
+        }
+      ]
+    },
+    {
+      "sector": "航運",
+      "n_stocks": 3,
+      "avg_grand": 57.4,
+      "avg_bull_signs": 2.7,
+      "avg_rs_60d": -29.5,
+      "avg_pe": 11.9,
+      "avg_yield": 4.68,
+      "triple_confirmed": 0,
+      "strong_buy": 1,
+      "buy": 1,
+      "signal": "📈 偏多",
+      "stocks": [
+        {
+          "code": "2615",
+          "name": "萬海 WanHai",
+          "grand": 69.1,
+          "final": "✅ STRONG BUY",
+          "bull_signs": 3,
+          "rs_60d": -24.2,
+          "pe": 8.0,
+          "div_yield": 3.48
+        },
+        {
+          "code": "2603",
+          "name": "長榮 Evergreen",
+          "grand": 62.9,
+          "final": "📈 BUY",
+          "bull_signs": 4,
+          "rs_60d": -21.6,
+          "pe": 10.1,
+          "div_yield": 6.9
+        },
+        {
+          "code": "2609",
+          "name": "陽明 YangMing",
+          "grand": 40.2,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -42.6,
+          "pe": 17.7,
+          "div_yield": 3.67
+        }
+      ]
+    },
+    {
+      "sector": "電信",
+      "n_stocks": 2,
+      "avg_grand": 48.5,
+      "avg_bull_signs": 3.5,
+      "avg_rs_60d": -25.4,
+      "avg_pe": 25.8,
+      "avg_yield": 3.92,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "2412",
+          "name": "中華電 Chunghwa",
+          "grand": 50.2,
+          "final": "👀 WATCH",
+          "bull_signs": 4,
+          "rs_60d": -28.1,
+          "pe": 28.0,
+          "div_yield": 3.69
+        },
+        {
+          "code": "3045",
+          "name": "台灣大 TWMobile",
+          "grand": 46.7,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": -22.7,
+          "pe": 23.5,
+          "div_yield": 4.14
+        }
+      ]
+    },
+    {
+      "sector": "光學",
+      "n_stocks": 1,
+      "avg_grand": 47.8,
+      "avg_bull_signs": 3.0,
+      "avg_rs_60d": 25.2,
+      "avg_pe": 23.0,
+      "avg_yield": 2.17,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "3008",
+          "name": "大立光 LARGAN",
+          "grand": 47.8,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": 25.2,
+          "pe": 23.0,
+          "div_yield": 2.17
+        }
+      ]
+    },
+    {
+      "sector": "汽車",
+      "n_stocks": 1,
+      "avg_grand": 47.5,
+      "avg_bull_signs": 2.0,
+      "avg_rs_60d": -34.9,
+      "avg_pe": 14.5,
+      "avg_yield": 4.04,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "2207",
+          "name": "和泰車 Hotai",
+          "grand": 47.5,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -34.9,
+          "pe": 14.5,
+          "div_yield": 4.04
+        }
+      ]
+    },
+    {
+      "sector": "科技硬體",
+      "n_stocks": 14,
+      "avg_grand": 44.3,
+      "avg_bull_signs": 3.1,
+      "avg_rs_60d": 19.2,
+      "avg_pe": 31.6,
+      "avg_yield": 3.01,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 2,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "2357",
+          "name": "華碩 ASUS",
+          "grand": 60.7,
+          "final": "📈 BUY",
+          "bull_signs": 5,
+          "rs_60d": 22.0,
+          "pe": 16.1,
+          "div_yield": 4.67
+        },
+        {
+          "code": "2382",
+          "name": "廣達 Quanta",
+          "grand": 55.8,
+          "final": "📈 BUY",
+          "bull_signs": 4,
+          "rs_60d": 3.0,
+          "pe": 19.6,
+          "div_yield": 3.99
+        },
+        {
+          "code": "3231",
+          "name": "緯創 Wistron",
+          "grand": 52.3,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": -3.5,
+          "pe": 17.1,
+          "div_yield": 3.22
+        },
+        {
+          "code": "3034",
+          "name": "聯詠 Novatek",
+          "grand": 48.8,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": -5.5,
+          "pe": 20.2,
+          "div_yield": 4.67
+        },
+        {
+          "code": "2376",
+          "name": "技嘉 Gigabyte",
+          "grand": 47.9,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": 26.9,
+          "pe": 17.2,
+          "div_yield": 3.25
+        },
+        {
+          "code": "6669",
+          "name": "緯穎 Wiwynn",
+          "grand": 47.0,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": 3.0,
+          "pe": 19.0,
+          "div_yield": 2.92
+        },
+        {
+          "code": "2379",
+          "name": "瑞昱 Realtek",
+          "grand": 46.4,
+          "final": "👀 WATCH",
+          "bull_signs": 4,
+          "rs_60d": 3.5,
+          "pe": 23.1,
+          "div_yield": 3.89
+        },
+        {
+          "code": "2327",
+          "name": "國巨 Yageo",
+          "grand": 43.1,
+          "final": "👀 WATCH",
+          "bull_signs": 5,
+          "rs_60d": 158.6,
+          "pe": 60.5,
+          "div_yield": 0.78
+        },
+        {
+          "code": "4938",
+          "name": "和碩 Pegatron",
+          "grand": 42.0,
+          "final": "👀 WATCH",
+          "bull_signs": 4,
+          "rs_60d": 6.1,
+          "pe": 22.3,
+          "div_yield": 4.13
+        },
+        {
+          "code": "2317",
+          "name": "鴻海 Foxconn",
+          "grand": 41.3,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -2.2,
+          "pe": 20.2,
+          "div_yield": 2.53
+        },
+        {
+          "code": "2395",
+          "name": "研華 Advantech",
+          "grand": 40.9,
+          "final": "👀 WATCH",
+          "bull_signs": 4,
+          "rs_60d": 11.2,
+          "pe": 38.5,
+          "div_yield": 2.26
+        },
+        {
+          "code": "2308",
+          "name": "台達電 Delta",
+          "grand": 34.5,
+          "final": "⬛ HOLD",
+          "bull_signs": 3,
+          "rs_60d": 32.2,
+          "pe": 84.8,
+          "div_yield": 0.5
+        },
+        {
+          "code": "2301",
+          "name": "光寶 LiteOn",
+          "grand": 30.1,
+          "final": "⬛ HOLD",
+          "bull_signs": 1,
+          "rs_60d": 15.1,
+          "pe": 33.8,
+          "div_yield": 2.17
+        },
+        {
+          "code": "2352",
+          "name": "佳世達 Qisda",
+          "grand": 29.9,
+          "final": "⬛ HOLD",
+          "bull_signs": 3,
+          "rs_60d": -1.4,
+          "pe": 50.2,
+          "div_yield": 3.22
+        }
+      ]
+    },
+    {
+      "sector": "消費零售",
+      "n_stocks": 1,
+      "avg_grand": 44.1,
+      "avg_bull_signs": 2.0,
+      "avg_rs_60d": -27.0,
+      "avg_pe": 19.9,
+      "avg_yield": 4.07,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "1216",
+          "name": "統一 Uni-Pres",
+          "grand": 44.1,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -27.0,
+          "pe": 19.9,
+          "div_yield": 4.07
+        }
+      ]
+    },
+    {
+      "sector": "其他",
+      "n_stocks": 10,
+      "avg_grand": 42.2,
+      "avg_bull_signs": 2.5,
+      "avg_rs_60d": 5.3,
+      "avg_pe": 44.8,
+      "avg_yield": 3.02,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 1,
+      "signal": "⬛ 中性",
+      "stocks": [
+        {
+          "code": "4904",
+          "name": "遠傳 FarEasTone",
+          "grand": 59.9,
+          "final": "📈 BUY",
+          "bull_signs": 5,
+          "rs_60d": -21.3,
+          "pe": 25.8,
+          "div_yield": 3.75
+        },
+        {
+          "code": "2880",
+          "name": "華南金 HuaNan",
+          "grand": 49.0,
+          "final": "👀 WATCH",
+          "bull_signs": 2,
+          "rs_60d": -30.4,
+          "pe": 16.8,
+          "div_yield": 4.17
+        },
+        {
+          "code": "2344",
+          "name": "華邦電 Winbond",
+          "grand": 44.3,
+          "final": "👀 WATCH",
+          "bull_signs": 5,
+          "rs_60d": 10.7,
+          "pe": 48.1,
+          "div_yield": 0.31
+        },
+        {
+          "code": "6743",
+          "name": "合一 Oneness",
+          "grand": 44.2,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -6.9,
+          "pe": 36.9,
+          "div_yield": 9.92
+        },
+        {
+          "code": "1590",
+          "name": "亞德客 Airtac",
+          "grand": 41.9,
+          "final": "👀 WATCH",
+          "bull_signs": 0,
+          "rs_60d": -4.6,
+          "pe": 28.9,
+          "div_yield": 2.21
+        },
+        {
+          "code": "2912",
+          "name": "統一超 President",
+          "grand": 40.0,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -25.0,
+          "pe": 21.1,
+          "div_yield": 3.88
+        },
+        {
+          "code": "3481",
+          "name": "群創 Innolux",
+          "grand": 39.2,
+          "final": "⬛ HOLD",
+          "bull_signs": 5,
+          "rs_60d": 45.1,
+          "pe": 488.2,
+          "div_yield": 1.86
+        },
+        {
+          "code": "2383",
+          "name": "台光電 Elite",
+          "grand": 36.6,
+          "final": "⬛ HOLD",
+          "bull_signs": 3,
+          "rs_60d": 67.3,
+          "pe": 106.0,
+          "div_yield": 0.51
+        },
+        {
+          "code": "2049",
+          "name": "上銀 Hiwin",
+          "grand": 33.8,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": 12.8,
+          "pe": 75.2,
+          "div_yield": 0.58
+        },
+        {
+          "code": "6488",
+          "name": "環球晶 GlobalWafers",
+          "grand": 33.5,
+          "final": "⬛ HOLD",
+          "bull_signs": 1,
+          "rs_60d": null,
+          "pe": null,
+          "div_yield": null
+        }
+      ]
+    },
+    {
+      "sector": "石化",
+      "n_stocks": 2,
+      "avg_grand": 37.0,
+      "avg_bull_signs": 2.0,
+      "avg_rs_60d": -16.9,
+      "avg_pe": 34.6,
+      "avg_yield": 0.9,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "📉 偏空",
+      "stocks": [
+        {
+          "code": "1303",
+          "name": "南亞 NanYa",
+          "grand": 39.8,
+          "final": "⬛ HOLD",
+          "bull_signs": 3,
+          "rs_60d": -5.3,
+          "pe": 45.2,
+          "div_yield": 0.77
+        },
+        {
+          "code": "1301",
+          "name": "台塑 Formosa",
+          "grand": 34.2,
+          "final": "⬛ HOLD",
+          "bull_signs": 1,
+          "rs_60d": -28.4,
+          "pe": 24.0,
+          "div_yield": 1.02
+        }
+      ]
+    },
+    {
+      "sector": "水泥",
+      "n_stocks": 2,
+      "avg_grand": 34.5,
+      "avg_bull_signs": 1.0,
+      "avg_rs_60d": -32.7,
+      "avg_pe": 36.3,
+      "avg_yield": 4.99,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "📉 偏空",
+      "stocks": [
+        {
+          "code": "1102",
+          "name": "亞泥 AsiaCement",
+          "grand": 48.4,
+          "final": "👀 WATCH",
+          "bull_signs": 1,
+          "rs_60d": -30.9,
+          "pe": 11.5,
+          "div_yield": 6.69
+        },
+        {
+          "code": "1101",
+          "name": "台泥 Cement",
+          "grand": 20.6,
+          "final": "❌ REDUCE",
+          "bull_signs": 1,
+          "rs_60d": -34.5,
+          "pe": 61.0,
+          "div_yield": 3.28
+        }
+      ]
+    },
+    {
+      "sector": "鋼鐵",
+      "n_stocks": 1,
+      "avg_grand": 32.4,
+      "avg_bull_signs": 2.0,
+      "avg_rs_60d": -33.1,
+      "avg_pe": null,
+      "avg_yield": 0.78,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "📉 偏空",
+      "stocks": [
+        {
+          "code": "2002",
+          "name": "中鋼 China Steel",
+          "grand": 32.4,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": -33.1,
+          "pe": null,
+          "div_yield": 0.78
+        }
+      ]
+    },
+    {
+      "sector": "半導體",
+      "n_stocks": 9,
+      "avg_grand": 31.5,
+      "avg_bull_signs": 2.0,
+      "avg_rs_60d": 42.7,
+      "avg_pe": 57.6,
+      "avg_yield": 0.91,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "📉 偏空",
+      "stocks": [
+        {
+          "code": "2408",
+          "name": "南亞科 NanyaTech",
+          "grand": 44.1,
+          "final": "👀 WATCH",
+          "bull_signs": 3,
+          "rs_60d": 9.6,
+          "pe": 32.2,
+          "div_yield": 0.42
+        },
+        {
+          "code": "2330",
+          "name": "台積電 TSMC",
+          "grand": 39.7,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": -9.8,
+          "pe": 31.8,
+          "div_yield": 0.93
+        },
+        {
+          "code": "6770",
+          "name": "力積電 PSMC",
+          "grand": 36.1,
+          "final": "⬛ HOLD",
+          "bull_signs": 1,
+          "rs_60d": -19.6,
+          "pe": 42.1,
+          "div_yield": null
+        },
+        {
+          "code": "2303",
+          "name": "聯電 UMC",
+          "grand": 32.4,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": 79.3,
+          "pe": 33.0,
+          "div_yield": 1.98
+        },
+        {
+          "code": "2337",
+          "name": "旺宏 Macronix",
+          "grand": 27.3,
+          "final": "⬛ HOLD",
+          "bull_signs": 1,
+          "rs_60d": 18.3,
+          "pe": 41.7,
+          "div_yield": null
+        },
+        {
+          "code": "3711",
+          "name": "日月光 ASE",
+          "grand": 27.1,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": 34.9,
+          "pe": 53.6,
+          "div_yield": 1.14
+        },
+        {
+          "code": "2454",
+          "name": "聯發科 MediaTek",
+          "grand": 26.3,
+          "final": "⬛ HOLD",
+          "bull_signs": 3,
+          "rs_60d": 111.5,
+          "pe": 68.5,
+          "div_yield": 1.24
+        },
+        {
+          "code": "3037",
+          "name": "欣興 Unimicron",
+          "grand": 25.8,
+          "final": "⬛ HOLD",
+          "bull_signs": 2,
+          "rs_60d": 68.1,
+          "pe": 137.2,
+          "div_yield": 0.21
+        },
+        {
+          "code": "6415",
+          "name": "矽力 Silergy",
+          "grand": 24.6,
+          "final": "❌ REDUCE",
+          "bull_signs": 2,
+          "rs_60d": 92.0,
+          "pe": 78.2,
+          "div_yield": 0.44
+        }
+      ]
+    },
+    {
+      "sector": "面板",
+      "n_stocks": 1,
+      "avg_grand": 26.3,
+      "avg_bull_signs": 4.0,
+      "avg_rs_60d": 30.6,
+      "avg_pe": 84.7,
+      "avg_yield": 1.48,
+      "triple_confirmed": 0,
+      "strong_buy": 0,
+      "buy": 0,
+      "signal": "📉 偏空",
+      "stocks": [
+        {
+          "code": "2409",
+          "name": "友達 AUO",
+          "grand": 26.3,
+          "final": "⬛ HOLD",
+          "bull_signs": 4,
+          "rs_60d": 30.6,
+          "pe": 84.7,
+          "div_yield": 1.48
+        }
+      ]
+    }
+  ]
+}
