@@ -140,7 +140,8 @@ def _patch(html, name, obj):
         _, length = json.JSONDecoder().raw_decode(html, eq)
     except Exception as e:
         print(f"  WARNING: parse {name}: {e}"); return html
-    return html[:eq] + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + html[eq+length:]
+    # raw_decode returns absolute end position, not relative length
+    return html[:eq] + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + html[length:]
 
 def _ts():
     return datetime.now().strftime("%Y-%m-%d %H:%M")
