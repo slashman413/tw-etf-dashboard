@@ -8096,7 +8096,7 @@ function _vegasCalcEMA(arr, period) {
   return res;
 }
 
-async function openVegasChart(code) {
+async async function openVegasChart(code) {
   const nameRec = (ACTIONSIG.all_signals||[]).find(r=>r.code===code)
                || (SMARTMONEY.all_results||[]).find(r=>r.code===code) || {};
   const name = nameRec.name || '';
@@ -8110,7 +8110,9 @@ async function openVegasChart(code) {
   window._vegasBaseImg = null;
 
   try {
-    const url = '/api/yahoo_chart?code=' + code;
+    const fmRec = (_fmData||[]).find(c=>c.code===code);
+    const suffix = (fmRec&&fmRec.market==='OTC')?'.TWO':'.TW';
+    const url = 'https://query1.finance.yahoo.com/v8/finance/chart/'+code+suffix+'?range=6mo&interval=1d&events=div%2Csplit';
     const res = await fetch(url);
     if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error('HTTP ' + res.status + (e.error ? ': '+e.error : '')); }
     const json = await res.json();
