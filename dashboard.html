@@ -359,8 +359,7 @@
   <nav class="nav-tabs" id="navTabs">
 
     <!-- Standalone -->
-    <button class="nav-tab active" onclick="showPage('overview',this)">🏠 總覽</button>
-    <button class="nav-tab" onclick="showPage('fullmarket',this)">🌐 全市場</button>
+    <button class="nav-tab active" onclick="showPage('fullmarket',this)">🌐 全市場</button>
 
     <div class="nav-sep"></div>
 
@@ -499,116 +498,6 @@
 <div class="main">
 
 <!-- ═══════════════════════════════════════════════════════ OVERVIEW ═══ -->
-<div id="page-overview" class="page active">
-
-  <!-- Market Alert -->
-  <div class="alert-banner">
-    <div class="alert-icon">⚠️</div>
-    <div>
-      <div class="alert-title">市場動態 — 2026-06-14 收盤</div>
-      <div class="alert-sub">最新收盤行情 | 動能分析 | TRIPLE CONFIRMED: 7 支 | 強買: 5 支</div>
-    </div>
-  </div>
-
-  <!-- KPIs -->
-  <div class="kpi-row">
-    <div class="kpi-card">
-      <div class="kpi-label">分析標的</div>
-      <div class="kpi-value blue">60</div>
-      <div class="kpi-sub">0050 + 0056 / 00878 / 00713</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">買進信號</div>
-      <div class="kpi-value green">8</div>
-      <div class="kpi-sub">強烈買進 + 買進</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">平均綜合分</div>
-      <div class="kpi-value amber">44<span style="font-size:16px;color:#94a3b8">/100</span></div>
-      <div class="kpi-sub">49 支 0050 成分股</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">融資多空</div>
-      <div class="kpi-value">13<span style="font-size:14px;color:#94a3b8"> / 9</span></div>
-      <div class="kpi-sub" style="color:#16a34a">多頭 / 空頭流向</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">頁面瀏覽</div>
-      <div class="kpi-value" id="kpi-pageviews" style="color:#a78bfa">—</div>
-      <div class="kpi-sub">累計訪客次數</div>
-    </div>
-  </div>
-
-  <!-- Two-column layout: picks + movers -->
-  <div class="two-col-grid">
-  <div style="min-width:0">
-
-  <!-- Top Conviction Picks -->
-  <div class="card">
-    <div class="card-pad" style="border-bottom:1px solid #f1f5f9">
-      <div class="section-title">🏆 高信心投資標的</div>
-    </div>
-    <div class="tbl-wrap">
-      <table id="tblPicks">
-        <thead><tr>
-          <th>代號</th><th>名稱</th><th>評級</th><th>綜合分</th>
-          <th>股價</th><th>預估P/E</th><th>收入 YoY</th><th>EPS Q1</th><th>融資信號</th>
-        </tr></thead>
-        <tbody id="tbodyPicks"></tbody>
-      </table>
-    </div>
-  </div>
-
-  </div>
-  <div>
-
-  <!-- Market Movers -->
-  <div class="card">
-    <div class="card-pad" style="border-bottom:1px solid #f1f5f9">
-      <div class="section-title">📉 今日領跌 (2026-06-14)</div>
-    </div>
-    <div class="card-pad" id="declinersList"></div>
-  </div>
-
-  <div class="card" style="margin-top:14px">
-    <div class="card-pad" style="border-bottom:1px solid #f1f5f9">
-      <div class="section-title">📈 今日強勢</div>
-    </div>
-    <div class="card-pad" id="gainersList"></div>
-  </div>
-
-  </div>
-  </div>
-
-  <!-- Revenue momentum -->
-  <div class="card">
-    <div class="card-pad" style="border-bottom:1px solid #f1f5f9">
-      <div class="section-title">🚀 收入動能強 (Apr 2026 YoY)</div>
-    </div>
-    <div class="tbl-wrap">
-      <table id="tblMomentum">
-        <thead><tr>
-          <th>代號</th><th>名稱</th><th>收入 YoY</th><th>累計 YoY</th>
-          <th>Q1 EPS</th><th>預估P/E</th><th>評級</th>
-        </tr></thead>
-        <tbody id="tbodyMomentum"></tbody>
-      </table>
-    </div>
-  </div>
-
-</div><!-- /overview -->
-
-<!-- Bollinger Bands modal (overview click) -->
-<div id="bbModal" onclick="if(event.target===this)closeBBModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:9100;overflow-y:auto;padding:24px 12px">
-  <div style="max-width:900px;margin:0 auto;background:#0f172a;border:1px solid #3b82f6;border-radius:12px;padding:22px;position:relative">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-      <div id="bbModalTitle" style="font-size:18px;font-weight:700;color:#60a5fa"></div>
-      <button onclick="closeBBModal()" style="background:#334155;color:#e2e8f0;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:15px">✕</button>
-    </div>
-    <div id="bbChartEl" style="width:100%;height:460px;background:#0c1220;border-radius:8px"></div>
-    <div id="bbInfo" style="margin-top:10px;font-size:12px;color:#64748b;text-align:center">布林通道 BB(20,2) · 蠟燭圖 · 成交量</div>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════════════════════════════ SCREENER ═══ -->
 <div id="page-screener" class="page">
@@ -3348,7 +3237,7 @@
 </div><!-- /targets -->
 
 <!-- ══════════════════════════════════════════════ FULL MARKET PAGE ════ -->
-<div id="page-fullmarket" class="page">
+<div id="page-fullmarket" class="page active">
   <div class="card card-pad" style="margin-bottom:16px">
     <div class="section-title" style="margin-bottom:12px">🌐 全市場總覽 — 上市＋上櫃 (1965 支)</div>
     <div class="kpi-row" id="fmKpis"></div>
