@@ -8096,7 +8096,7 @@ function _vegasCalcEMA(arr, period) {
   return res;
 }
 
-async async function openVegasChart(code) {
+async function openVegasChart(code) {
   const nameRec = (ACTIONSIG.all_signals||[]).find(r=>r.code===code)
                || (SMARTMONEY.all_results||[]).find(r=>r.code===code) || {};
   const name = nameRec.name || '';
