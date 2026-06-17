@@ -6661,7 +6661,7 @@ function showDnaScreenDetail(code) {{
   renderDnaChart(code);
 }}
 
-let _smPromise = null;
+var _smPromise = null;
 function loadSeriesMap() {{
   if (_smPromise) return _smPromise;
   _smPromise = fetch('series_map.json').then(r=>r.json()).catch(()=>({{}}));
