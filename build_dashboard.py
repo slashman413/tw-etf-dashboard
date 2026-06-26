@@ -3748,7 +3748,7 @@ html = f"""<!DOCTYPE html>
 </div><!-- /main -->
 
 <div class="footer">
-  <a href="https://slashman413.github.io/terms.html" style="color:#a5b4fc;text-decoration:none">服務說明</a> · <a href="./privacy.html" style="color:#a5b4fc;text-decoration:none">隱私權政策</a> &nbsp;|&nbsp; 資料來源: TWSE (t187ap14_L/17_L/05_L/BWIBBU_ALL/MI_MARGN) + TPEX (t187ap14_O/06_O_ci/05_O) &nbsp;|&nbsp;
+  <a href="https://ko-fi.com/ytstories0413" target="_blank" rel="noopener" style="color:#ff5e5b;text-decoration:none">☕ Ko-fi 抖內</a> · <a href="https://slashman413.github.io/terms.html" style="color:#a5b4fc;text-decoration:none">服務說明</a> · <a href="./privacy.html" style="color:#a5b4fc;text-decoration:none">隱私權政策</a> &nbsp;|&nbsp; 資料來源: TWSE (t187ap14_L/17_L/05_L/BWIBBU_ALL/MI_MARGN) + TPEX (t187ap14_O/06_O_ci/05_O) &nbsp;|&nbsp;
   上市 1,082 + 上櫃 887 = 1,969 家 Q1 2026 財務 &nbsp;|&nbsp; 分析日期: {TODAY}
 </div>
 
