@@ -3748,7 +3748,7 @@ html = f"""<!DOCTYPE html>
 </div><!-- /main -->
 
 <div class="footer">
-  <a href="https://www.amazon.com/s?k=ETF+investing+books&tag=ytstories0413-20" target="_blank" rel="nofollow sponsored noopener" style="color:#a5b4fc;text-decoration:none">📈 ETF 投資書 ETF Books</a> · <a href="https://www.amazon.com/s?k=personal+finance+books&tag=ytstories0413-20" target="_blank" rel="nofollow sponsored noopener" style="color:#a5b4fc;text-decoration:none">💰 理財書 Finance</a> · <span style="color:#64748b;font-size:10px">含 Amazon 聯盟連結 / As an Amazon Associate I earn from qualifying purchases</span> · <a href="https://ko-fi.com/ytstories0413" target="_blank" rel="noopener" style="color:#ff5e5b;text-decoration:none">☕ Ko-fi 抖內</a> · <a href="https://slashman413.github.io/terms.html" style="color:#a5b4fc;text-decoration:none">服務說明</a> · <a href="./privacy.html" style="color:#a5b4fc;text-decoration:none">隱私權政策</a> &nbsp;|&nbsp; 資料來源: TWSE (t187ap14_L/17_L/05_L/BWIBBU_ALL/MI_MARGN) + TPEX (t187ap14_O/06_O_ci/05_O) &nbsp;|&nbsp;
+  <div class="reco-widget" data-cat="finance"></div><script src="https://slashman413.github.io/reco-widget.js" defer></script><a href="https://ko-fi.com/ytstories0413" target="_blank" rel="noopener" style="color:#ff5e5b;text-decoration:none">☕ Ko-fi 抖內</a> · <a href="https://slashman413.github.io/terms.html" style="color:#a5b4fc;text-decoration:none">服務說明</a> · <a href="./privacy.html" style="color:#a5b4fc;text-decoration:none">隱私權政策</a> &nbsp;|&nbsp; 資料來源: TWSE (t187ap14_L/17_L/05_L/BWIBBU_ALL/MI_MARGN) + TPEX (t187ap14_O/06_O_ci/05_O) &nbsp;|&nbsp;
   上市 1,082 + 上櫃 887 = 1,969 家 Q1 2026 財務 &nbsp;|&nbsp; 分析日期: {TODAY}
 </div>
 
