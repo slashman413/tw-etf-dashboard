@@ -2,7 +2,7 @@
 
 > 自動爬取 TWSE/TPEX/Yahoo Finance 資料，對 0050、0056、00878、00713、006208 成分股進行多維度財務與技術分析，並發布為 GitHub Pages 靜態網站。
 
-**線上網址：** https://slashman413.github.io/tw-etf-dashboard/dashboard.html
+**線上網址：** https://slashmantools.us/tw-etf-dashboard/dashboard.html
 
 ---
 
