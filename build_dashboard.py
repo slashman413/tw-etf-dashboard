@@ -4036,12 +4036,12 @@ function showSubTab(btn, id) {{
 
 // ═══════════════════════════════ OVERVIEW ══════════════════════════════════
 (function initOverview() {{
-  // Page view counter — persists on counterapi.dev servers across rebuilds
-  fetch('https://api.counterapi.dev/v1/tw-etf-dashboard/pageviews/up')
+  // Page view counter — shared Abacus counter (matches footer + /popular/ leaderboard)
+  fetch('https://abacus.jasoncameron.dev/get/sm413-etf/views?_=' + Date.now(), {{ cache: 'no-store' }})
     .then(r => r.json())
     .then(d => {{
       const el = document.getElementById('kpi-pageviews');
-      if (el && d && d.count != null) el.textContent = d.count.toLocaleString();
+      if (el && d && d.value != null) el.textContent = Number(d.value).toLocaleString();
     }})
     .catch(() => {{}});
 
