@@ -5,9 +5,14 @@ on:
     - cron: "0 8 * * 1-5"   # Mon-Fri 8:00 UTC = 4:00 PM Taiwan
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: write
     steps:
@@ -27,3 +32,14 @@ jobs:
           git add dashboard.html series_map.json
           git diff --staged --quiet || git commit -m "chore: daily update $(date -u +'%Y-%m-%d')"
           git push
+
+  notify-failure:
+    needs: [update]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord failure alert
+        run: >-
+          curl -sf -H "Content-Type: application/json"
+          -d '{"content": "\ud83d\udd34 ${{ github.repository }} \u2014 ${{ github.workflow }} \u6392\u7a0b\u5931\u6557 \u00b7 ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}'
+          "${{ secrets.DISCORD_WEBHOOK }}" || true
