@@ -313,6 +313,20 @@ html = f"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>台灣 ETF 分析 Dashboard — {TODAY}</title>
+<meta name="description" content="0050 / 0056 / 00878 等主流 ETF 分析：財務面（EPS/ROE/殖利率）+ 技術面（RSI/MACD/K線），每日自動更新。免費。">
+<link rel="canonical" href="https://slashmantools.us/tw-etf-dashboard/dashboard.html">
+<!-- Open Graph / Twitter Card for rich preview when the URL is shared -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="slashman tools">
+<meta property="og:title" content="台灣 ETF 分析 Dashboard">
+<meta property="og:description" content="0050 / 0056 / 00878 主流 ETF 財務面 + 技術面，每日自動更新。免費。">
+<meta property="og:url" content="https://slashmantools.us/tw-etf-dashboard/dashboard.html">
+<meta property="og:image" content="https://slashmantools.us/og.png">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="台灣 ETF 分析 Dashboard">
+<meta name="twitter:description" content="0050 / 0056 / 00878 主流 ETF 財務面 + 技術面，每日自動更新。免費。">
+<meta name="twitter:image" content="https://slashmantools.us/og.png">
 <style>
   /* ── Reset & Base ── */
   *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
