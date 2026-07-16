@@ -795,8 +795,8 @@ html = f"""<!DOCTYPE html>
 <div id="paywallOverlay" class="pw-overlay" style="display:none" onclick="if(event.target===this)closePaywall()">
   <div class="pw-modal">
     <div class="pw-lock-icon">🔒</div>
-    <div class="pw-title">訂閱會員專區</div>
-    <div class="pw-price">NT$ 168 / 月</div>
+    <div class="pw-title">解鎖會員專區</div>
+    <div class="pw-price">US$19 · 一次買斷 · 終身使用</div>
     <div class="pw-features">
       <b style="color:#2563eb">⭐ 精選推薦</b><br>
       🎯 綜合行動信號 &nbsp;⭐ 推薦排名 &nbsp;💎 TRIPLE精析<br>
@@ -807,13 +807,14 @@ html = f"""<!DOCTYPE html>
       🧬 大飆股DNA &nbsp;🎯 策略系統 &nbsp;⚡ 升評觸發計算<br>
       📡 相對強度 &nbsp;📊 價格動能 &nbsp;📉 技術分析
     </div>
-    {'<div style="margin:14px 0 10px;"><img src="' + PAYMENT_QR_B64 + '" alt="付款QR碼" style="width:160px;height:160px;border-radius:10px;display:block;margin:0 auto 8px;box-shadow:0 2px 10px rgba(0,0,0,.15)"><div style="font-size:13px;font-weight:700;color:#1a2332">掃碼轉帳 NT$168</div><div style="font-size:12px;color:#e53e3e;font-weight:600;margin-top:4px">⚠️ 轉帳時請備註您的 Email，以便收取授權碼</div></div>' if PAYMENT_QR_B64 else '<div style="font-size:13px;color:#e53e3e;margin:12px 0">轉帳 NT$168，備註 Email 以收取授權碼</div>'}
-    <input id="pwCodeInput" class="pw-input" type="text" placeholder="請輸入授權碼 (e.g. TW168-XXXX)" autocomplete="off"
+    <a class="pw-btn" href="https://slashmaster6.gumroad.com/l/kbxuuc?wanted=true" target="_blank" rel="noopener" style="display:block;text-decoration:none;box-sizing:border-box">💳 立即購買（US$19 買斷）</a>
+    <div style="font-size:12px;color:#64748b;margin:6px 0 14px">購買後 Gumroad 會 email 給你 License Key，貼到下方解鎖 👇</div>
+    <input id="pwCodeInput" class="pw-input" type="text" placeholder="請貼上 Gumroad License Key" autocomplete="off"
       onkeydown="if(event.key==='Enter')verifyCode()">
     <div id="pwError" class="pw-error">❌ 授權碼不正確，請確認後再試</div>
-    <button class="pw-btn" onclick="verifyCode()">🔓 驗證並解鎖</button>
+    <button class="pw-btn" id="pwVerifyBtn" onclick="verifyCode()">🔓 驗證並解鎖</button>
     <button class="pw-btn-close" onclick="closePaywall()">✕ 關閉</button>
-    <div class="pw-contact">付款後請等候授權碼發送至您的 Email</div>
+    <div class="pw-contact">購買後 License Key 會自動 email 給你 · 立即生效</div>
   </div>
 </div>
 
@@ -3840,7 +3841,7 @@ const PREMIUM_PAGES = new Set([
   // 精選推薦
   'actionsig','conviction','triplereport','mondayplan','premarket','watchalerts','instflows','smartmoney'
 ]);
-const PW_KEY = 'tw_etf_unlock'; const PW_DAYS = 30;
+const PW_KEY = 'tw_etf_unlock'; const PW_DAYS = 365; const GUMROAD_PERMALINK = 'kbxuuc';
 
 function isUnlocked() {{
   try {{
@@ -3868,26 +3869,75 @@ function closePaywall() {{
   window._pwPending = null;
 }}
 
-function verifyCode() {{
-  const code = document.getElementById('pwCodeInput').value.trim().toUpperCase();
+async function verifyCode() {{
+  const inp = document.getElementById('pwCodeInput');
+  const code = inp.value.trim();
   const errEl = document.getElementById('pwError');
-  if (AUTH_CODES.map(c=>c.toUpperCase()).includes(code)) {{
-    unlockPremium(code);
-    closePaywall();
+  const btn = document.getElementById('pwVerifyBtn');
+  errEl.style.display = 'none';
+  if (!code) return;
+  // Legacy manual-override codes (existing subscribers)
+  if (AUTH_CODES.map(c=>c.toUpperCase()).includes(code.toUpperCase())) {{
+    unlockPremium(code); closePaywall();
     if (window._pwPending) showPage(window._pwPending.id, window._pwPending.btn);
-  }} else {{
+    return;
+  }}
+  const orig = btn ? btn.textContent : '';
+  if (btn) {{ btn.disabled = true; btn.textContent = '驗證中…'; }}
+  try {{
+    const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {{
+      method: 'POST',
+      headers: {{'Content-Type': 'application/x-www-form-urlencoded'}},
+      body: new URLSearchParams({{product_permalink: GUMROAD_PERMALINK, license_key: code, increment_uses_count: 'false'}})
+    }});
+    const j = await res.json();
+    const p = j && j.purchase;
+    const ok = j && j.success && p && !p.refunded && !p.chargebacked && !p.disputed;
+    if (ok) {{
+      unlockPremium(code); closePaywall();
+      if (window._pwPending) showPage(window._pwPending.id, window._pwPending.btn);
+    }} else {{
+      errEl.textContent = '❌ License Key 無效或已退款，請確認後再試';
+      errEl.style.display = 'block'; inp.select();
+    }}
+  }} catch (e) {{
+    errEl.textContent = '⚠️ 驗證連線失敗，請稍後再試';
     errEl.style.display = 'block';
-    document.getElementById('pwCodeInput').select();
+  }} finally {{
+    if (btn) {{ btn.disabled = false; btn.textContent = orig; }}
   }}
 }}
 
-// Update lock icons on load
+// Update lock icons on load + silently re-verify stored Gumroad license
 document.addEventListener('DOMContentLoaded', ()=>{{
   if (isUnlocked()) {{
     document.getElementById('premiumLockIcon').textContent = '✅';
     document.getElementById('premiumLockIcon2').textContent = '✅';
+    revalidateStored();
   }}
 }});
+
+// Re-verify a stored Gumroad license (lifetime keys; honors refunds/chargebacks).
+async function revalidateStored() {{
+  let d; try {{ d = JSON.parse(localStorage.getItem(PW_KEY)||'null'); }} catch(e){{ return; }}
+  if (!d || !d.code) return;
+  if (AUTH_CODES.map(c=>c.toUpperCase()).includes(String(d.code).toUpperCase())) return;
+  try {{
+    const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {{
+      method: 'POST',
+      headers: {{'Content-Type': 'application/x-www-form-urlencoded'}},
+      body: new URLSearchParams({{product_permalink: GUMROAD_PERMALINK, license_key: d.code, increment_uses_count: 'false'}})
+    }});
+    const j = await res.json(); const p = j && j.purchase;
+    if (j && j.success && p && !p.refunded && !p.chargebacked && !p.disputed) {{
+      unlockPremium(d.code);
+    }} else {{
+      localStorage.removeItem(PW_KEY);
+      document.getElementById('premiumLockIcon').textContent = '🔒';
+      document.getElementById('premiumLockIcon2').textContent = '🔒';
+    }}
+  }} catch(e) {{ /* network blip — keep current unlock */ }}
+}}
 
 // ═══════════════════════════════ HELPERS ═══════════════════════════════════
 function fmt(v, dec=1, suffix='') {{
