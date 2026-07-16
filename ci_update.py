@@ -5,9 +5,12 @@ Updates: MOMENTUM, MAREFRESH, DNASIGNALS, GRANDDATA, MOVERS
 Also appends today's prices to series_map.json for indicator history.
 No external dependencies — stdlib only (json, ssl, urllib.request).
 """
-import json, ssl, sys
+import json, re, ssl, sys
 from datetime import date, datetime
 from pathlib import Path
+
+# Refresh the BWIBBU valuation block on these weekdays (Mon, Thu → ~2×/week).
+VALUATION_DAYS = {0, 3}
 
 DASHBOARD   = Path("dashboard.html")
 SERIES_MAP  = Path("series_map.json")
@@ -69,6 +72,32 @@ def fetch_prices():
         return data_date, prices
     except Exception as e2:
         print(f"  RWD failed: {e2}"); return TODAY_ROC, {}
+
+def _sf(v):
+    """Safe float parse (handles commas / blanks / '--')."""
+    if v is None: return None
+    s = str(v).replace(",", "").strip()
+    if not s or s in ("--", "N/A"): return None
+    try: return float(s)
+    except Exception: return None
+
+def fetch_bwibbu():
+    """Live TWSE BWIBBU_ALL valuation snapshot.
+    Returns (data_date_roc_str, {code: {"pe","div","pb"}}) or (None, {}) on failure."""
+    try:
+        rows = _get("https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL")
+        if not rows: raise ValueError("empty")
+        data_date = rows[0].get("Date", "")
+        out = {}
+        for r in rows:
+            code = r.get("Code")
+            if not code: continue
+            out[code] = {"pe": _sf(r.get("PEratio")),
+                         "div": _sf(r.get("DividendYield")),
+                         "pb": _sf(r.get("PBratio"))}
+        return data_date, out
+    except Exception as e:
+        print(f"  BWIBBU_ALL fetch failed: {e}"); return None, {}
 
 # ── Indicators ─────────────────────────────────────────────────────────────────
 
@@ -294,6 +323,85 @@ def patch_granddata(html, series_map, prices, data_date):
     print(f"  GRANDDATA: strong_buy={gd['strong_buy']} triple={gd['triple_confirmed']}")
     return _patch(html, "GRANDDATA", gd)
 
+def _v_pts(pe, pb, div, is_fin):
+    """Re-score the value dimension from fresh valuation (mirrors bwibbu_refresh)."""
+    p = 0
+    if is_fin:
+        if pb and pb < 1.2:   p += 15
+        elif pb and pb < 1.5: p += 8
+        if div and div >= 5:   p += 15
+        elif div and div >= 4: p += 10
+        elif div and div >= 3: p += 5
+    else:
+        if pe and pe < 15:    p += 15
+        elif pe and pe < 25:  p += 8
+        if pb and pb < 1.5:   p += 8
+        elif pb and pb < 2.5: p += 4
+        if div and div >= 4:   p += 7
+        elif div and div >= 2: p += 3
+    return p
+
+def patch_valuation(html):
+    """Refresh the BWIBBU2 valuation const in-place from a live BWIBBU_ALL pull.
+
+    Self-contained: reuses the frozen analysis-start baseline (pe_old/div_old/pb_old,
+    name, is_fin) already embedded in BWIBBU2 — no dependency on reports/ files
+    (which are gitignored). Only the current values + derived rankings + banner
+    date are refreshed. Leaves the curated '重大估值信號' editorial table untouched.
+    """
+    B = _extract(html, "BWIBBU2")
+    if not B or not B.get("all_refreshed"):
+        print("  VALUATION: BWIBBU2 not found or empty — skipping"); return html
+
+    data_date, live = fetch_bwibbu()
+    if not live:
+        print("  VALUATION: no live data — keeping existing"); return html
+
+    matched = 0
+    for r in B["all_refreshed"]:
+        q = live.get(r.get("code"))
+        if not q: continue
+        matched += 1
+        is_fin = bool(r.get("is_fin"))
+        pe_old, div_old, pb_old = r.get("pe_old"), r.get("div_old"), r.get("pb_old")
+        pe_new, div_new, pb_new = q["pe"], q["div"], q["pb"]
+        r["pe_new"], r["div_new"], r["pb_new"] = pe_new, div_new, pb_new
+        r["delta_pe"]  = round(pe_new  - pe_old,  2) if pe_new  is not None and pe_old  is not None else None
+        r["delta_div"] = round(div_new - div_old, 2) if div_new is not None and div_old is not None else None
+        r["delta_pb"]  = round(pb_new  - pb_old,  2) if pb_new  is not None and pb_old  is not None else None
+        r["v_pts_new"] = _v_pts(pe_new, pb_new, div_new, is_fin)
+
+    ar = B["all_refreshed"]
+    pe_changed = [r for r in ar if r.get("delta_pe") is not None]
+    high_div   = sorted([r for r in ar if (r.get("div_new") or 0) >= 4.5],
+                        key=lambda x: x.get("div_new") or 0, reverse=True)
+    cheap_pe   = sorted([r for r in ar if r.get("pe_new") and r["pe_new"] < 15 and not r.get("is_fin")],
+                        key=lambda x: x.get("pe_new") or 999)[:8]
+    pe_expanded   = sorted(pe_changed, key=lambda x: x.get("delta_pe") or 0, reverse=True)[:5]
+    pe_contracted = sorted(pe_changed, key=lambda x: x.get("delta_pe") or 0)[:5]
+
+    def _nm(r): return (r.get("name") or r.get("code")).split()[0]
+    B["data_date"]    = data_date or B.get("data_date")
+    B["refresh_ts"]   = _ts()
+    B["total_matched"] = matched
+    B["high_div_ge45"] = [{"code": r["code"], "name": _nm(r), "div_new": r["div_new"], "div_old": r["div_old"]} for r in high_div]
+    B["cheap_pe_lt15"] = [{"code": r["code"], "name": _nm(r), "pe_new": r["pe_new"], "pe_old": r["pe_old"]} for r in cheap_pe]
+    B["pe_expanded"]   = [{"code": r["code"], "name": _nm(r), "pe_old": r["pe_old"], "pe_new": r["pe_new"], "delta": r["delta_pe"]} for r in pe_expanded]
+    B["pe_contracted"] = [{"code": r["code"], "name": _nm(r), "pe_old": r["pe_old"], "pe_new": r["pe_new"], "delta": r["delta_pe"]} for r in pe_contracted]
+
+    html = _patch(html, "BWIBBU2", B)
+
+    # Refresh the banner date literal ("估值更新 — YYYY-MM-DD 收盤數據")
+    greg = None
+    dd = str(data_date or "")
+    if len(dd) == 7 and dd[:3].isdigit():
+        greg = f"{int(dd[:3])+1911}-{dd[3:5]}-{dd[5:7]}"
+    if greg:
+        html = re.sub(r"估值更新 — \d{4}-\d{2}-\d{2} 收盤數據",
+                      f"估值更新 — {greg} 收盤數據", html)
+    print(f"  VALUATION: matched={matched} high_div={len(high_div)} cheap_pe={len(cheap_pe)} data_date={data_date}")
+    return html
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -327,6 +435,12 @@ def main():
     html = patch_marefresh(html, series_map, prices, data_date)
     html = patch_dnasignals(html, series_map, prices, data_date)
     html = patch_granddata(html, series_map, prices, data_date)
+
+    # Valuation (BWIBBU_ALL) refresh — weekly cadence, own live pull
+    if date.today().weekday() in VALUATION_DAYS:
+        html = patch_valuation(html)
+    else:
+        print("  VALUATION: skipped (not a scheduled valuation day)")
 
     DASHBOARD.write_text(html, encoding="utf-8")
     print(f"  dashboard.html saved ({len(html)//1024} KB)")
