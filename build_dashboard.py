@@ -4112,7 +4112,7 @@ function showSubTab(btn, id) {{
   // Top picks: BUY+ sorted by score
   const picks = STOCKS.filter(s => ['STRONG BUY','BUY','WATCH⚠'].includes(s.verdict) && s.score != null)
                       .sort((a,b) => (b.score||0)-(a.score||0)).slice(0,10);
-  (document.getElementById('tbodyPicks')||{}).innerHTML = picks.map(s => `
+  (document.getElementById('tbodyPicks')||{{}}).innerHTML = picks.map(s => `
     <tr onclick="showBBChart('${{s.code}}','${{s.name}}')" style="cursor:pointer" title="點擊查看K線+布林通道">
       <td><strong>${{s.code}}</strong></td>
       <td>${{s.name}}</td>
@@ -4126,7 +4126,7 @@ function showSubTab(btn, id) {{
     </tr>`).join('');
 
   // Movers
-  (document.getElementById('declinersList')||{}).innerHTML = MOVERS.map(m => `
+  (document.getElementById('declinersList')||{{}}).innerHTML = MOVERS.map(m => `
     <div class="mover-row" onclick="showBBChart('${{m.code}}','${{m.name}}')" style="cursor:pointer" title="點擊查看K線+布林通道">
       <div><div class="mover-code">${{m.code}} ${{m.name}}</div></div>
       <div style="text-align:right">
@@ -4135,7 +4135,7 @@ function showSubTab(btn, id) {{
       </div>
     </div>`).join('');
 
-  (document.getElementById('gainersList')||{}).innerHTML = GAINERS.map(g => `
+  (document.getElementById('gainersList')||{{}}).innerHTML = GAINERS.map(g => `
     <div class="mover-row" onclick="showBBChart('${{g.code}}','${{g.name}}')" style="cursor:pointer" title="點擊查看K線+布林通道">
       <div><div class="mover-code">${{g.code}} ${{g.name}}</div></div>
       <div class="mover-chg pos">+${{g.chg.toFixed(2)}}%</div>
@@ -9424,8 +9424,8 @@ function _renderStratRockets() {{
 </body>
 </html>"""
 
-html = html.replace("</body>", '<div id="vc-sm" style="text-align:center;font-size:11px;color:#94a3b8;margin:14px 0;opacity:.85"></div><script>fetch("https://abacus.jasoncameron.dev/hit/sm413-etf/views").then(function(r){return r.json()}).then(function(d){var e=document.getElementById("vc-sm");if(e)e.textContent="👁 "+Number(d.value).toLocaleString()+" 次瀏覽 · views";}).catch(function(){});</script>' + "  <script src="https://slashmantools.us/kofi-widget.js" defer></script>
-</body>")
+html = html.replace("</body>", '<div id="vc-sm" style="text-align:center;font-size:11px;color:#94a3b8;margin:14px 0;opacity:.85"></div><script>fetch("https://abacus.jasoncameron.dev/hit/sm413-etf/views").then(function(r){return r.json()}).then(function(d){var e=document.getElementById("vc-sm");if(e)e.textContent="👁 "+Number(d.value).toLocaleString()+" 次瀏覽 · views";}).catch(function(){});</script>' + '''  <script src="https://slashmantools.us/kofi-widget.js" defer></script>
+</body>''')
 out = Path("dashboard.html")
 out.write_text(html, encoding="utf-8")
 print(f"✓ Dashboard built: {out.resolve()}")
