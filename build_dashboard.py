@@ -671,8 +671,13 @@ html = f"""<!DOCTYPE html>
 </head>
 <body>
 
+<!-- ── Sticky compliance banner + Header (kept together so the disclaimer stays visible on scroll) ── -->
+<div id="complianceSticky" style="position:sticky;top:0;z-index:200">
+  <div id="complianceBar" role="note" style="background:#fef2f2;border-bottom:1px solid #fca5a5;color:#7f1d1d;font-size:12px;line-height:1.5;padding:6px 16px;text-align:center;font-weight:500">
+    ⚠️ 本資訊僅供教育參考，非投資建議；所有分數、訊號與回測皆為假設情境，過去或模擬績效不代表未來結果，投資前請自行評估風險。
+  </div>
 <!-- ── Header ── -->
-<header class="app-header">
+<header class="app-header" style="position:static;top:auto;z-index:auto">
   <div class="logo">
     <span>財報分析</span>
     <span class="logo-badge">ETF</span>
@@ -790,6 +795,7 @@ html = f"""<!DOCTYPE html>
   </nav>
   <div class="header-meta">更新: {TODAY} | 62 支股票</div>
 </header>
+</div><!-- /complianceSticky -->
 
 <!-- ═══════════════════════ PAYWALL MODAL ══════════════════════════════════ -->
 <div id="paywallOverlay" class="pw-overlay" style="display:none" onclick="if(event.target===this)closePaywall()">
@@ -2498,8 +2504,8 @@ html = f"""<!DOCTYPE html>
 <!-- ═══════════════════════════════════════════════════ BACKTEST ═══ -->
 <div id="page-backtest" class="page">
   <div class="alert-banner" style="background:linear-gradient(135deg,#134e4a,#065f46);border-color:#34d399">
-    <div class="alert-title" style="color:#fff">🔬 大飆股DNA 回測驗證 — 2年歷史數據</div>
-    <div class="alert-body" style="color:#a7f3d0">702次觸發訊號 | 進場條件: bull_signs≥2 + MACD/MA core≥1 | 最小間隔20交易日</div>
+    <div class="alert-title" style="color:#fff">🔬 大飆股DNA 回測顯示（假設情境）— 2年歷史數據</div>
+    <div class="alert-body" style="color:#a7f3d0">702次觸發訊號 | 進場條件: bull_signs≥2 + MACD/MA core≥1 | 最小間隔20交易日<br><span style="color:#d1fae5;font-size:12px">※ 以下為歷史回測之假設情境模擬，非投資建議；過去或模擬績效不代表未來結果。</span></div>
   </div>
 
   <!-- Aggregate stats -->
@@ -2525,7 +2531,7 @@ html = f"""<!DOCTYPE html>
   <!-- Highlight: stocks currently signaling with strong backtest -->
   <div class="card">
     <div class="card-pad" style="border-bottom:1px solid #f1f5f9">
-      <div class="section-title">🎯 現在發出訊號 × 歷史高勝率 (最佳進場時機)</div>
+      <div class="section-title">🎯 現在發出訊號 × 歷史高勝率（假設情境，非投資建議）</div>
     </div>
     <div class="tbl-wrap">
       <table><thead><tr>
@@ -2539,8 +2545,8 @@ html = f"""<!DOCTYPE html>
 <!-- ═══════════════════════════════════════════ SOP BACKTEST ═══ -->
 <div id="page-sopbacktest" class="page">
   <div class="alert-banner" style="background:linear-gradient(135deg,#78350f,#92400e);border-color:#fbbf24">
-    <div class="alert-title" style="color:#fef3c7">📈 DNA 大飆股 SOP — 三年回測模擬 (2023-01-01 → {TODAY})</div>
-    <div class="alert-body" style="color:#fde68a">進場: TAIEX N2候補區 + 日W%R(50)&lt;20 + 日RSI(60)&gt;57 + MACD多頭 | 出場: 月W%R(3)&gt;50全出 / 月RSI(4)&lt;77減倉50%×2</div>
+    <div class="alert-title" style="color:#fef3c7">📈 DNA 大飆股 SOP — 三年回測模擬（假設情境）(2023-01-01 → {TODAY})</div>
+    <div class="alert-body" style="color:#fde68a">進場: TAIEX N2候補區 + 日W%R(50)&lt;20 + 日RSI(60)&gt;57 + MACD多頭 | 出場: 月W%R(3)&gt;50全出 / 月RSI(4)&lt;77減倉50%×2<br><span style="color:#fef3c7;font-size:12px">※ 模擬回測為假設情境，非投資建議；模擬績效不代表未來結果。</span></div>
   </div>
 
   <!-- Capital toggle -->
