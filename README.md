@@ -1,4 +1,7 @@
 # TW ETF Dashboard — 台灣ETF智能分析儀表板
+> ## 🛍️ **ETF 儀表板 — 完整版**
+> 此 repo 為開源核心。完整版 **[ETF 儀表板 ($199) on Gumroad](https://slashmaster6.gumroad.com/l/etf-dashboard)** — 自動財報分析、評分系統、歷史回測與每日更新。
+
 
 > 自動爬取 TWSE/TPEX/Yahoo Finance 資料，對 0050、0056、00878、00713、006208 成分股進行多維度財務與技術分析，並發布為 GitHub Pages 靜態網站。
 
