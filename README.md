@@ -28,7 +28,7 @@
 
 - Python 3.9+
 - 套件：`yfinance numpy pandas`
-- GitHub 帳號 + Personal Access Token（PAT，需 `repo` 寫入權限）
+- GitHub 帳號（`auto_push.py` 走本機 git 認證；僅 `push_key_files.py` 需要 PAT，`repo` 寫入權限）
 
 ```bash
 pip install yfinance numpy pandas
@@ -39,12 +39,12 @@ pip install yfinance numpy pandas
 1. **Fork 本 repo 並啟用 GitHub Pages**
    Settings → Pages → Branch: `main` / 根目錄 → 儲存
 
-2. **設定 PAT**
-   在 `_github_push.py`、`_push_reports.py`、`_push_src.py` 中替換：
-   ```python
-   PAT = "ghp_your_personal_access_token"
+2. **設定 PAT（僅 `push_key_files.py` 需要）**
+   PAT 一律從環境變數讀取（變數名稱由 `config.json` 的 `github_pat_env` 決定，預設 `GITHUB_PAT`），**絕對不要寫進任何 .py 檔**：
+   ```bash
+   export GITHUB_PAT=...          # 或寫進 .env（已 gitignore）後執行 set -a; . ./.env; set +a
    ```
-   > ⚠️ 請勿將含有真實 PAT 的檔案 commit。`_push_src.py` 上傳時會自動遮蔽。
+   > ⚠️ 建議使用 fine-grained token，只授權本 repo 的 Contents: Read/Write。`auto_push.py` 與 GitHub Actions 不需要 PAT（分別使用本機 git 認證與內建 `GITHUB_TOKEN`）。
 
 3. **取得成分股清單並執行首次分析**（見[部署流程](#部署流程)）
 
@@ -76,9 +76,8 @@ GitHub repo (slashman413/tw-etf-dashboard)
 本地工作目錄 (multi-agent/)
 ├── build_dashboard.py      ← 核心：將所有 JSON 組裝成 dashboard.html
 ├── series_map.json         ← 本地 K 線快取
-├── _github_push.py         ← 推送 dashboard.html + series_map.json
-├── _push_reports.py        ← 批次推送 reports/ 資料夾
-├── _push_src.py            ← 推送原始碼至 GitHub src/（自動遮蔽 PAT）
+├── auto_push.py            ← 重建 dashboard.html 並 git push
+├── push_key_files.py       ← 以 Contents API 推送當日關鍵報告（PAT 取自環境變數）
 │
 ├── 資料爬取腳本
 │   ├── full_market_crawl.py     ← BWIBBU_ALL + STOCK_DAY_ALL + TPEX
@@ -373,23 +372,20 @@ python grand_unified.py
 python dna_full_market.py
 
 # 5. 建置並推送
-python build_dashboard.py
-python _github_push.py
+python auto_push.py         # 內含 build_dashboard.py
 ```
 
 ### 快速價格更新（不需全量爬取）
 
 ```bash
 python daily_refresh.py    # 僅更新價格+動能
-python build_dashboard.py
-python _github_push.py
+python auto_push.py         # 內含 build_dashboard.py
 ```
 
 ### 備份
 
 ```bash
-python _push_reports.py    # 備份 reports/ 至 GitHub
-python _push_src.py        # 備份 Python 原始碼至 GitHub src/
+python push_key_files.py   # 推送當日關鍵報告 JSON 至 GitHub（需 $GITHUB_PAT）
 ```
 
 ---

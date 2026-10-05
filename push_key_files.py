@@ -1,9 +1,14 @@
 ﻿#!/usr/bin/env python3
 """Push key report files to GitHub via Contents API."""
-import requests, base64, time
+import requests, base64, json, os, sys, time
 from pathlib import Path
 
-PAT = "GITHUB_PAT_PLACEHOLDER"
+# PAT comes from the environment (name set by config.json "github_pat_env"), never from source.
+_cfg_path = Path(__file__).parent / "config.json"
+_pat_env = json.loads(_cfg_path.read_text(encoding="utf-8")).get("github_pat_env", "GITHUB_PAT") if _cfg_path.exists() else "GITHUB_PAT"
+PAT = os.environ.get(_pat_env)
+if not PAT:
+    sys.exit(f"Missing ${_pat_env}: export it (e.g. `set -a; . ./.env; set +a`) — never hardcode the PAT.")
 REPO = "slashman413/tw-etf-dashboard"
 BRANCH = "main"
 HEADERS = {"Authorization": f"Bearer {PAT}", "Accept": "application/vnd.github.v3+json"}
