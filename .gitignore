@@ -11,10 +11,20 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Large report data (embedded in dashboard.html; not needed in repo)
-reports/
+# Generated data (see src/twetf/paths.py). Tracked exceptions: data/seed/,
+# and the published dashboard.html + series_map.json at the repo root.
+data/raw/
+data/reports/
+cache/
+# legacy pre-src/ location — run `python run.py migrate_layout` to move it
+/reports/
+/taiex_*.json
+/expansion_ohlcv.json
 
 # Temp utility/check scripts
 _check_*.py
 _audit*.py
 _review*.py
+
+*.egg-info/
+.venv/

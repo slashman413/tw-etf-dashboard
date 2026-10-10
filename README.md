@@ -26,25 +26,30 @@
 
 ### 環境需求
 
-- Python 3.9+
-- 套件：`yfinance numpy pandas`
-- GitHub 帳號（`auto_push.py` 走本機 git 認證；僅 `push_key_files.py` 需要 PAT，`repo` 寫入權限）
+- Python 3.11+
+- 套件：`pip install -r requirements.txt`（CI 只需 `requirements-ci.txt`：共用 TWSE 函式庫 [`slashman-finance-utils`](https://github.com/slashman413/slashman-finance-utils)，純 stdlib）
+- GitHub 帳號（`auto_push` 走本機 git 認證；僅 `push_key_files` 需要 PAT，`repo` 寫入權限）
 
 ```bash
-pip install yfinance numpy pandas
+pip install -r requirements.txt
+python run.py --list        # 列出所有可執行模組（依層分組）
 ```
+
+> 從舊版（腳本都在根目錄）升級的本機工作目錄：`git pull` 後執行一次
+> `python run.py migrate_layout --apply`，把本機 `reports/` 與根目錄的 `taiex_*.json`
+> 搬到新位置。
 
 ### 首次設定
 
 1. **Fork 本 repo 並啟用 GitHub Pages**
    Settings → Pages → Branch: `main` / 根目錄 → 儲存
 
-2. **設定 PAT（僅 `push_key_files.py` 需要）**
+2. **設定 PAT（僅 `push_key_files` 需要）**
    PAT 一律從環境變數讀取（變數名稱由 `config.json` 的 `github_pat_env` 決定，預設 `GITHUB_PAT`），**絕對不要寫進任何 .py 檔**：
    ```bash
    export GITHUB_PAT=...          # 或寫進 .env（已 gitignore）後執行 set -a; . ./.env; set +a
    ```
-   > ⚠️ 建議使用 fine-grained token，只授權本 repo 的 Contents: Read/Write。`auto_push.py` 與 GitHub Actions 不需要 PAT（分別使用本機 git 認證與內建 `GITHUB_TOKEN`）。
+   > ⚠️ 建議使用 fine-grained token，只授權本 repo 的 Contents: Read/Write。`auto_push` 與 GitHub Actions 不需要 PAT（分別使用本機 git 認證與內建 `GITHUB_TOKEN`）。
 
 3. **取得成分股清單並執行首次分析**（見[部署流程](#部署流程)）
 
@@ -53,55 +58,39 @@ pip install yfinance numpy pandas
 ## 資料夾與檔案結構
 
 ```
-GitHub repo (slashman413/tw-etf-dashboard)
-├── dashboard.html          ← 自動產生的 SPA，GitHub Pages 服務此檔
-├── series_map.json         ← 465 支股票 K 線 + 指標時間序列（~3.3MB）
-├── reports/                ← 每日分析報告，以日期為子資料夾
-│   └── YYYY-MM-DD/
-│       ├── composite_data.json       ← 主要ETF成分股財務彙整
-│       ├── expansion_stocks.json     ← 0056/00878 等擴展成分股
-│       ├── grand_unified.json        ← 綜合四維度排名
-│       ├── dna_full_market.json      ← 全市場 DNA 6訊號掃描結果
-│       ├── full_market.json          ← 全市場 1969+ 家財務快照
-│       ├── quarterly_financials.json ← MOPS Q1 季報（損益+資產負債）
-│       ├── bwibbu_fresh.json         ← TWSE 最新本益比/殖利率
-│       ├── price_momentum.json       ← 價格動能
-│       ├── ma_refresh.json           ← 30日均線
-│       ├── conviction_data.json      ← 信念分分析
-│       ├── conviction_matrix.json    ← 確信矩陣
-│       ├── institutional_flows.json  ← 法人買賣超（T86）
-│       └── stocks/                   ← 個股詳細報告（Markdown）
-└── src/                    ← Python 原始碼備份（129 支腳本）
-
-本地工作目錄 (multi-agent/)
-├── build_dashboard.py      ← 核心：將所有 JSON 組裝成 dashboard.html
-├── series_map.json         ← 本地 K 線快取
-├── auto_push.py            ← 重建 dashboard.html 並 git push
-├── push_key_files.py       ← 以 Contents API 推送當日關鍵報告（PAT 取自環境變數）
-│
-├── 資料爬取腳本
-│   ├── full_market_crawl.py     ← BWIBBU_ALL + STOCK_DAY_ALL + TPEX
-│   ├── mops_quarterly_crawl.py  ← MOPS 季報爬取
-│   ├── daily_refresh.py         ← 每日收盤價格快速更新
-│   ├── bwibbu_refresh.py        ← 本益比/殖利率更新
-│   ├── crawl_ohlcv.py           ← Yahoo Finance K 線
-│   └── institutional_flows.py   ← 法人買賣超 T86
-│
-├── 分析計算腳本
-│   ├── composite_score.py       ← 財務複合分（0–100）
-│   ├── grand_unified.py         ← 四維度綜合評分
-│   ├── dna_full_market.py       ← 全市場 DNA 6訊號技術篩選
-│   ├── conviction_list.py       ← 信念分排名
-│   ├── conviction_matrix.py     ← 確信矩陣
-│   ├── price_momentum.py        ← 動能計算
-│   ├── ma_refresh.py            ← 均線計算
-│   └── sector_analysis.py       ← 產業分析
-│
-└── 工具腳本
-    ├── _patch_series_map.py     ← 補充缺少 K 線的股票
-    ├── _probe_date.py           ← 探測 TWSE 最新資料日期
-    └── _verify_sm.py            ← 驗證 series_map 完整性
+tw-etf-dashboard/
+├── dashboard.html          ← GitHub Pages 服務的 SPA（CI 每日更新，需追蹤）
+├── series_map.json         ← K 線 + 指標時間序列；dashboard.html 執行時 fetch（CI 更新，需追蹤）
+├── run.py                  ← 唯一入口：python run.py <模組名> [參數]
+├── config.json             ← 本機設定（PAT 環境變數名稱、TWSE 等待秒數）
+├── config/llm.toml         ← LLM 提示詞 + 模型設定（agents/ 唯一的 prompt 來源）
+├── requirements.txt / requirements-ci.txt
+├── assets/                 ← 內嵌進 dashboard 的圖片（QR code）
+├── docs/                   ← 產生的長篇報告
+├── data/
+│   ├── seed/               ← 追蹤中的啟動快照（taiex_*.json、expansion_ohlcv.json、reports-2026-06-14/）
+│   ├── raw/                ← 抓取的原始資料（gitignore）
+│   └── reports/YYYY-MM-DD/ ← 分析輸出 JSON / Markdown（gitignore）
+├── cache/                  ← 可丟棄的快取（gitignore）
+├── src/twetf/
+│   ├── paths.py            ← 所有路徑的唯一來源（以 repo 根目錄為錨點，與 cwd 無關）
+│   ├── fetchers/           ← 抓資料：TWSE / TPEx / MOPS / Yahoo（full_market_crawl、bwibbu_refresh、crawl_ohlcv、institutional_flows…）
+│   ├── analyzers/          ← 純計算：composite_score、grand_unified、dna_full_market、conviction_*、indicators…
+│   ├── renderers/          ← 產出：build_dashboard、dashboard_consts、weekly_digest、export_csv…
+│   ├── pipeline/           ← 編排：ci_update（GitHub Actions）、daily_refresh、dna_refresh、auto_push…
+│   ├── oneoff/             ← 單次調查腳本（保留參考，不在任何流程中）
+│   ├── agents/             ← LLM 代理（爬蟲摘要、資料萃取、code review、發想）
+│   ├── llm/                ← LLM API 呼叫唯一入口（讀 config/llm.toml）
+│   └── common/utils.py
+└── tests/                  ← python -m unittest discover -s tests（PYTHONPATH=src）
 ```
+
+資料規則：抓取結果寫 `data/raw/`，分析結果寫 `data/reports/<日期>/`，暫存寫 `cache/`——
+三者皆不進 git。讀取時 `raw_or_seed()` 優先用 `data/raw/`，沒有才退回追蹤中的 `data/seed/`。
+只有 Pages 需要的 `dashboard.html`、`series_map.json` 留在根目錄並由 CI 提交。
+
+> 注意：`data/seed/reports-2026-06-14/` 不含 `composite_data.json`、`grand_unified.json`，
+> 所以全新 clone 只能直接跑 CI 路徑（`ci_update`）；其餘分析需先跑一次完整更新產生資料。
 
 ---
 
@@ -283,7 +272,7 @@ K 線顏色（台股慣例）：漲紅（Close > Open）、跌綠（Close < Open
 ```
 
 #### 1. 基本面分
-- 來源：`composite_score.py` 計算財務複合分（0–100）
+- 來源：`analyzers/composite_score.py` 計算財務複合分（0–100）
 - 考量：EPS 成長、營收 YoY、毛利率趨勢、Q1 EPS
 - `fund_pts = composite_score / 100 × 25`
 
@@ -358,34 +347,41 @@ mom_pts = 12.5（基礎分）
 
 ```bash
 # 1. 全市場資料（包含 132s 等待）
-python full_market_crawl.py
+python run.py full_market_crawl
 
 # 2. 法人買賣超
-python institutional_flows.py
+python run.py institutional_flows
 
 # 3. K 線資料（Yahoo Finance，無速率限制）
-python crawl_ohlcv.py
+python run.py crawl_ohlcv
 
 # 4. 計算分析
-python composite_score.py
-python grand_unified.py
-python dna_full_market.py
+python run.py composite_score
+python run.py grand_unified
+python run.py dna_full_market
 
 # 5. 建置並推送
-python auto_push.py         # 內含 build_dashboard.py
+python run.py auto_push         # 內含 build_dashboard
 ```
 
 ### 快速價格更新（不需全量爬取）
 
 ```bash
-python daily_refresh.py    # 僅更新價格+動能
-python auto_push.py         # 內含 build_dashboard.py
+python run.py daily_refresh    # 僅更新價格+動能
+python run.py auto_push        # 內含 build_dashboard
+```
+
+### CI 每日更新（GitHub Actions，平日 16:00）
+
+```bash
+python run.py ci_update --dry-run    # 本機完整跑一次 CI 流程但不寫檔
+python run.py ci_update              # 與 Actions 完全相同的指令
 ```
 
 ### 備份
 
 ```bash
-python push_key_files.py   # 推送當日關鍵報告 JSON 至 GitHub（需 $GITHUB_PAT）
+python run.py push_key_files   # 推送當日關鍵報告 JSON 至 GitHub（需 $GITHUB_PAT）
 ```
 
 ---
