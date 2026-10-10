@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths: ["src/**", "tests/**", "run.py", "config/**", "requirements*.txt"]
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-ci.txt
+      - name: Unit tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: CI path dry run (live TWSE, writes nothing)
+        run: python run.py ci_update --dry-run --valuation

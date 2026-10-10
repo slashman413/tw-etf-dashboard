@@ -22,8 +22,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install CI dependencies
+        run: pip install -r requirements-ci.txt
+
       - name: Update dashboard (prices + indicators + signals)
-        run: python ci_update.py
+        run: python run.py ci_update
 
       - name: Commit updated files
         run: |

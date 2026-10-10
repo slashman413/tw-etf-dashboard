@@ -1,0 +1,2 @@
+# Only what the GitHub Actions daily job needs (stdlib + the shared TWSE helpers).
+slashman-finance-utils @ git+https://github.com/slashman413/slashman-finance-utils@v0.1.0
