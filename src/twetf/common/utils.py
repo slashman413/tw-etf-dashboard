@@ -1,32 +1,15 @@
 #!/usr/bin/env python3
 """Shared utilities for all Taiwan market data scripts."""
 from twetf.paths import CONFIG_PATH, REPORTS_DIR
-import json, ssl, urllib.request
+import json
 from pathlib import Path
 from datetime import datetime
 
-# ── Shared SSL context (bypass self-signed certs on TWSE/TPEX) ──────────────
-CTX = ssl.create_default_context()
-CTX.check_hostname = False
-CTX.verify_mode = ssl.CERT_NONE
-
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept": "application/json",
-}
-
-def fetch_json(url, timeout=30):
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, context=CTX, timeout=timeout) as r:
-        return json.loads(r.read().decode("utf-8"))
-
-def sf(v):
-    if v is None:
-        return None
-    try:
-        return float(str(v).replace(",", "").strip())
-    except Exception:
-        return None
+# HTTP client (TWSE/TPEx SSL bypass, headers) and number parsing live in the
+# shared slashman-finance-utils package; re-exported under the old names.
+from slashman_finance import fetch_json
+from slashman_finance import to_float as sf
+from slashman_finance.http import TWSE_SSL_CTX as CTX, DEFAULT_HEADERS as HEADERS
 
 def latest_report_dir(base=REPORTS_DIR, require="grand_unified.json"):
     """Return the most recent dated report directory that contains `require`."""
