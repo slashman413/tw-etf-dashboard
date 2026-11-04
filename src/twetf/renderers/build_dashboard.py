@@ -9428,6 +9428,8 @@ function _renderStratRockets() {{
   </div>
 </div>
 
+<script src="https://slashmantools.us/shared/google-signup.js" defer></script>
+
 </body>
 </html>"""
 
