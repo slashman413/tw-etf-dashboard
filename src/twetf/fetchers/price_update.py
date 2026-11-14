@@ -9,22 +9,17 @@ Iteration 33: Fresh Price Update + May Revenue Probe
 """
 from twetf.paths import REPORTS_DIR
 
-import json, ssl, time, urllib.request
+import json, time
 from pathlib import Path
 from datetime import datetime
+from slashman_finance import fetch_json
 
 TODAY = sorted([d.name for d in REPORTS_DIR.iterdir() if d.is_dir() and d.name[:4].isdigit()])[-1]
 REPORT_DIR = REPORTS_DIR / TODAY
 WAIT_SEC   = 130
 
-CTX = ssl.create_default_context()
-CTX.check_hostname = False
-CTX.verify_mode    = ssl.CERT_NONE
-
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, context=CTX, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
+    return fetch_json(url, timeout=30)
 
 def sf(v):
     if v is None: return None
