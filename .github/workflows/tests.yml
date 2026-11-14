@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths: ["src/**", "tests/**", "run.py", "config/**", "requirements*.txt"]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-24.04
