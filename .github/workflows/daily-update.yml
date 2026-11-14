@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: write
@@ -25,8 +25,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install CI dependencies
+        run: pip install -r requirements-ci.txt
+
       - name: Update dashboard (prices + indicators + signals)
-        run: python ci_update.py
+        run: python run.py ci_update
 
       - name: Commit updated files
         run: |
@@ -39,7 +42,7 @@ jobs:
   notify-failure:
     needs: [update]
     if: failure()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Discord failure alert
         run: >-

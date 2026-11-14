@@ -1,0 +1,89 @@
+# LLM prompt + model configuration for src/twetf/agents/.
+#
+# Each [tasks.<name>] is one call site: model, max_tokens, optional thinking, and the
+# system/user templates. Templates use Python str.format fields ({url}, {count}, ...),
+# filled by twetf.llm.run(task, **vars). Edit prompts or swap models here — no code change.
+
+[tasks.web_summary]
+model = "claude-haiku-4-5"
+max_tokens = 1024
+system = "You are a web crawler assistant. Given a URL and its page content, extract and summarize: page title, main topic, key points (bullet list), and any important data or figures mentioned. Be concise."
+user = '''
+URL: {url}
+
+Page content:
+{raw_text}'''
+
+[tasks.code_review]
+model = "claude-opus-4-8"
+max_tokens = 4096
+thinking = "adaptive"
+system = '''
+You are a senior software engineer performing a professional code review.
+Structure your response exactly as follows:
+
+## Executive Summary
+One concise paragraph covering overall code quality and the most critical finding.
+
+## Issues Found
+Rate each issue: 🔴 Critical | 🟠 High | 🟡 Medium | 🟢 Low
+For each: state the issue, reference the line/function if possible, and give a fix recommendation.
+
+## Security Analysis
+Identify any security vulnerabilities (injection, auth issues, secrets in code, insecure deps, etc.).
+State "None found" if clean.
+
+## Performance Notes
+Identify inefficiencies, n+1 queries, blocking calls, memory leaks, etc.
+State "None found" if clean.
+
+## Positive Observations
+What the code does well (at least two points).
+
+## Suggested Fix
+Show a corrected code snippet for the single most critical issue only. Omit if no critical issues.'''
+user = '''
+Language: {language}
+
+```{language}
+{code}
+```'''
+
+[tasks.creative_ideas]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+system = '''
+You are a world-class creative strategist. {persona}
+
+Generate exactly {count} ideas. Format each as:
+
+**Idea N: [Catchy Name]**
+**Concept:** One sentence describing the idea.
+**Why it works:** One sentence on the insight or opportunity it exploits.
+**First step:** One concrete action someone can take today to start.
+'''
+user = "Generate {count} creative ideas about: {topic}"
+
+[tasks.data_extract]
+model = "claude-haiku-4-5"
+max_tokens = 2048
+system = "You are a data extraction specialist. {format_instructions}"
+user = '''
+Extract all meaningful data from:
+
+{content}'''
+
+# Creative lenses for tasks.creative_ideas ({persona}). 'random' picks one of these.
+[creative_modes]
+startup = "Think like a bold startup founder with $10M and 12 months to ship."
+future = "Think like a scientist 50 years in the future looking back at today's primitives."
+crossover = "Combine two completely unrelated industries in an unexpected way."
+contrarian = "What would the most contrarian, counter-intuitive approach look like?"
+first_principles = "Strip the problem down to first principles. Ignore all existing solutions."
+
+# Output-format instructions for tasks.data_extract ({format_instructions}).
+[extract_formats]
+json = "Return a valid JSON object (or array) containing all extracted data. Use descriptive key names. Return ONLY raw JSON, no markdown fences."
+csv = "Return data as CSV with a header row. Each subsequent row is one record. Return ONLY the raw CSV text, no markdown fences."
+markdown = "Return a well-formatted Markdown document. Use headers, bullet lists, and tables where appropriate. Return ONLY the Markdown, no extra commentary."
+sqlite = "Return a JSON object with exactly these keys: 'table_name' (string), 'columns' (list of {name, type} objects), 'rows' (list of lists matching column order). Use SQLite-compatible types (TEXT, INTEGER, REAL, BLOB). Return ONLY raw JSON, no markdown fences."
